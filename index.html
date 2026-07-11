@@ -1,0 +1,1059 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>拾遗 Lexicon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  --paper:#F4F5F2; --ink:#232829; --ink-soft:#5A6260; --line:#DDE0DA; --card:#FFFFFF;
+  --en:#16697A; --en-soft:#E3EEF0; --zh:#B5432A; --zh-soft:#F4E7E2;
+  --gold:#A8841C; --gold-soft:#F3ECD8;
+  --g-again:#B3403A; --g-hard:#B07E24; --g-good:#4A8A57; --g-easy:#3A7CA5;
+  --shadow:0 1px 3px rgba(35,40,41,.08), 0 4px 16px rgba(35,40,41,.06);
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#141718; --ink:#E6E8E4; --ink-soft:#9BA39F; --line:#2C3133; --card:#1D2122;
+    --en:#5FB0C2; --en-soft:#1B2E33; --zh:#E08165; --zh-soft:#33221D;
+    --gold:#D4B24A; --gold-soft:#2E2917;
+    --g-again:#D0665F; --g-hard:#CFA045; --g-good:#6FAE7C; --g-easy:#67A5CC;
+    --shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="light"]{
+  --paper:#F4F5F2; --ink:#232829; --ink-soft:#5A6260; --line:#DDE0DA; --card:#FFFFFF;
+  --en:#16697A; --en-soft:#E3EEF0; --zh:#B5432A; --zh-soft:#F4E7E2;
+  --gold:#A8841C; --gold-soft:#F3ECD8;
+  --g-again:#B3403A; --g-hard:#B07E24; --g-good:#4A8A57; --g-easy:#3A7CA5;
+  --shadow:0 1px 3px rgba(35,40,41,.08), 0 4px 16px rgba(35,40,41,.06);
+}
+:root[data-theme="dark"]{
+  --paper:#141718; --ink:#E6E8E4; --ink-soft:#9BA39F; --line:#2C3133; --card:#1D2122;
+  --en:#5FB0C2; --en-soft:#1B2E33; --zh:#E08165; --zh-soft:#33221D;
+  --gold:#D4B24A; --gold-soft:#2E2917;
+  --g-again:#D0665F; --g-hard:#CFA045; --g-good:#6FAE7C; --g-easy:#67A5CC;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  min-height:100dvh; -webkit-tap-highlight-color:transparent;
+}
+.serif{font-family:Palatino,"Palatino Linotype","Book Antiqua",Georgia,"Songti SC","STSong",serif}
+.kai{font-family:"Kaiti SC","STKaiti",KaiTi,"Songti SC",serif}
+#app{max-width:640px;margin:0 auto;padding:0 16px calc(84px + env(safe-area-inset-bottom));}
+header.top{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px 2px 10px;position:sticky;top:0;background:var(--paper);z-index:5;
+}
+.brand{font-weight:700;font-size:19px;letter-spacing:.5px}
+.brand .lat{font-family:Palatino,Georgia,serif;font-weight:400;font-style:italic;color:var(--ink-soft);font-size:15px;margin-left:4px}
+.topstats{display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.pill{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;color:var(--ink-soft);background:var(--card)}
+.pill b{color:var(--ink);font-weight:600}
+.pill.streak b{color:var(--gold)}
+.ring{width:30px;height:30px;transform:rotate(-90deg)}
+.ring .bg{stroke:var(--line);fill:none}
+.ring .fg{stroke:var(--gold);fill:none;stroke-linecap:round;transition:stroke-dashoffset .4s}
+main{display:block}
+h2.viewtitle{font-size:14px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);font-weight:600;margin:14px 2px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+/* ---- dashboard ---- */
+.dash{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.duecard{padding:22px 20px;text-align:center}
+.duecard .big{font-size:44px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.duecard .sub{color:var(--ink-soft);font-size:14px;margin-top:4px}
+.btnrow{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;border:none;border-radius:12px;color:var(--ink)}
+button:focus-visible{outline:2px solid var(--en);outline-offset:2px}
+.btn{padding:12px 22px;font-weight:600;background:var(--card);border:1px solid var(--line)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.small{padding:8px 14px;font-size:13.5px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini{padding:14px 16px}
+.mini .n{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.mini .l{font-size:12.5px;color:var(--ink-soft)}
+/* ---- review card ---- */
+.rev{margin-top:8px;padding:22px 20px;min-height:340px;display:flex;flex-direction:column}
+.rev .meta{display:flex;gap:6px;align-items:center;margin-bottom:14px}
+.chip{font-size:11.5px;padding:2.5px 9px;border-radius:999px;font-weight:600;letter-spacing:.04em}
+.chip.en{background:var(--en-soft);color:var(--en)}
+.chip.zh{background:var(--zh-soft);color:var(--zh)}
+.chip.ghost{background:transparent;border:1px solid var(--line);color:var(--ink-soft);font-weight:500}
+.rev .word{font-size:34px;line-height:1.2;font-weight:600;text-wrap:balance;margin:6px 0 2px}
+.rev .word.zh1{font-size:76px;font-weight:400;text-align:center;margin:18px 0 6px}
+.rev .cue{font-size:22px;line-height:1.6;margin:10px 0}
+.rev .cue .blank{color:var(--zh);font-weight:600}
+.rev .pron{color:var(--ink-soft);font-size:16px;margin:2px 0 10px;font-style:italic}
+.rev .pron.zh{font-style:normal;font-weight:600;color:var(--zh);font-size:20px}
+.rev .def{font-size:17px;line-height:1.55;margin:6px 0}
+.trans{color:var(--zh);font-weight:600;font-size:15.5px;margin:0 0 8px}
+.btr{color:var(--zh);font-weight:500}
+.rev .ans .word.zh1{margin:6px 0}
+.contra{margin:12px 0 4px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.contra .row{display:flex;gap:12px;padding:9px 12px;font-size:14.5px;line-height:1.45}
+.contra .row+.row{border-top:1px solid var(--line)}
+.contra .row.self{background:var(--en-soft)}
+.contra .cw{font-weight:700;min-width:86px;flex-shrink:0;font-family:Palatino,Georgia,serif}
+.contra .cg{color:var(--ink-soft)}
+.exs{margin:10px 0 0;padding:0 0 0 0;list-style:none}
+.exs li{font-size:15px;line-height:1.55;color:var(--ink-soft);padding-left:14px;position:relative;margin-top:6px}
+.exs li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:2px;background:var(--ink-soft);opacity:.6}
+.hook{margin-top:12px;padding:10px 12px;background:var(--gold-soft);border-radius:10px;font-size:14px;line-height:1.5;color:var(--ink)}
+.hook b{color:var(--gold)}
+.showbar{margin-top:auto;padding-top:18px}
+.showbar .btn{width:100%;padding:15px}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:auto;padding-top:18px}
+.grades button{padding:11px 4px 9px;border-radius:12px;background:var(--card);border:1.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:2px}
+.grades .gl{font-weight:700;font-size:14.5px}
+.grades .gi{font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.grades .b0 .gl{color:var(--g-again)} .grades .b1 .gl{color:var(--g-hard)}
+.grades .b2 .gl{color:var(--g-good)} .grades .b3 .gl{color:var(--g-easy)}
+.grades .b0{border-color:color-mix(in srgb,var(--g-again) 45%,var(--line))}
+.grades .b1{border-color:color-mix(in srgb,var(--g-hard) 45%,var(--line))}
+.grades .b2{border-color:color-mix(in srgb,var(--g-good) 45%,var(--line))}
+.grades .b3{border-color:color-mix(in srgb,var(--g-easy) 45%,var(--line))}
+.sessionbar{display:flex;justify-content:space-between;align-items:center;margin:10px 2px 0;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+/* ---- quiz ---- */
+.qprompt{font-size:19px;line-height:1.65;margin:10px 0 2px}
+.qprompt .bl{color:var(--en);font-weight:700;letter-spacing:1px}
+.qsub{font-size:13px;color:var(--ink-soft);margin-top:6px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.opts button{padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);font-size:16px;text-align:left;line-height:1.4;color:var(--ink)}
+.opts button.serifopt{font-family:Palatino,"Palatino Linotype",Georgia,serif;font-size:17px}
+.opts button.right{border-color:var(--g-good);background:color-mix(in srgb,var(--g-good) 14%,var(--card));font-weight:700}
+.opts button.wrong{border-color:var(--g-again);background:color-mix(in srgb,var(--g-again) 14%,var(--card))}
+.opts button:disabled{cursor:default}
+.verdict{font-weight:700;margin-top:14px;font-size:15px}
+.verdict.ok{color:var(--g-good)} .verdict.no{color:var(--g-again)}
+.combo{font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
+.combo.bump{display:inline-block;animation:bump .3s}
+.contbar{margin-top:16px}
+.contbar .btn{width:100%;padding:14px}
+/* ---- seals ---- */
+.sealgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px}
+.sealtile{padding:14px 10px;text-align:center;cursor:pointer}
+.seal{width:76px;height:76px;margin:0 auto 8px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:"Kaiti SC","STKaiti",KaiTi,serif;font-size:24px;line-height:1.12;letter-spacing:1px;writing-mode:vertical-rl}
+.seal.done{background:var(--zh);color:#FFF7F0;transform:rotate(-3deg);box-shadow:0 3px 10px rgba(181,67,42,.3)}
+.seal.todo{border:2px dashed var(--line);color:var(--ink-soft)}
+.sealtile .sn{font-weight:700;font-size:14.5px}
+.sealtile .se{font-size:11px;color:var(--ink-soft);font-style:italic}
+.sealtile .sp{font-size:12px;color:var(--ink-soft);margin-top:3px;font-variant-numeric:tabular-nums}
+.members{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center}
+.members .m{font-size:12.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft)}
+.members .m.got{background:var(--zh-soft);color:var(--zh);border-color:transparent;font-weight:600}
+.members .m.mid{border-color:var(--gold);color:var(--gold)}
+.sdesc{font-size:12.5px;color:var(--ink-soft);margin-top:8px;line-height:1.5}
+.celebrate{text-align:center;padding:44px 20px;margin-top:8px}
+.celebrate .seal{width:118px;height:118px;font-size:38px;margin-bottom:16px;animation:stamp .55s cubic-bezier(.2,1.5,.4,1)}
+@keyframes stamp{0%{transform:scale(2.1) rotate(6deg);opacity:0}60%{transform:scale(.94) rotate(-5deg);opacity:1}100%{transform:scale(1) rotate(-3deg)}}
+@media (prefers-reduced-motion: reduce){ .celebrate .seal{animation:none} }
+.speakbtn{background:none;border:1px solid var(--line);border-radius:999px;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-left:8px}
+.speakbtn svg{width:16px;height:16px;fill:var(--ink-soft)}
+canvas.pad{width:100%;height:230px;border:1.5px dashed var(--line);border-radius:12px;background:var(--card);touch-action:none;display:block;margin:8px 0}
+.padrow{display:flex;gap:8px}
+/* ---- radio ---- */
+.radio{padding:20px;margin-top:8px;text-align:center}
+.radio select,.radio input[type=range]{font:inherit}
+.rctl{display:flex;gap:10px;justify-content:center;align-items:center;margin:18px 0 6px}
+.playbtn{width:74px;height:74px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:26px;display:flex;align-items:center;justify-content:center}
+.skipbtn{width:48px;height:48px;border-radius:50%;background:var(--card);border:1px solid var(--line);font-size:17px}
+.nowplaying{margin-top:16px;min-height:120px}
+.nowplaying .npw{font-size:30px;font-weight:600;margin:4px 0}
+.nowplaying .npd{color:var(--ink-soft);font-size:14.5px;line-height:1.5;max-width:46ch;margin:0 auto}
+.selrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+select{padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.raterow{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px;font-size:13px;color:var(--ink-soft)}
+input[type=range]{accent-color:var(--en)}
+.radionote{font-size:12.5px;color:var(--ink-soft);margin-top:14px;line-height:1.5}
+/* ---- browse ---- */
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin-top:8px}
+.search:focus-visible{outline:2px solid var(--en)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.chips button{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13px;color:var(--ink-soft)}
+.chips button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.blist{display:flex;flex-direction:column;gap:8px}
+.bitem{padding:12px 14px;cursor:pointer}
+.bitem .bw{font-weight:600;font-size:16.5px}
+.bitem .bd{color:var(--ink-soft);font-size:13.5px;margin-top:2px;line-height:1.45}
+.bitem .full{margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.bstat{font-size:11.5px;color:var(--ink-soft);float:right;font-variant-numeric:tabular-nums}
+.loadmore{margin:12px auto;display:block}
+/* ---- add ---- */
+form.addf{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+form.addf label{font-size:12.5px;color:var(--ink-soft);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+form.addf input,form.addf textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+form.addf textarea{min-height:64px;resize:vertical}
+form.addf input:focus-visible,form.addf textarea:focus-visible{outline:2px solid var(--en)}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{flex:1;padding:10px;background:var(--card);color:var(--ink-soft);border-radius:0}
+.seg button.on{background:var(--ink);color:var(--paper)}
+/* ---- stats ---- */
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.heat{display:grid;grid-template-columns:repeat(26,1fr);gap:3px;margin-top:10px}
+.heat i{aspect-ratio:1;border-radius:2.5px;background:var(--line);display:block}
+.heat i.h1{background:color-mix(in srgb,var(--gold) 35%,var(--line))}
+.heat i.h2{background:color-mix(in srgb,var(--gold) 65%,var(--line))}
+.heat i.h3{background:var(--gold)}
+.pbar{height:7px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:6px}
+.pbar i{display:block;height:100%;border-radius:99px}
+.prow{padding:12px 14px}
+.prow .pl{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:2px}
+.prow .pl b{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-soft)}
+.settings{margin-top:16px;padding:16px}
+.setrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.setrow:last-child{border-bottom:none}
+.setrow input[type=number]{width:70px;padding:7px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;text-align:center}
+textarea.io{width:100%;min-height:80px;font-family:ui-monospace,Menlo,monospace;font-size:11px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+/* ---- tabs ---- */
+nav.tabs{
+  position:fixed;bottom:0;left:0;right:0;z-index:10;
+  background:var(--card);border-top:1px solid var(--line);
+  display:flex;justify-content:space-around;
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+}
+nav.tabs button{background:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 7px;border-radius:10px;color:var(--ink-soft);font-size:10.5px;font-weight:600;letter-spacing:.02em}
+nav.tabs button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs button.on{color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:20;max-width:88vw;text-align:center}
+.toast.show{opacity:1}
+.empty{text-align:center;color:var(--ink-soft);padding:44px 20px;font-size:15px;line-height:1.6}
+.donebox{text-align:center;padding:44px 20px}
+.donebox .dt{font-size:26px;font-weight:700;margin-bottom:6px}
+.donebox .ds{color:var(--ink-soft);line-height:1.6}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important;animation:none !important} }
+@media (max-width:420px){ .rev .word{font-size:29px} .heat{grid-template-columns:repeat(26,1fr)} }
+</style></head><body>
+<div id="app">
+  <header class="top">
+    <div class="brand">拾遗<span class="lat">Lexicon</span></div>
+    <div class="topstats">
+      <span class="pill streak" id="pillStreak"><b>0</b> 天</span>
+      <span class="pill" id="pillLv"><b>Lv.1</b></span>
+      <svg class="ring" viewBox="0 0 34 34" id="goalRing" role="img" aria-label="daily goal">
+        <circle class="bg" cx="17" cy="17" r="14" stroke-width="4"></circle>
+        <circle class="fg" cx="17" cy="17" r="14" stroke-width="4" stroke-dasharray="88" stroke-dashoffset="88"></circle>
+      </svg>
+    </div>
+  </header>
+  <main id="view"></main>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="toast" id="toast"></div>
+</div>
+<script>
+"use strict";
+const DECK = [{"w":"impute","p":"im-PYOOT","d":"to attribute (a fault, motive, or act) to someone — often unfairly","c":[["impugn","to attack as false or doubtful (you impugn claims, motives, integrity)"],["imply","to suggest indirectly"]],"e":["The delay was imputed to laziness rather than to the storm.","Never impute to malice what stupidity explains."],"h":"im-PUTE: you PUT blame IN someone's account.","t":"归咎于;归罪","lang":"en","cat":"cf","id":"cf-impute"},{"w":"impugn","p":"im-PYOON","d":"to call into question; attack as false (a claim, someone's honesty)","c":[["impute","to pin blame/credit on someone"],["impinge","to encroach or intrude on"]],"e":["She impugned his motives, hinting he stood to profit."],"h":"pugn = fight (pugnacious): you FIGHT a claim.","t":"质疑;抨击","lang":"en","cat":"cf","id":"cf-impugn"},{"w":"proscribe","p":"pro-SKRYBE","d":"to forbid, outlaw, condemn","c":[["prescribe","to order/recommend authoritatively (a doctor prescribes)"]],"e":["The regime proscribed all opposition parties."],"h":"PRO-scribe = PROhibit. Nearly opposite of prescribe.","t":"禁止;取缔","lang":"en","cat":"cf","id":"cf-proscribe"},{"w":"demur","p":"dih-MUR","d":"(v.) to object mildly, voice reluctance; (n.) 'without demur' = without objection","c":[["demure","(adj.) modest and reserved, esp. in manner"]],"e":["Asked to sign at once, she demurred, wanting counsel first."],"h":"deMUR = MURmur an objection. Demure has the silent -e, like a quiet person.","t":"婉言反对;迟疑","lang":"en","cat":"cf","id":"cf-demur"},{"w":"supplicant","p":"SUP-lih-kunt","d":"(n.) one who begs humbly, esp. of God or the powerful (also 'suppliant')","c":[["applicant","one who formally applies"],["sycophant","a self-serving flatterer"]],"e":["He came not as a negotiator but as a supplicant, hands open."],"h":"supplicate = fold (plic) under (sub): bent in pleading.","t":"恳求者","lang":"en","cat":"cf","id":"cf-supplicant"},{"w":"abet","p":"uh-BET","d":"to help or encourage (usu. wrongdoing) — 'aid and abet'","c":[["abate","to lessen, die down (storms, fury, fevers abate)"]],"e":["The clerk abetted the fraud by shredding the ledgers."],"h":"aBET: you BET on the crime succeeding.","t":"教唆;伙同(作恶)","lang":"en","cat":"cf","id":"cf-abet"},{"w":"abjure","p":"ab-JOOR","d":"to renounce solemnly, swear off (a belief, a claim)","c":[["adjure","to urge or command earnestly, as under oath"]],"e":["Galileo was forced to abjure heliocentrism."],"h":"ab = away (swear AWAY); ad = toward (urge TOWARD).","t":"发誓放弃","lang":"en","cat":"cf","id":"cf-abjure"},{"w":"abrogate","p":"AB-ruh-gate","d":"to repeal or annul officially (a law, treaty, duty)","c":[["arrogate","to claim/seize without right ('arrogate to oneself')"],["abdicate","to renounce a throne or responsibility"]],"e":["The new government abrogated the trade pact."],"h":"ABrogate ABolishes; ARrogate is ARrogant grabbing.","t":"废除(法令)","lang":"en","cat":"cf","id":"cf-abrogate"},{"w":"adverse","p":"AD-verss","d":"unfavorable, harmful (conditions, effects) — describes things","c":[["averse","reluctant, opposed — describes people: 'averse TO risk'"]],"e":["Adverse weather grounded the flights; he's averse to flying anyway."],"h":"ADverse conditions; people are Averse.","t":"不利的","lang":"en","cat":"cf","id":"cf-adverse"},{"w":"allude","p":"uh-LOOD","d":"to refer indirectly (allude TO something)","c":[["elude","to escape or evade (the name eludes me)"],["elide","to omit, slur over, or merge (a vowel, a distinction)"]],"e":["She alluded to troubles at home without naming them."],"h":"AL-lude hints AT; E-lude Escapes; E-lide Erases.","t":"暗指;提及","lang":"en","cat":"cf","id":"cf-allude"},{"w":"emend","p":"ih-MEND","d":"to correct a text through scholarly editing","c":[["amend","to improve or formally alter (laws, behavior, soil)"]],"e":["The editor emended the corrupted line from an earlier manuscript."],"h":"Emend is for Editions; amend for laws and ways.","t":"校订(文本)","lang":"en","cat":"cf","id":"cf-emend"},{"w":"appraise","p":"uh-PRAYZ","d":"to assess the value or quality of","c":[["apprise","to inform ('apprise someone OF the facts')"]],"e":["The jeweler appraised the ring at two thousand dollars; kindly apprise the owner."],"h":"apprAIse = evaluAte; apprIse = Inform.","t":"估价;评估","lang":"en","cat":"cf","id":"cf-appraise"},{"w":"arraign","p":"uh-RAYN","d":"to call before a court to answer charges","c":[["arrange","to put in order, organize"]],"e":["He was arraigned on Monday and pleaded not guilty."],"h":"arRAIGN rhymes with 'complain' — formal accusation.","t":"提审;传讯","lang":"en","cat":"cf","id":"cf-arraign"},{"w":"assay","p":"a-SAY","d":"to test, analyze (metals, ore); to attempt","c":[["essay (v.)","to attempt, try out (literary): 'he essayed a smile'"]],"e":["The lab assayed the ore for gold content."],"h":"Assay = Analyze; essay = attempt (French essayer).","t":"化验;试验","lang":"en","cat":"cf","id":"cf-assay"},{"w":"augur","p":"AW-gur","d":"to foretell, be an omen ('augurs well/ill for')","c":[["auger","a drilling tool with a helical bit"],["inaugurate","to begin formally (from augury before office)"]],"e":["Falling orders augur ill for the quarter."],"h":"aUgUr sees the fUtUre; augEr Eats through wood.","t":"预示","lang":"en","cat":"cf","id":"cf-augur"},{"w":"aver","p":"uh-VUR","d":"to state positively as fact","c":[["avow","to declare openly, admit"],["avert","to turn away, prevent (avert one's eyes; avert disaster)"]],"e":["Witnesses averred that the light was red."],"h":"aver = VERify by assertion (ver = true).","t":"断言","lang":"en","cat":"cf","id":"cf-aver"},{"w":"baleful","p":"BAYL-ful","d":"menacing, threatening harm (a baleful glare)","c":[["baneful","actually causing harm, ruinous (bane = poison/ruin)"]],"e":["The dog fixed us with a baleful stare."],"h":"BALEful looks; BANEful kills (wolfsbane).","t":"凶狠不祥的","lang":"en","cat":"cf","id":"cf-baleful"},{"w":"broach","p":"BROHCH","d":"to raise (a delicate topic); to pierce (a cask)","c":[["brooch","an ornamental pin"]],"e":["No one dared broach the subject of succession."],"h":"brOAch Opens; broOch is jewelry (odd spelling, odd pin).","t":"提起(敏感话题)","lang":"en","cat":"cf","id":"cf-broach"},{"w":"cache","p":"KASH","d":"a hidden store (of weapons, data); to hide away","c":[["cachet","prestige, distinguishing mark (pron. ka-SHAY)"]],"e":["Police found a cache of rifles; the label carries cachet."],"h":"cache=stash; cachet=status.","t":"秘藏;缓存","lang":"en","cat":"cf","id":"cf-cache"},{"w":"canvass","p":"KAN-vus","d":"to solicit votes/opinions door-to-door; to examine thoroughly","c":[["canvas","heavy cloth; a painting surface"]],"e":["Volunteers canvassed the district for the referendum."],"h":"Double-s canvass = asking maSSes.","t":"拉票;征询","lang":"en","cat":"cf","id":"cf-canvass"},{"w":"careen","p":"kuh-REEN","d":"to lurch or swerve wildly (orig. a ship tilting)","c":[["career (v.)","to rush headlong at full speed"],["carom","to ricochet, bounce off"]],"e":["The truck careened across three lanes."],"h":"In practice careen ≈ career; careen adds tilt/lurch.","t":"横冲直撞","lang":"en","cat":"cf","id":"cf-careen"},{"w":"censure","p":"SEN-shur","d":"to condemn officially; harsh criticism","c":[["censor","to suppress objectionable content"],["census","population count"]],"e":["The senator was censured for ethics violations."],"h":"censure = reproach; censor = remove.","t":"公开谴责","lang":"en","cat":"cf","id":"cf-censure"},{"w":"chafe","p":"CHAYF","d":"to rub sore; to irritate, feel impatient ('chafe at restrictions')","c":[["chaff","grain husks; worthless stuff; to tease good-naturedly"]],"e":["He chafed at the curfew."],"h":"chaFE = FEels sore; chaFF = FluFF.","t":"磨痛;恼火","lang":"en","cat":"cf","id":"cf-chafe"},{"w":"climactic","p":"kly-MAK-tik","d":"forming a climax","c":[["climatic","relating to climate"]],"e":["The climactic duel; climatic shifts in rainfall."],"h":"climaCTic ← climax(CT); climaTic ← climaTe.","t":"高潮的","lang":"en","cat":"cf","id":"cf-climactic"},{"w":"collude","p":"kuh-LOOD","d":"to conspire secretly, cooperate in deceit","c":[["collide","to crash together"]],"e":["The bidders colluded to fix prices."],"h":"ludere = to play: colLUDE = play a game together (ludicrous, prelude).","t":"勾结串通","lang":"en","cat":"cf","id":"cf-collude"},{"w":"complacent","p":"kum-PLAY-sunt","d":"smugly self-satisfied, off guard","c":[["complaisant","eager to please, obliging (rare)"]],"e":["Success made the champion complacent."],"h":"complAcent = sAtisfied; complAIsant = AIms to please.","t":"自满松懈的","lang":"en","cat":"cf","id":"cf-complacent"},{"w":"confidant","p":"KON-fih-dant","d":"(n.) a person you confide in (fem. confidante)","c":[["confident","(adj.) self-assured"]],"e":["She was the queen's closest confidant."],"h":"confidAnt = A person; confidEnt = adjEctive.","t":"知己","lang":"en","cat":"cf","id":"cf-confidant"},{"w":"connote","p":"kuh-NOTE","d":"to imply beyond the literal meaning","c":[["denote","to mean literally, be a sign of"]],"e":["'Home' denotes a dwelling but connotes warmth."],"h":"De = Direct meaning; con = the aura around it.","t":"隐含;引申","lang":"en","cat":"cf","id":"cf-connote"},{"w":"contemn","p":"kun-TEM","d":"to despise, treat with contempt (literary)","c":[["condemn","to declare wrong, sentence"]],"e":["He contemned the fashionable opinions of his age."],"h":"conteMN → conteMPt (same root, no P).","t":"蔑视","lang":"en","cat":"cf","id":"cf-contemn"},{"w":"corporal","p":"KOR-puh-rul","d":"of the body (corporal punishment); an army rank","c":[["corporeal","physical/material as opposed to spiritual"],["corpulent","fat"]],"e":["Ghosts lack corporeal form; corporal punishment is banned."],"h":"corporEAL = REAL matter.","t":"肉体的;下士","lang":"en","cat":"cf","id":"cf-corporal"},{"w":"credible","p":"KRED-ih-bul","d":"believable","c":[["creditable","deserving praise (a creditable effort)"],["credulous","too ready to believe, gullible"]],"e":["A credible witness; a creditable third place; a credulous mark."],"h":"credIble = plausIble; credUlous swallows anything (gUllible).","t":"可信的","lang":"en","cat":"cf","id":"cf-credible"},{"w":"decry","p":"dih-KRY","d":"to denounce publicly","c":[["descry","to catch sight of, discern from afar (literary)"]],"e":["Critics decried the cuts; the lookout descried a sail."],"h":"DEcry = DEnounce; deScry = See.","t":"公开抨击","lang":"en","cat":"cf","id":"cf-decry"},{"w":"defuse","p":"dee-FYOOZ","d":"to remove the fuse from; to calm (a crisis)","c":[["diffuse","to spread out; (adj.) spread thin, wordy"]],"e":["She defused the standoff with a joke; the light was diffuse."],"h":"DE-fuse a bomb; DIF-fuse disperses.","t":"拆除引信;化解","lang":"en","cat":"cf","id":"cf-defuse"},{"w":"delegate","p":"DEL-uh-gate","d":"to entrust (tasks) to another; (n.) a representative","c":[["relegate","to demote to a lower rank or position"]],"e":["Delegate the work; the team was relegated to the second division."],"h":"DELegate DEputizes; RELegate REmoves downward.","t":"委派;代表","lang":"en","cat":"cf","id":"cf-delegate"},{"w":"deprecate","p":"DEP-ruh-kate","d":"to disapprove of; (tech) to mark as obsolete; self-deprecating = modest","c":[["depreciate","to fall in value; to belittle"]],"e":["The API was deprecated; the car depreciated 20%."],"h":"depreCIate = finanCIal.","t":"不赞成;声明弃用","lang":"en","cat":"cf","id":"cf-deprecate"},{"w":"desiccate","p":"DES-ih-kate","d":"to dry out completely","c":[["desecrate","to violate something sacred"]],"e":["The wind desiccated the fields; vandals desecrated the shrine."],"h":"deSICcate: SICcus = dry (Latin); deSECrate hits the SACred.","t":"使干透","lang":"en","cat":"cf","id":"cf-desiccate"},{"w":"discomfit","p":"dis-KUM-fit","d":"to unsettle, embarrass, thwart","c":[["discomfort","(n.) mild pain or unease"]],"e":["The pointed question discomfited the minister."],"h":"discomFIT throws you off your FooTing.","t":"使窘迫受挫","lang":"en","cat":"cf","id":"cf-discomfit"},{"w":"discreet","p":"dih-SKREET","d":"tactful, keeping confidences","c":[["discrete","separate, distinct (discrete units)"]],"e":["Be discreet about the offer; the data come in discrete packets."],"h":"discrEtE: the E's are sEparatEd by t — 'discrete' means separate.","t":"谨慎守口的","lang":"en","cat":"cf","id":"cf-discreet"},{"w":"disinterested","p":"dis-IN-truh-stid","d":"impartial, with no stake in the outcome","c":[["uninterested","bored, not caring"]],"e":["We need a disinterested judge, not an uninterested one."],"h":"DIS-interest = no vested interest.","t":"公正无私的","lang":"en","cat":"cf","id":"cf-disinterested"},{"w":"dissemble","p":"dih-SEM-bul","d":"to hide one's true feelings or motives; feign","c":[["disassemble","to take apart"],["dissimulate","≈ dissemble (conceal under pretense)"]],"e":["He dissembled, praising a plan he meant to kill."],"h":"dissemble = wear a false reSEMBLance.","t":"掩饰真心","lang":"en","cat":"cf","id":"cf-dissemble"},{"w":"elegy","p":"EL-uh-jee","d":"a mournful poem, esp. for the dead","c":[["eulogy","a speech of praise, esp. at a funeral"],["elogy","(not a word — trap)"]],"e":["Gray's 'Elegy'; his brother delivered the eulogy."],"h":"EULogy = EU (good, Greek) words; eLEGy = LEGato lament.","t":"挽歌;哀诗","lang":"en","cat":"cf","id":"cf-elegy"},{"w":"elicit","p":"ih-LIS-it","d":"to draw out (a response, information)","c":[["illicit","(adj.) unlawful"]],"e":["The question elicited a groan; an illicit trade."],"h":"E-licit Extracts; IL-licit is ILlegal.","t":"引出;诱出","lang":"en","cat":"cf","id":"cf-elicit"},{"w":"eminent","p":"EM-ih-nunt","d":"distinguished, prominent","c":[["imminent","about to happen"],["immanent","inherent, dwelling within (philosophy/theology)"]],"e":["An eminent scholar warned of imminent collapse; a God immanent in nature."],"h":"E=Esteemed; IMM-i-nent = IMMediately; immAnent = inhAbits.","t":"杰出的","lang":"en","cat":"cf","id":"cf-eminent"},{"w":"enervate","p":"EN-ur-vate","d":"to drain of energy, weaken (NOT energize)","c":[["energize","to invigorate"],["innervate","to supply with nerves (anatomy)"]],"e":["The humidity enervated the hikers."],"h":"E-nervate = nerves taken OUT (e- = out of).","t":"使衰弱无力","lang":"en","cat":"cf","id":"cf-enervate"},{"w":"epigram","p":"EP-ih-gram","d":"a short witty saying or poem","c":[["epigraph","a quotation at a book/chapter head; building inscription"],["epitaph","tombstone inscription"],["epithet","a characterizing byname ('the Great'); a slur"]],"e":["Wilde's epigrams; the novel's epigraph is from Dante."],"h":"-gram=written wit; -graph=quoted; -taph=tomb(cenotaph); -thet=attached name.","t":"警句","lang":"en","cat":"cf","id":"cf-epigram"},{"w":"equable","p":"EK-wuh-bul","d":"steady, even-tempered; without extremes (climate, temperament)","c":[["equitable","fair, just"]],"e":["An equable disposition; an equitable settlement."],"h":"equITable = jusTice; equable = even.","t":"平和稳定的","lang":"en","cat":"cf","id":"cf-equable"},{"w":"exalt","p":"ig-ZAWLT","d":"to elevate, glorify, praise highly","c":[["exult","to rejoice triumphantly"]],"e":["The hymn exalts mercy; fans exulted in the win."],"h":"exALT = ALTitude (raise up); exULT = jULbilant joy.","t":"颂扬;抬高","lang":"en","cat":"cf","id":"cf-exalt"},{"w":"exceptionable","p":"ik-SEP-shun-uh-bul","d":"objectionable, offensive (able to be excepted TO)","c":[["exceptional","outstandingly good; unusual"]],"e":["Nothing exceptionable in the speech — nothing exceptional either."],"h":"exceptionABLE = objectionABLE.","t":"可非议的","lang":"en","cat":"cf","id":"cf-exceptionable"},{"w":"excise","p":"ik-SYZE","d":"to cut out surgically/editorially; (n. EK-size) a goods tax","c":[["exorcise","to drive out (a demon, a memory)"],["incise","to cut into"]],"e":["The editor excised the chapter; the priest exorcised the house."],"h":"eXCise = X it out; eXORcise ORders spirits out.","t":"切除;删去;消费税","lang":"en","cat":"cf","id":"cf-excise"},{"w":"exacerbate","p":"ig-ZASS-ur-bate","d":"to make (a problem) worse","c":[["exasperate","to infuriate, try someone's patience"]],"e":["Scratching exacerbates the rash; his stalling exasperates me."],"h":"exaCERbate: aCERbic = bitter — makes things bitterer. Problems are exacerbated; people are exasperated.","t":"使恶化","lang":"en","cat":"cf","id":"cf-exacerbate"},{"w":"expatiate","p":"ik-SPAY-shee-ate","d":"to speak or write at length ('expatiate on')","c":[["expiate","to atone for (guilt, sin)"],["expatriate","one living abroad; to exile"]],"e":["He expatiated on his theory for an hour."],"h":"exSPACEiate = roam over wide SPACE in talk; exPIate = PIety atones.","t":"详述铺陈","lang":"en","cat":"cf","id":"cf-expatiate"},{"w":"expedient","p":"ik-SPEE-dee-unt","d":"advantageous in practice, if not principled; (n.) a practical measure","c":[["expeditious","fast and efficient"]],"e":["Politically expedient, morally dubious; an expeditious reply."],"h":"expedienT = TacTical; expeditious = speedy (expediTE).","t":"权宜的;便利之计","lang":"en","cat":"cf","id":"cf-expedient"},{"w":"extant","p":"EK-stunt","d":"still in existence, surviving","c":[["extent","scope, degree"],["extinct","no longer existing"]],"e":["Only three copies are extant."],"h":"extAnt = still Alive.","t":"现存的","lang":"en","cat":"cf","id":"cf-extant"},{"w":"faze","p":"FAYZ","d":"to disturb, disconcert (usu. negative: 'nothing fazes her')","c":[["phase","a stage; to introduce in stages (phase in/out)"]],"e":["The heckling didn't faze the speaker."],"h":"Faze on Feelings; PHase in PHysics/plans.","t":"使慌乱","lang":"en","cat":"cf","id":"cf-faze"},{"w":"flair","p":"FLAIR","d":"natural talent; stylishness","c":[["flare","a burst of flame/light; to flare up; flared jeans"]],"e":["She has a flair for names; tempers flared."],"h":"flAIr = an AIR of style; flarE = firE.","t":"天赋;格调","lang":"en","cat":"cf","id":"cf-flair"},{"w":"flaunt","p":"FLAWNT","d":"to show off ostentatiously","c":[["flout","to openly disobey (rules, convention)"]],"e":["He flaunted his wealth and flouted the dress code."],"h":"flAUnt = pArade; flOUt = mock rules OUt loud.","t":"炫耀","lang":"en","cat":"cf","id":"cf-flaunt"},{"w":"forbear","p":"for-BAIR","d":"to refrain from (forbear from comment); to be patient","c":[["forebear","(n.) an ancestor"]],"e":["She forbore to mention the debt; land of my forebears."],"h":"ForEbear = bEfore-born.","t":"克制不做","lang":"en","cat":"cf","id":"cf-forbear"},{"w":"fortuitous","p":"for-TOO-ih-tus","d":"happening by chance (strictly neutral; now often 'luckily accidental')","c":[["fortunate","lucky"],["gratuitous","uncalled-for, unwarranted (gratuitous violence); free"]],"e":["A fortuitous meeting at the airport changed his career."],"h":"fortUItous = by chance; purists resist 'lucky'.","t":"偶然的","lang":"en","cat":"cf","id":"cf-fortuitous"},{"w":"founder","p":"FOWN-dur","d":"(v.) to sink, fail utterly (ships, plans founder)","c":[["flounder","to thrash about clumsily, struggle"]],"e":["Talks foundered on the border issue; he floundered through the interview."],"h":"floundering may recover; foundering goes to the bottom (fond = bottom).","t":"沉没;彻底失败","lang":"en","cat":"cf","id":"cf-founder"},{"w":"gambit","p":"GAM-bit","d":"an opening move that risks something for advantage; a stratagem","c":[["gamut","the whole range ('run the gamut')"]],"e":["His resignation threat was a gambit; emotions ran the gamut."],"h":"gamBIT = chess BIT sacrificed; gamUT = full scale (ut = old 'do' note).","t":"开局招;策略","lang":"en","cat":"cf","id":"cf-gambit"},{"w":"gibe","p":"JYBE","d":"a taunt, jeer (also v.); also spelled jibe","c":[["jibe","to agree ('the numbers jibe'); a sail swing"],["jive","swing dance/slang; deceptive talk"]],"e":["He endured the gibes; her story jibes with the alibi."],"h":"Gibe=jeer, jibe=agree (US), jive=jazz.","t":"嘲讽","lang":"en","cat":"cf","id":"cf-gibe"},{"w":"grisly","p":"GRIZ-lee","d":"gruesome, horrifying","c":[["grizzly","the bear; grizzled = grey-streaked"],["gristly","full of gristle (tough cartilage)"]],"e":["A grisly crime scene; a grizzled veteran; gristly meat."],"h":"griSly = Slaughter; griZZly = bear; griSTly = griSTle.","t":"血腥恐怖的","lang":"en","cat":"cf","id":"cf-grisly"},{"w":"hail","p":"HAYL","d":"to greet, call out to; frozen rain; 'hail from' = come from","c":[["hale","healthy ('hale and hearty'); to haul ('haled into court')"]],"e":["She hailed a cab; hale at ninety."],"h":"halE = hEalthy (whole/heal family).","t":"招呼;欢呼;来自","lang":"en","cat":"cf","id":"cf-hail"},{"w":"hoard","p":"HORD","d":"a hidden stockpile; to stockpile greedily","c":[["horde","a swarming crowd"]],"e":["A hoard of coins; hordes of tourists."],"h":"hoARD = guARD it; hordE = pEople.","t":"囤积","lang":"en","cat":"cf","id":"cf-hoard"},{"w":"immure","p":"ih-MYOOR","d":"to imprison, wall in","c":[["inure","to habituate to hardship ('inured to cold')"],["immune","protected against"]],"e":["Immured in the tower; inured to criticism."],"h":"imMURe = MURus, wall (mural); INure = hardened IN.","t":"幽禁","lang":"en","cat":"cf","id":"cf-immure"},{"w":"imprudent","p":"im-PROO-dunt","d":"unwise, rash","c":[["impudent","insolent, cheeky"]],"e":["An imprudent loan; an impudent reply."],"h":"imPRUDent lacks PRUDence; imPUDent has no shame (pudere).","t":"轻率的","lang":"en","cat":"cf","id":"cf-imprudent"},{"w":"inchoate","p":"in-KOH-it","d":"just begun, unformed, rudimentary","c":[["incoherent","not logically connected"],["chaotic","utterly disordered"]],"e":["An inchoate longing she couldn't name."],"h":"inCHOate = still hatCHing.","t":"初萌未成形的","lang":"en","cat":"cf","id":"cf-inchoate"},{"w":"indigent","p":"IN-dih-junt","d":"poor, needy","c":[["indigenous","native to a place"],["indignant","angered at injustice"]],"e":["Free counsel for indigent defendants."],"h":"indiGENT = no GELT; indiGNant = aNGry; indiGENous = GENesis there.","t":"贫困的","lang":"en","cat":"cf","id":"cf-indigent"},{"w":"infer","p":"in-FUR","d":"to conclude from evidence (the reader/listener infers)","c":[["imply","to suggest without stating (the speaker implies)"]],"e":["From her silence I inferred disapproval."],"h":"Speakers imply; hearers infer.","t":"推断","lang":"en","cat":"cf","id":"cf-infer"},{"w":"inflict","p":"in-FLIKT","d":"to impose (harm) ON someone: inflict pain on victims","c":[["afflict","to trouble: sufferers are afflicted WITH/BY ills"]],"e":["The storm inflicted damage on the coast; she is afflicted with gout."],"h":"INflict ON; AFflicted people.","t":"施加(伤害)","lang":"en","cat":"cf","id":"cf-inflict"},{"w":"ingenuous","p":"in-JEN-yoo-us","d":"innocently frank, artless","c":[["ingenious","brilliantly inventive"],["disingenuous","falsely naive, insincere"]],"e":["An ingenuous confession; an ingenious lock; a disingenuous apology."],"h":"ingenUous = yoUthful candor; ingenIous = Inventive.","t":"天真坦率的","lang":"en","cat":"cf","id":"cf-ingenuous"},{"w":"insidious","p":"in-SID-ee-us","d":"stealthily harmful, treacherous (insidious disease)","c":[["invidious","provoking resentment; unfairly discriminating (invidious comparisons)"]],"e":["An insidious rumor spread; an invidious choice between children."],"h":"inSIDious = SIts In ambuSh; inVIDious = enVy (invidia).","t":"阴险的;潜伏的","lang":"en","cat":"cf","id":"cf-insidious"},{"w":"interment","p":"in-TUR-munt","d":"burial","c":[["internment","confinement, esp. wartime detention"]],"e":["The interment followed the service; wartime internment camps."],"h":"inTERment = TERra (earth); interNment = detaiNed.","t":"下葬","lang":"en","cat":"cf","id":"cf-interment"},{"w":"loath","p":"LOHTH","d":"(adj.) reluctant: 'loath to admit it'","c":[["loathe","(v.) to detest"]],"e":["I'm loath to wake him; I loathe traffic."],"h":"loathE = dEtest (verb has the E).","t":"不情愿的","lang":"en","cat":"cf","id":"cf-loath"},{"w":"luxuriant","p":"lug-ZHOOR-ee-unt","d":"lush, growing abundantly (hair, foliage, prose)","c":[["luxurious","sumptuous, costly"]],"e":["Luxuriant vines; a luxurious suite."],"h":"luxuriANT = plANT-like growth.","t":"繁茂的","lang":"en","cat":"cf","id":"cf-luxuriant"},{"w":"martial","p":"MAR-shul","d":"of war (martial law, martial arts)","c":[["marshal","(v.) to gather and order (facts, troops); (n.) an officer"],["marital","of marriage"]],"e":["Martial law; marshal your arguments; marital bliss."],"h":"marTIal = Mars; marSHAL SHALl organize; mariTAL = viTAL vows.","t":"军事的;尚武的","lang":"en","cat":"cf","id":"cf-martial"},{"w":"mendacious","p":"men-DAY-shus","d":"lying, dishonest","c":[["mendicant","a beggar (esp. a begging friar)"]],"e":["A mendacious memoir; mendicant monks."],"h":"mendACious = mendACium (lie); mendICant asks for nICkels.","t":"惯于说谎的","lang":"en","cat":"cf","id":"cf-mendacious"},{"w":"meretricious","p":"mair-uh-TRISH-us","d":"flashy but false, tawdrily attractive","c":[["meritorious","deserving praise"]],"e":["Meretricious chrome and neon; meritorious service."],"h":"From meretrix (prostitute) — gaudy allure; NOT from merit.","t":"华而不实的","lang":"en","cat":"cf","id":"cf-meretricious"},{"w":"militate","p":"MIL-ih-tate","d":"to weigh, work (against/for): 'facts militate against that view'","c":[["mitigate","to make less severe (mitigating circumstances)"]],"e":["His record militates against parole; remorse may mitigate the sentence."],"h":"MILItate = MILItary force pushing; MITIgate = MITten softens.","t":"起(不利)作用","lang":"en","cat":"cf","id":"cf-militate"},{"w":"noisome","p":"NOY-sum","d":"foul-smelling; offensive, noxious (nothing to do with noise)","c":[["noisy","loud"]],"e":["A noisome sewer smell."],"h":"noisome ← aNNOY (annoy-some), not noise.","t":"恶臭讨厌的","lang":"en","cat":"cf","id":"cf-noisome"},{"w":"obviate","p":"OB-vee-ate","d":"to make unnecessary, avert in advance ('obviate the need for')","c":[["obfuscate","to deliberately confuse, muddy"]],"e":["Backups obviate the need for recovery tools."],"h":"OBviate removes the OBstacle before you hit it.","t":"使不必要;免除","lang":"en","cat":"cf","id":"cf-obviate"},{"w":"officious","p":"uh-FISH-us","d":"bossily meddlesome, self-important in offering unwanted help","c":[["official","authorized; a person in office"]],"e":["An officious usher kept rearranging the guests."],"h":"Officious = plays at office he doesn't hold.","t":"好管闲事的","lang":"en","cat":"cf","id":"cf-officious"},{"w":"palpate","p":"PAL-pate","d":"to examine by touch (medical)","c":[["palpitate","to beat rapidly, flutter (heart)"]],"e":["The doctor palpated the abdomen; her heart palpitated."],"h":"palpITate = beat IT fast.","t":"触诊","lang":"en","cat":"cf","id":"cf-palpate"},{"w":"peremptory","p":"puh-REMP-tuh-ree","d":"brooking no refusal; dictatorial in tone (a peremptory order)","c":[["preemptive","acting first to forestall (preemptive strike)"]],"e":["A peremptory summons from the director."],"h":"perEMPTory EMPTies all debate; prE-EMPTive moves Early.","t":"不容分说的","lang":"en","cat":"cf","id":"cf-peremptory"},{"w":"perpetrate","p":"PUR-puh-trate","d":"to commit (a crime, a hoax)","c":[["perpetuate","to make continue indefinitely (perpetuate a myth)"]],"e":["Who perpetrated the fraud that perpetuated the panic?"],"h":"perpeTRATE = the culpriT's act; perpetUate = continUe.","t":"犯下(罪行)","lang":"en","cat":"cf","id":"cf-perpetrate"},{"w":"perquisite","p":"PUR-kwih-zit","d":"a job benefit, a perk","c":[["prerequisite","a requirement beforehand"]],"e":["A company car is a perquisite of the post."],"h":"PERK-uisite = perk; PRE-requisite comes first.","t":"职务外快;特权","lang":"en","cat":"cf","id":"cf-perquisite"},{"w":"perspicacious","p":"pur-spih-KAY-shus","d":"keenly perceptive (of people)","c":[["perspicuous","clearly expressed, lucid (of writing, arguments)"]],"e":["A perspicacious critic; a perspicuous proof."],"h":"perspicACious = ACute mind; perspicUous = lUcid prose.","t":"目光敏锐的","lang":"en","cat":"cf","id":"cf-perspicacious"},{"w":"pique","p":"PEEK","d":"(v.) to arouse (curiosity) or wound (pride); (n.) resentful irritation ('a fit of pique')","c":[["peak","summit"],["peek","a quick look"]],"e":["The trailer piqued my interest; she left in a fit of pique."],"h":"French piquer = to prick.","t":"激起;愠怒","lang":"en","cat":"cf","id":"cf-pique"},{"w":"practicable","p":"PRAK-tih-kuh-bul","d":"feasible, capable of being done","c":[["practical","sensible, useful in practice"]],"e":["A practicable route exists, but it isn't practical in winter."],"h":"practicABLE = do-ABLE at all; practical = worth doing.","t":"切实可行的","lang":"en","cat":"cf","id":"cf-practicable"},{"w":"precipitate","p":"prih-SIP-ih-tate","d":"(v.) to trigger suddenly; (adj. -tit) rash, done too hastily","c":[["precipitous","steep like a cliff; (loosely) abrupt"]],"e":["The raid precipitated a war; a precipitate decision; a precipitous drop."],"h":"Both from praeceps (headlong); -ate = hasty action, -ous = steepness.","t":"促发;仓促的","lang":"en","cat":"cf","id":"cf-precipitate"},{"w":"prevaricate","p":"prih-VAIR-ih-kate","d":"to evade the truth, speak misleadingly","c":[["procrastinate","to delay doing"],["equivocate","to use ambiguity to dodge commitment (≈ prevaricate)"]],"e":["Stop prevaricating: did you sign it or not?"],"h":"prevaricate ≈ lie sideways (varicus = straddling); procrastinate = push to cras (tomorrow).","t":"支吾搪塞","lang":"en","cat":"cf","id":"cf-prevaricate"},{"w":"prodigal","p":"PROD-ih-gul","d":"wastefully extravagant ('prodigal son' = spendthrift, not wanderer)","c":[["prodigy","a young genius; a marvel"],["prodigious","enormous, marvelous"]],"e":["Prodigal with bonuses; a chess prodigy; a prodigious appetite."],"h":"prodiGAL = spends GALore.","t":"挥霍的;浪子","lang":"en","cat":"cf","id":"cf-prodigal"},{"w":"prostrate","p":"PROS-trate","d":"lying face down; overcome ('prostrate with grief'); to throw (oneself) down","c":[["prostate","the gland"],["supine","lying face UP"]],"e":["Pilgrims prostrated themselves before the shrine."],"h":"prostRate has the extra R — 'stRetched flat'.","t":"俯卧;拜倒;瘫倒","lang":"en","cat":"cf","id":"cf-prostrate"},{"w":"rebut","p":"rih-BUT","d":"to argue against, offer counter-evidence","c":[["refute","to disprove conclusively (strict use)"]],"e":["Counsel rebutted the claim; the data refuted it outright."],"h":"Rebut = push back; refute = knock down. Saying 'refute' doesn't make you right.","t":"反驳","lang":"en","cat":"cf","id":"cf-rebut"},{"w":"reticent","p":"RET-ih-sunt","d":"reserved in speech, disinclined to reveal","c":[["reluctant","unwilling to act (broader)"]],"e":["Reticent about his past, though not reluctant to help."],"h":"reTICent = TACit family (silent).","t":"寡言不露的","lang":"en","cat":"cf","id":"cf-reticent"},{"w":"restive","p":"RES-tiv","d":"restless and hard to control, fidgety under restraint (NOT restful)","c":[["restful","calming"]],"e":["The crowd grew restive as the delay stretched."],"h":"Restive = resists rest — a horse refusing to move or stand.","t":"焦躁难驯的","lang":"en","cat":"cf","id":"cf-restive"},{"w":"sanguine","p":"SANG-gwin","d":"optimistic, cheerfully confident; ruddy","c":[["sanguinary","bloody, bloodthirsty"]],"e":["Sanguine about the merger; a sanguinary campaign."],"h":"Both from sanguis (blood): sanguine = good-blooded humor; sanguinary = blood spilled.","t":"乐观的","lang":"en","cat":"cf","id":"cf-sanguine"},{"w":"sensual","p":"SEN-shoo-ul","d":"gratifying the body, esp. sexually","c":[["sensuous","appealing richly to the senses (aesthetic, neutral)"]],"e":["Sensuous prose full of color and sound; a sensual dance."],"h":"sensUOUS was coined (by Milton) to be the innocent one.","t":"感官享乐的","lang":"en","cat":"cf","id":"cf-sensual"},{"w":"specious","p":"SPEE-shus","d":"seemingly sound but actually false (a specious argument)","c":[["spurious","fake, not genuine (spurious quotes, correlations)"]],"e":["A specious analogy; a spurious signature."],"h":"SPECious looks good on inSPECtion only; spURious = not the tRUe article.","t":"似是而非的","lang":"en","cat":"cf","id":"cf-specious"},{"w":"stanch","p":"STAWNCH","d":"(v.) to stop the flow (stanch the bleeding)","c":[["staunch","(adj.) loyal, steadfast (a staunch ally) — spellings often swap"]],"e":["Medics stanched the wound; a staunch defender."],"h":"stAnch the blood; stAUnch = trUe.","t":"止住(血)","lang":"en","cat":"cf","id":"cf-stanch"},{"w":"statute","p":"STACH-oot","d":"a written law","c":[["stature","height; standing, prestige"],["statue","a sculpture"]],"e":["The statute of limitations; a scientist of great stature."],"h":"statUTe = the UT of law books; statURe = measURe.","t":"成文法","lang":"en","cat":"cf","id":"cf-statute"},{"w":"tortuous","p":"TOR-choo-us","d":"full of twists; convoluted (a tortuous road/argument)","c":[["torturous","causing torture, agonizing"]],"e":["A tortuous mountain pass; a torturous wait."],"h":"tortUous = cUrves; tortuRous = toRtuRe (extra R = rack).","t":"迂回曲折的","lang":"en","cat":"cf","id":"cf-tortuous"},{"w":"temerity","p":"tuh-MAIR-ih-tee","d":"reckless audacity, nerve ('had the temerity to ask')","c":[["timidity","fearfulness (near-opposite)"]],"e":["He had the temerity to bill us for his mistake."],"h":"Sounds timid, means brazen — the trap IS the hook.","t":"鲁莽大胆","lang":"en","cat":"cf","id":"cf-temerity"},{"w":"turbid","p":"TUR-bid","d":"muddy, cloudy (liquids); murky (thought)","c":[["turgid","swollen; pompously overblown (turgid prose)"]],"e":["Turbid floodwater; turgid official prose."],"h":"turBID = mud BED stirred; turGid = bulGing.","t":"浑浊的","lang":"en","cat":"cf","id":"cf-turbid"},{"w":"unexceptionable","p":"un-ik-SEP-shun-uh-bul","d":"beyond criticism, perfectly acceptable","c":[["unexceptional","ordinary, nothing special"]],"e":["Her conduct was unexceptionable; the food, unexceptional."],"h":"No exception can be TAKEN to it = fine.","t":"无可指摘的","lang":"en","cat":"cf","id":"cf-unexceptionable"},{"w":"venal","p":"VEE-nul","d":"corruptible, open to bribery (venal officials)","c":[["venial","forgivable, minor (venial sin)"]],"e":["A venal judge; a venial slip of the tongue."],"h":"venAl = for sALe (venum); venIal = forgIvable.","t":"贪赃可买通的","lang":"en","cat":"cf","id":"cf-venal"},{"w":"veracious","p":"vuh-RAY-shus","d":"truthful, accurate","c":[["voracious","ravenous, devouring (a voracious reader)"]],"e":["A veracious account; a voracious appetite."],"h":"vERacious = vERitas; vORacious = OmnivORe.","t":"诚实无欺的","lang":"en","cat":"cf","id":"cf-veracious"},{"w":"vindicate","p":"VIN-dih-kate","d":"to clear of blame; to justify ('vindicated by events')","c":[["vindictive","vengeful, spiteful"]],"e":["The audit vindicated her; a vindictive ex-partner."],"h":"vindiCATe Clears; vindiCTive Cuts back.","t":"洗清;证明正当","lang":"en","cat":"cf","id":"cf-vindicate"},{"w":"waive","p":"WAYV","d":"to voluntarily give up (a right, fee)","c":[["waver","to hesitate, flicker"],["waiver","the document waiving a right"]],"e":["She waived her fee but never wavered in her demands; sign the waiver."],"h":"waIve = relInquish; wavEr = hEsitate.","t":"主动放弃(权利)","lang":"en","cat":"cf","id":"cf-waive"},{"w":"wreak","p":"REEK","d":"to inflict (wreak havoc/vengeance); past tense wreaked (not wrought)","c":[["reek","to stink; to be suffused with ('reeks of favoritism')"],["wreck","to destroy; a ruined thing"]],"e":["The storm wreaked havoc; the bar reeked of smoke."],"h":"Wreak needs an object of damage; reek needs a nose.","t":"造成(浩劫)","lang":"en","cat":"cf","id":"cf-wreak"},{"w":"tenet","p":"TEN-it","d":"a core principle or belief","c":[["tenant","one who rents"]],"e":["A central tenet of stoicism."],"h":"teneT = whaT a creed holds (tenere); tenANt = occupANt.","t":"信条","lang":"en","cat":"cf","id":"cf-tenet"},{"w":"expedite","p":"EK-spuh-dite","d":"to speed up (a process)","c":[["extradite","to hand over (a suspect) to another jurisdiction"]],"e":["Please expedite the visa; he was extradited to France."],"h":"EXPEDite = free the PED (foot) from a snare; extraDITE hands across borders.","t":"加快办理","lang":"en","cat":"cf","id":"cf-expedite"},{"w":"proselytize","p":"PROS-uh-lih-tize","d":"to try to convert others to one's faith or cause","c":[["prosthetize","(not standard — trap)"],["pontificate","to hold forth pompously"]],"e":["He proselytizes for the keto diet at every dinner."],"h":"A proselyte = a convert.","t":"劝人入教/入伙","lang":"en","cat":"cf","id":"cf-proselytize"},{"w":"masticate","p":"MASS-tih-kate","d":"to chew","c":[["marinate","to soak in seasoning"],["macerate","to soften by soaking"]],"e":["Masticate slowly; macerate the berries in sugar."],"h":"MASTicate = jaw MUSCles; MACerate = MUSH by liquid.","t":"咀嚼","lang":"en","cat":"cf","id":"cf-masticate"},{"w":"upbraid","p":"up-BRAYD","d":"to scold sharply, reproach","c":[["abrade","to scrape away, wear down"],["braid","to plait"]],"e":["She upbraided the intern for the leak; the rope abraded the rail."],"h":"UPbraid = dress someone UP and down; ABrade = rub Away.","t":"训斥","lang":"en","cat":"cf","id":"cf-upbraid"},{"w":"descant","p":"DES-kant","d":"to comment at length ('descant on'); a soaring melody above the tune","c":[["decant","to pour off (wine) gently; to transfer"]],"e":["He descanted on the fall of Rome; decant the Bordeaux."],"h":"deSCANT = SING over (cantare); deCANT = pour from CANTeen.","t":"高谈阔论;高音部","lang":"en","cat":"cf","id":"cf-descant"},{"w":"exculpate","p":"EK-skul-pate","d":"to clear from blame","c":[["exonerate","≈ exculpate (officially absolve)"],["inculpate","to accuse, incriminate"]],"e":["The footage exculpated the driver."],"h":"culpa = guilt: EX-culpate takes guilt out, IN-culpate puts it in.","t":"开脱罪责","lang":"en","cat":"cf","id":"cf-exculpate"},{"w":"suborn","p":"suh-BORN","d":"to bribe or induce (someone) to do wrong, esp. commit perjury","c":[["subvert","to undermine from within"],["adorn","to decorate"]],"e":["He was charged with suborning witnesses."],"h":"SUB-orn = secretly equip someone for crime.","t":"收买(作伪证)","lang":"en","cat":"cf","id":"cf-suborn"},{"w":"asperse","p":"uh-SPURSS","d":"to slander (usu. as 'cast aspersions')","c":[["disperse","to scatter"],["aspire","to aim high"]],"e":["They cast aspersions on her scholarship."],"h":"aspersion = sprinkling (dirty water on a name).","t":"诽谤中伤","lang":"en","cat":"cf","id":"cf-asperse"},{"w":"animadvert","p":"an-ih-mad-VURT","d":"to criticize, remark censoriously ('animadvert on')","c":[["advert (v.)","to refer to ('advert to the case')"],["avert","to prevent, turn away"]],"e":["The review animadverted on the book's sloppy notes."],"h":"animus (mind) + advert (turn to) = turn your mind against.","t":"指摘抨击","lang":"en","cat":"cf","id":"cf-animadvert"},{"w":"objurgate","p":"OB-jur-gate","d":"to berate harshly, chide","c":[["abjure","to renounce"],["adjudicate","to judge a dispute"]],"e":["The coach objurgated the defense at halftime."],"h":"OB-jur-gate: OBject with JURidical fury.","t":"痛斥","lang":"en","cat":"cf","id":"cf-objurgate"},{"w":"expostulate","p":"ik-SPOS-chuh-late","d":"to reason earnestly with someone in protest","c":[["expatiate","to speak at length"],["postulate","to assume as premise"]],"e":["Friends expostulated with him about the risk."],"h":"ex-POSTULate = demand (postulare) someone reconsider.","t":"规劝告诫","lang":"en","cat":"cf","id":"cf-expostulate"},{"w":"remonstrate","p":"rih-MON-strate","d":"to protest, argue in objection ('remonstrate with')","c":[["demonstrate","to show, prove"]],"e":["She remonstrated with the referee."],"h":"RE-monstrate = show back — push your objection at them.","t":"抗议;力劝","lang":"en","cat":"cf","id":"cf-remonstrate"},{"w":"descry","p":"dih-SKRY","d":"to catch sight of from afar; to detect","c":[["decry","to denounce"],["describe","to give an account of"]],"e":["At dawn we descried the coast."],"h":"deScry = eSpy.","t":"远远望见","lang":"en","cat":"cf","id":"cf-descry"},{"w":"arrogate","p":"AIR-uh-gate","d":"to seize or claim without right ('arrogate to oneself')","c":[["abrogate","to repeal (a law)"],["aggregate","to collect into a whole"]],"e":["The office arrogated to itself the power of review."],"h":"ARROgate = ARROgant grab.","t":"僭取;妄称","lang":"en","cat":"cf","id":"cf-arrogate"},{"w":"hieroglyph","p":"HY-ruh-glif","d":"a pictorial character of ancient Egyptian (or any cryptic symbol)","e":["The cartouche held the pharaoh's name in hieroglyphs."],"h":"hiero (sacred) + glyph (carving).","t":"象形文字","lang":"en","cat":"ra","id":"ra-hieroglyph"},{"w":"sepulchre","p":"SEP-ul-kur","d":"a tomb, burial chamber (US: sepulcher); 'whited sepulchre' = hypocrite","e":["They rolled the stone from the sepulchre."],"h":"sepelire = to bury; adj. sepulchral = gloomy, tomb-like.","t":"坟墓","lang":"en","cat":"ra","id":"ra-sepulchre"},{"w":"vestigial","p":"veh-STIJ-ee-ul","d":"remaining as a functionless trace of what once was (vestigial tail, vestigial habit)","e":["The appendix is vestigial; so is the 'cc' in email."],"h":"vestigium = footprint — a leftover track.","t":"退化残留的","lang":"en","cat":"ra","id":"ra-vestigial"},{"w":"carceral","p":"KAR-suh-rul","d":"of prisons or incarceration (the carceral state)","e":["Scholars critique the carceral turn in schooling."],"h":"carcer = prison → inCARCERate.","t":"监狱的","lang":"en","cat":"ra","id":"ra-carceral"},{"w":"diegesis","p":"dy-uh-JEE-sis","d":"the internal world of a story; diegetic sound = heard by the characters","e":["The radio song is diegetic; the swelling strings are not."],"h":"Greek 'narration' — what's inside the narrative frame.","t":"故事内世界;叙境","lang":"en","cat":"ra","id":"ra-diegesis"},{"w":"agora","p":"AG-uh-ruh","d":"the public square/marketplace of a Greek city; any forum","e":["Socrates argued in the agora."],"h":"agoraphobia = fear of the open public square.","t":"古希腊集会广场","lang":"en","cat":"ra","id":"ra-agora"},{"w":"raconteur","p":"rak-on-TUR","d":"a skilled, witty storyteller","e":["A born raconteur, he could stretch a delay into an epic."],"h":"French raconter = to tell.","t":"妙语说书人","lang":"en","cat":"ra","id":"ra-raconteur"},{"w":"promenade","p":"prom-uh-NAHD","d":"a leisurely public walk; a seafront walkway; to stroll","e":["An evening promenade along the boardwalk."],"h":"se promener = to walk oneself (French).","t":"散步;海滨步道","lang":"en","cat":"ra","id":"ra-promenade"},{"w":"precipice","p":"PRESS-ih-piss","d":"a sheer cliff edge; the brink of disaster","e":["The economy stood at the precipice."],"h":"praeceps = headlong — same family as precipitous.","t":"悬崖;险境","lang":"en","cat":"ra","id":"ra-precipice"},{"w":"calico","p":"KAL-ih-koh","d":"plain cotton cloth; (US) a cat with white-orange-black patches","e":["A calico dress; the calico cat dozed on the sill."],"h":"From Calicut, India, where the cloth shipped.","t":"印花棉布;三花猫","lang":"en","cat":"ra","id":"ra-calico"},{"w":"greenhorn","p":"GREEN-horn","d":"an inexperienced newcomer","e":["The trail boss paired each greenhorn with a veteran."],"h":"Young ox with green (new) horns.","t":"生手;雏儿","lang":"en","cat":"ra","id":"ra-greenhorn"},{"w":"palimpsest","p":"PAL-imp-sest","d":"a manuscript scraped and rewritten, older text showing through; anything layered with earlier versions","e":["The city is a palimpsest of empires."],"h":"palin (again) + psestos (scraped).","t":"重写羊皮卷;层叠遗迹","lang":"en","cat":"ra","id":"ra-palimpsest"},{"w":"chiaroscuro","p":"kee-ar-uh-SKOOR-oh","d":"dramatic contrast of light and dark in art","e":["Caravaggio's chiaroscuro carves faces from blackness."],"h":"Italian chiaro (light) + oscuro (dark).","t":"明暗对照法","lang":"en","cat":"ra","id":"ra-chiaroscuro"},{"w":"verdigris","p":"VUR-dih-greess","d":"the green patina on weathered copper/bronze","e":["The statue's verdigris streaked its bronze robes."],"h":"vert de Grèce = 'green of Greece'.","t":"铜绿","lang":"en","cat":"ra","id":"ra-verdigris"},{"w":"gloaming","p":"GLOH-ming","d":"twilight, dusk (poetic)","e":["Fireflies rose in the gloaming."],"h":"Cousin of 'glow' — the low-glow hour.","t":"薄暮","lang":"en","cat":"ra","id":"ra-gloaming"},{"w":"petrichor","p":"PET-rih-kor","d":"the earthy smell after rain on dry ground","e":["The first drops raised petrichor from the dust."],"h":"petra (stone) + ichor (gods' blood).","t":"雨后土香","lang":"en","cat":"ra","id":"ra-petrichor"},{"w":"susurrus","p":"soo-SUR-us","d":"a soft whispering or rustling sound","e":["The susurrus of leaves; a susurrus of gossip."],"h":"Onomatopoeic Latin — say it and hear it.","t":"窸窣低语","lang":"en","cat":"ra","id":"ra-susurrus"},{"w":"scree","p":"SKREE","d":"loose rock debris on a slope","e":["We slid down the scree below the ridge."],"h":"Old Norse skritha = landslide.","t":"山坡碎石","lang":"en","cat":"ra","id":"ra-scree"},{"w":"moraine","p":"muh-RAYN","d":"rock debris deposited by a glacier","e":["The lake pools behind a terminal moraine."],"h":"Glacier's dump pile.","t":"冰碛","lang":"en","cat":"ra","id":"ra-moraine"},{"w":"estuary","p":"ES-choo-air-ee","d":"a river's tidal mouth where fresh and salt water mix","e":["The estuary teems with wading birds."],"h":"aestus = tide.","t":"河口湾","lang":"en","cat":"ra","id":"ra-estuary"},{"w":"isthmus","p":"ISS-mus","d":"a narrow land bridge between two larger landmasses","e":["The Isthmus of Panama joins two continents."],"h":"Land's narrow neck.","t":"地峡","lang":"en","cat":"ra","id":"ra-isthmus"},{"w":"promontory","p":"PROM-un-tor-ee","d":"a high headland jutting into water","e":["A lighthouse crowns the promontory."],"h":"pro (forward) + mont (mountain).","t":"海岬","lang":"en","cat":"ra","id":"ra-promontory"},{"w":"escarpment","p":"ih-SKARP-munt","d":"a long steep cliff or slope, esp. at a plateau edge","e":["The road switchbacks up the escarpment."],"h":"scarp = the steep face itself.","t":"陡崖","lang":"en","cat":"ra","id":"ra-escarpment"},{"w":"grotto","p":"GROT-oh","d":"a small picturesque cave, natural or artificial","e":["A shrine glimmered in the grotto."],"h":"Italian grotta; grotesque = grotto-style painting.","t":"岩穴","lang":"en","cat":"ra","id":"ra-grotto"},{"w":"catacomb","p":"KAT-uh-kohm","d":"an underground burial gallery (usu. plural)","e":["Early Christians met in the Roman catacombs."],"h":"Under-city corridors of the dead.","t":"地下墓穴","lang":"en","cat":"ra","id":"ra-catacomb"},{"w":"ossuary","p":"OSH-oo-air-ee","d":"a container or vault for bones of the dead","e":["The ossuary at Sedlec is built of skulls."],"h":"os = bone (ossify).","t":"藏骨堂","lang":"en","cat":"ra","id":"ra-ossuary"},{"w":"reliquary","p":"REL-ih-kwair-ee","d":"a container for holy relics","e":["A gold reliquary held the saint's fingerbone."],"h":"relic + -ary (holder).","t":"圣物匣","lang":"en","cat":"ra","id":"ra-reliquary"},{"w":"cloister","p":"KLOY-stur","d":"a covered courtyard walk in a monastery; to seclude ('cloistered life')","e":["Monks paced the cloister at dawn; she cloistered herself to write."],"h":"claustrum = enclosed place (claustrophobia).","t":"修道院回廊;隐居","lang":"en","cat":"ra","id":"ra-cloister"},{"w":"nave","p":"NAYV","d":"the central body of a church where the congregation sits","e":["The wedding party processed up the nave."],"h":"navis = ship — the ceiling resembles an inverted hull.","t":"教堂中殿","lang":"en","cat":"ra","id":"ra-nave"},{"w":"apse","p":"APS","d":"the semicircular recess at a church's altar end","e":["Gold mosaics line the apse."],"h":"The rounded head of the cross-shaped plan.","t":"教堂后殿","lang":"en","cat":"ra","id":"ra-apse"},{"w":"portico","p":"POR-tih-koh","d":"a roofed porch supported by columns","e":["They sheltered under the museum's portico."],"h":"porticus → porch.","t":"柱廊门厅","lang":"en","cat":"ra","id":"ra-portico"},{"w":"colonnade","p":"kol-uh-NAYD","d":"a row of columns supporting a roof or entablature","e":["Bernini's colonnade embraces St. Peter's Square."],"h":"column + -ade (row, as in arcade).","t":"列柱廊","lang":"en","cat":"ra","id":"ra-colonnade"},{"w":"parapet","p":"PAIR-uh-pet","d":"a low protective wall at a roof, bridge, or trench edge","e":["Snipers kept their heads below the parapet."],"h":"para (protect) + petto (chest) — chest-high wall.","t":"矮护墙;胸墙","lang":"en","cat":"ra","id":"ra-parapet"},{"w":"rampart","p":"RAM-part","d":"a defensive embankment or wall around a fort/city","e":["O'er the ramparts we watched (the anthem)."],"h":"The broad earthen wall; the parapet sits on top.","t":"城垣壁垒","lang":"en","cat":"ra","id":"ra-rampart"},{"w":"turret","p":"TUR-it","d":"a small tower on a building; a rotating gun mount","e":["A fairy-tale turret; the tank's turret swung round."],"h":"Little tour (tower).","t":"角楼;炮塔","lang":"en","cat":"ra","id":"ra-turret"},{"w":"portcullis","p":"port-KUL-iss","d":"the heavy grated gate dropped to seal a castle entrance","e":["The portcullis crashed down behind them."],"h":"porte coulisse = sliding door (French).","t":"城堡吊闸","lang":"en","cat":"ra","id":"ra-portcullis"},{"w":"charnel","p":"CHAR-nul","d":"associated with death and corpses ('charnel house' = bone repository)","e":["A charnel stench hung over the field."],"h":"carnis = flesh (carnal, carnage).","t":"停尸藏骨的","lang":"en","cat":"ra","id":"ra-charnel"},{"w":"bier","p":"BEER","d":"the stand or frame on which a coffin or corpse is carried","e":["Six bearers lifted the bier."],"h":"Same root as 'bear' (carry). Pronounced like the drink.","t":"灵柩架","lang":"en","cat":"ra","id":"ra-bier"},{"w":"pall","p":"PAWL","d":"the cloth over a coffin; a dark covering ('a pall of smoke'); 'cast a pall' = deaden the mood","e":["The verdict cast a pall over the office."],"h":"Pallbearers carry the pall-draped coffin.","t":"柩衣;阴霾","lang":"en","cat":"ra","id":"ra-pall"},{"w":"cortege","p":"kor-TEZH","d":"a solemn procession, esp. funeral; an entourage","e":["The cortege wound toward the cemetery."],"h":"French cortège — the court that follows.","t":"送葬行列","lang":"en","cat":"ra","id":"ra-cortege"},{"w":"dirge","p":"DURJ","d":"a funeral lament; any mournful slow piece","e":["The band slowed the tune into a dirge."],"h":"From Latin 'Dirige' opening the Office of the Dead.","t":"挽歌","lang":"en","cat":"ra","id":"ra-dirge"},{"w":"threnody","p":"THREN-uh-dee","d":"a song or poem of lamentation","e":["Penderecki's 'Threnody to the Victims of Hiroshima.'"],"h":"threnos (wailing) + ode.","t":"哀歌","lang":"en","cat":"ra","id":"ra-threnody"},{"w":"flaneur","p":"flah-NUR","d":"an idle urban stroller-observer (French flâneur)","e":["A flâneur's Paris: cafés, arcades, unhurried eyes."],"h":"Baudelaire's connoisseur of the street.","t":"都市漫游者","lang":"en","cat":"ra","id":"ra-flaneur"},{"w":"dilettante","p":"DIL-uh-tont","d":"a dabbler; one who cultivates an art superficially","e":["A dilettante's bookshelf: fifty openings, no endings."],"h":"Italian dilettare = to delight — pleasure without rigor.","t":"浅尝辄止的票友","lang":"en","cat":"ra","id":"ra-dilettante"},{"w":"gourmand","p":"goor-MAHND","d":"one who loves eating, often to excess (vs. gourmet = refined judge)","e":["A gourmand orders everything; a gourmet orders exactly."],"h":"-mand = quantity; -met = quality.","t":"馋嘴老饕","lang":"en","cat":"ra","id":"ra-gourmand"},{"w":"sommelier","p":"sum-ul-YAY","d":"a restaurant's wine steward","e":["The sommelier suggested a dry Riesling."],"h":"Originally the pack-animal driver who hauled provisions.","t":"侍酒师","lang":"en","cat":"ra","id":"ra-sommelier"},{"w":"amanuensis","p":"uh-man-yoo-EN-sis","d":"a literary assistant who takes dictation or copies manuscripts","e":["Milton, blind, dictated to his amanuensis daughters."],"h":"a manu = by hand — a hired hand for words.","t":"笔录助手","lang":"en","cat":"ra","id":"ra-amanuensis"},{"w":"factotum","p":"fak-TOH-tum","d":"a do-everything assistant, general servant","e":["Office factotum: fixer of printers, finder of keys."],"h":"fac totum = 'do everything!' (Latin).","t":"打杂总管","lang":"en","cat":"ra","id":"ra-factotum"},{"w":"majordomo","p":"may-jur-DOH-moh","d":"the chief steward of a great household; a top aide","e":["The majordomo ran the estate like a small state."],"h":"major domus = chief of the house.","t":"大管家","lang":"en","cat":"ra","id":"ra-majordomo"},{"w":"doyen","p":"DOY-en","d":"the most senior, respected member of a field (fem. doyenne)","e":["The doyen of Sinologists opened the conference."],"h":"Same root as 'dean'.","t":"元老泰斗","lang":"en","cat":"ra","id":"ra-doyen"},{"w":"ingenue","p":"AN-zhuh-noo","d":"an innocent young woman, esp. as a stage/film type (ingénue)","e":["She was cast as the ingénue opposite a jaded star."],"h":"Feminine of ingenuous (artless).","t":"天真少女(角色)","lang":"en","cat":"ra","id":"ra-ingenue"},{"w":"impresario","p":"im-pruh-SAR-ee-oh","d":"an organizer/promoter of concerts, opera, spectacles","e":["The impresario booked the tenor for ten cities."],"h":"Italian impresa = enterprise.","t":"演出经纪人","lang":"en","cat":"ra","id":"ra-impresario"},{"w":"autodidact","p":"AW-toh-dy-dakt","d":"a self-taught person","e":["An autodidact with a library card and no diploma."],"h":"auto (self) + didact (teach, as in didactic).","t":"自学成才者","lang":"en","cat":"ra","id":"ra-autodidact"},{"w":"mountebank","p":"MOWN-tuh-bank","d":"a charlatan, quack seller (orig. one who mounts a bench to hawk cures)","e":["A mountebank hawking miracle tonics."],"h":"monta in banco = climbs on the bench (Italian).","t":"江湖郎中","lang":"en","cat":"ra","id":"ra-mountebank"},{"w":"charlatan","p":"SHAR-luh-tun","d":"a fraud claiming expertise, esp. medical","e":["Charlatans thrive where credentials can't be checked."],"h":"Italian ciarlare = to chatter.","t":"冒牌专家","lang":"en","cat":"ra","id":"ra-charlatan"},{"w":"grifter","p":"GRIF-tur","d":"a small-time con artist (US slang)","e":["A grifter's charm lasts exactly one transaction."],"h":"grift = graft (con) gone mobile.","t":"小骗子","lang":"en","cat":"ra","id":"ra-grifter"},{"w":"shill","p":"SHIL","d":"a planted accomplice who fakes enthusiasm; to promote deceptively","e":["The 'random winner' was a shill; he shills for the brand online."],"h":"The fake customer who bids first.","t":"托儿","lang":"en","cat":"ra","id":"ra-shill"},{"w":"crepuscular","p":"krih-PUS-kyuh-lur","d":"of twilight; (animals) active at dawn/dusk","e":["Deer are crepuscular; so, in August, am I."],"h":"crepusculum = twilight.","t":"薄暮的;晨昏活动的","lang":"en","cat":"ra","id":"ra-crepuscular"},{"w":"lambent","p":"LAM-bunt","d":"softly glowing or flickering over a surface; lightly brilliant (wit)","e":["Lambent moonlight on the water; lambent irony."],"h":"lambere = to lick — flame licking a surface.","t":"轻柔闪动的","lang":"en","cat":"ra","id":"ra-lambent"},{"w":"coruscating","p":"KOR-uh-skay-ting","d":"sparkling, flashing; (of wit/criticism) brilliantly severe","e":["A coruscating review left no paragraph unscorched."],"h":"coruscare = to glitter.","t":"光芒四射的;犀利的","lang":"en","cat":"ra","id":"ra-coruscating"},{"w":"refulgent","p":"rih-FUL-junt","d":"radiant, shining brilliantly","e":["Refulgent in gold, the icon lit the chapel."],"h":"re + fulgere (flash) — fulgurant lightning family.","t":"灿烂辉煌的","lang":"en","cat":"ra","id":"ra-refulgent"},{"w":"tenebrous","p":"TEN-uh-brus","d":"dark, shadowy, obscure","e":["A tenebrous stairwell; Tenebrism = shadow-heavy painting."],"h":"tenebrae = darkness.","t":"幽暗的","lang":"en","cat":"ra","id":"ra-tenebrous"},{"w":"stygian","p":"STIJ-ee-un","d":"pitch-black, hellishly dark","e":["Stygian gloom of the flooded mine."],"h":"Of the Styx, river of the underworld.","t":"漆黑如冥河的","lang":"en","cat":"ra","id":"ra-stygian"},{"w":"penumbra","p":"puh-NUM-bruh","d":"the half-shadow at a shadow's edge; a surrounding fringe zone (also legal)","e":["Rights found in the penumbra of the Constitution."],"h":"paene (almost) + umbra (shadow).","t":"半影;边缘地带","lang":"en","cat":"ra","id":"ra-penumbra"},{"w":"gossamer","p":"GOSS-uh-mur","d":"filmy cobweb threads; anything delicately insubstantial","e":["Gossamer promises; a gossamer scarf."],"h":"'Goose summer' — floating webs of warm autumn.","t":"游丝般轻薄的","lang":"en","cat":"ra","id":"ra-gossamer"},{"w":"diaphanous","p":"dy-AF-uh-nus","d":"so fine as to be translucent (fabric)","e":["Diaphanous curtains breathed with the wind."],"h":"dia (through) + phainein (show).","t":"薄透的","lang":"en","cat":"ra","id":"ra-diaphanous"},{"w":"sylvan","p":"SIL-vun","d":"of woods and forests, wooded","e":["A sylvan path behind the chapel."],"h":"silva = forest (Pennsylvania = Penn's woods).","t":"林间的","lang":"en","cat":"ra","id":"ra-sylvan"},{"w":"bucolic","p":"byoo-KOL-ik","d":"charmingly rural, pastoral","e":["A bucolic valley of hayricks and low stone walls."],"h":"boukolos = cowherd.","t":"田园牧歌的","lang":"en","cat":"ra","id":"ra-bucolic"},{"w":"halcyon","p":"HAL-see-un","d":"idyllically calm and prosperous ('halcyon days')","e":["The halcyon days before the crash."],"h":"The kingfisher said to calm the winter sea to nest.","t":"安宁美好的","lang":"en","cat":"ra","id":"ra-halcyon"},{"w":"antediluvian","p":"an-tee-dih-LOO-vee-un","d":"hopelessly antiquated; before the biblical Flood","e":["An antediluvian fax machine guarded the office."],"h":"ante (before) + diluvium (flood).","t":"老掉牙的","lang":"en","cat":"ra","id":"ra-antediluvian"},{"w":"lugubrious","p":"luh-GOO-bree-us","d":"exaggeratedly mournful, gloomy","e":["A lugubrious basset hound expression."],"h":"lugere = to mourn — but with theatrical excess.","t":"愁容惨淡的","lang":"en","cat":"ra","id":"ra-lugubrious"},{"w":"saturnine","p":"SAT-ur-nine","d":"gloomy and brooding in temperament or look","e":["A saturnine detective who smiled once per case."],"h":"Born under Saturn = cold, slow humor; opposite of jovial (Jove).","t":"阴沉的","lang":"en","cat":"ra","id":"ra-saturnine"},{"w":"mercurial","p":"mur-KYOOR-ee-ul","d":"unpredictably changeable in mood","e":["A mercurial boss: sunshine at nine, storm by noon."],"h":"Like quicksilver (mercury) — never still.","t":"阴晴不定的","lang":"en","cat":"ra","id":"ra-mercurial"},{"w":"liminal","p":"LIM-ih-nul","d":"of a threshold or transitional in-between state","e":["Airports at 3 a.m. are liminal spaces."],"h":"limen = threshold (subliminal = below it).","t":"阈限的;临界过渡的","lang":"en","cat":"ra","id":"ra-liminal"},{"w":"interstitial","p":"in-tur-STISH-ul","d":"occupying the gaps between things","e":["Interstitial tissue; interstitial ads between levels."],"h":"inter (between) + sistere (stand).","t":"间隙的","lang":"en","cat":"ra","id":"ra-interstitial"},{"w":"chthonic","p":"THON-ik","d":"of the underworld, dwelling beneath the earth","e":["Chthonic deities received black offerings at night."],"h":"khthon = earth; the ch- is silent.","t":"冥界地下的","lang":"en","cat":"ra","id":"ra-chthonic"},{"w":"sidereal","p":"sy-DEER-ee-ul","d":"of the stars; measured by the stars (sidereal day)","e":["A sidereal day is four minutes short of a solar one."],"h":"sidus = star (consider = consult the stars).","t":"恒星的","lang":"en","cat":"ra","id":"ra-sidereal"},{"w":"empyrean","p":"em-py-REE-un","d":"the highest heaven; the sky's vault; celestially exalted","e":["The lark vanished into the empyrean."],"h":"empyros = in fire — the sphere of pure flame.","t":"九霄;苍穹","lang":"en","cat":"ra","id":"ra-empyrean"},{"w":"friable","p":"FRY-uh-bul","d":"easily crumbled (soil, rock, asbestos)","e":["Friable loam is a gardener's dream and asbestos's danger."],"h":"friare = crumble. Not 'fryable'.","t":"松脆易碎的","lang":"en","cat":"ra","id":"ra-friable"},{"w":"brackish","p":"BRAK-ish","d":"slightly salty (water); unpleasantly stale","e":["Brackish lagoons where the river meets the sea."],"h":"Dutch brak = salty.","t":"半咸的","lang":"en","cat":"ra","id":"ra-brackish"},{"w":"mottled","p":"MOT-uld","d":"marked with irregular patches of color","e":["Mottled bananas; light mottled by leaves."],"h":"mote-speckled.","t":"斑驳的","lang":"en","cat":"ra","id":"ra-mottled"},{"w":"dappled","p":"DAP-uld","d":"marked with soft spots of light or color (dappled shade, a dappled grey horse)","e":["Dappled sunlight moved across the path."],"h":"Hopkins: 'Glory be to God for dappled things.'","t":"光影斑驳的","lang":"en","cat":"ra","id":"ra-dappled"},{"w":"piebald","p":"PY-bawld","d":"with large black-and-white patches (horses)","e":["A piebald pony grazed the verge."],"h":"magPIE + BALD (white patch) = magpie-colored.","t":"黑白花斑的","lang":"en","cat":"ra","id":"ra-piebald"},{"w":"brindled","p":"BRIN-duld","d":"streaked with darker color (dogs, cats, cattle)","e":["A brindled boxer with tiger-faint stripes."],"h":"Brindle = the tawny tiger-streak coat.","t":"虎斑纹的","lang":"en","cat":"ra","id":"ra-brindled"},{"w":"roan","p":"ROHN","d":"(of horses) coat evenly mixed with white hairs (strawberry roan, blue roan)","e":["She rode a red roan mare."],"h":"Frosted coat — colored base, white sprinkle.","t":"沙毛色的(马)","lang":"en","cat":"ra","id":"ra-roan"},{"w":"brocade","p":"broh-KAYD","d":"rich fabric with raised woven patterns, often gold/silver","e":["A brocade robe stiff with dragons."],"h":"broccare = to embroider with bosses.","t":"织锦","lang":"en","cat":"ra","id":"ra-brocade"},{"w":"damask","p":"DAM-usk","d":"reversible patterned weave (tablecloths, wallpaper); a rose; patterned steel","e":["White damask napkins; a damascened blade."],"h":"From Damascus, the weaving hub.","t":"提花缎纹布","lang":"en","cat":"ra","id":"ra-damask"},{"w":"muslin","p":"MUZ-lin","d":"fine plain-woven cotton","e":["Strain the stock through muslin."],"h":"From Mosul, Iraq.","t":"平纹细布","lang":"en","cat":"ra","id":"ra-muslin"},{"w":"gingham","p":"GING-um","d":"checked cotton cloth (picnic-tablecloth pattern)","e":["A gingham dress out of a farm postcard."],"h":"Malay genggang = striped.","t":"方格棉布","lang":"en","cat":"ra","id":"ra-gingham"},{"w":"herringbone","p":"HAIR-ing-bohn","d":"a zigzag V-pattern (tweed, parquet, brickwork)","e":["A herringbone jacket and herringbone floors."],"h":"Looks like a herring's skeleton.","t":"人字纹","lang":"en","cat":"ra","id":"ra-herringbone"},{"w":"houndstooth","p":"HOWNDZ-tooth","d":"a jagged four-pointed check pattern on cloth","e":["A houndstooth blazer sharp enough to bite."],"h":"Each check is a fang.","t":"千鸟格","lang":"en","cat":"ra","id":"ra-houndstooth"},{"w":"seersucker","p":"SEER-suk-ur","d":"puckered striped summer cotton","e":["Seersucker suits survive southern Augusts."],"h":"Persian shir o shakar = 'milk and sugar' (smooth & rough stripes).","t":"泡泡纱","lang":"en","cat":"ra","id":"ra-seersucker"},{"w":"cairn","p":"KAIRN","d":"a stack of stones as trail marker or memorial","e":["Follow the cairns above the tree line."],"h":"Gaelic carn = heap of stones.","t":"石堆路标","lang":"en","cat":"ra","id":"ra-cairn"},{"w":"tor","p":"TOR","d":"a rocky outcrop crowning a hill (esp. Dartmoor)","e":["Granite tors punctuate the moor."],"h":"Two letters, one crag.","t":"山顶突岩","lang":"en","cat":"ra","id":"ra-tor"},{"w":"fen","p":"FEN","d":"low marshy land fed by groundwater (the Fens of E. England)","e":["Eels and reeds rule the fen."],"h":"Fen–marsh–bog–swamp: all wet, differently fed.","t":"沼泽湿地","lang":"en","cat":"ra","id":"ra-fen"},{"w":"heath","p":"HEETH","d":"open uncultivated land with heather and scrub","e":["Lear raged on the heath."],"h":"Home of heather — and of the heathen (heath-dweller).","t":"石楠荒原","lang":"en","cat":"ra","id":"ra-heath"},{"w":"hinterland","p":"HIN-tur-land","d":"the remote inland region behind a coast/city; a port's service area","e":["The port grew rich on its cotton hinterland."],"h":"German 'behind-land'.","t":"腹地","lang":"en","cat":"ra","id":"ra-hinterland"},{"w":"entrepot","p":"ON-truh-poh","d":"a trans-shipment trade hub (entrepôt) where goods are imported and re-exported","e":["Singapore rose as an entrepôt."],"h":"entre (between) + pot (deposit) — goods parked between voyages.","t":"转口港","lang":"en","cat":"ra","id":"ra-entrepot"},{"w":"caravanserai","p":"kair-uh-VAN-suh-rye","d":"a roadside inn with a central courtyard on caravan routes","e":["Camels knelt in the caravanserai's court."],"h":"caravan + sarai (palace/inn, Persian).","t":"商队客栈","lang":"en","cat":"ra","id":"ra-caravanserai"},{"w":"weir","p":"WEER","d":"a low dam across a river regulating flow; a fish trap","e":["Salmon leapt at the weir."],"h":"Sounds like 'we're' — a wall where water wears over.","t":"拦河堰","lang":"en","cat":"ra","id":"ra-weir"},{"w":"prow","p":"PROW","d":"the pointed front of a ship","e":["Spray burst over the prow."],"h":"Prow = fore; stern = aft; rhymes with 'now'.","t":"船头","lang":"en","cat":"ra","id":"ra-prow"},{"w":"gunwale","p":"GUN-ul","d":"the top edge of a boat's side (pron. 'gunnel'); 'full to the gunwales' = crammed","e":["Grip the gunwale as you board."],"h":"The wale (plank) where guns rested.","t":"船舷上缘","lang":"en","cat":"ra","id":"ra-gunwale"},{"w":"keel","p":"KEEL","d":"the spine along a hull's bottom; 'on an even keel' = stable; 'keel over' = capsize/collapse","e":["The keel scraped the sandbar."],"h":"The boat's backbone.","t":"龙骨","lang":"en","cat":"ra","id":"ra-keel"},{"w":"sepulchral","p":"suh-PUL-krul","d":"tomb-like: hollow, gloomy, funereal (voice, silence)","e":["He announced dinner in sepulchral tones."],"h":"Adjective of sepulchre.","t":"阴森如墓的","lang":"en","cat":"ra","id":"ra-sepulchral"},{"w":"wraith","p":"RAYTH","d":"a ghost, esp. seen as an omen; a pale wisp of a person","e":["A wraith of mist crossed the road."],"h":"Scots ghost-word; wraith-thin.","t":"幽灵","lang":"en","cat":"ra","id":"ra-wraith"},{"w":"revenant","p":"REV-uh-nunt","d":"one who returns from the dead or from long absence","e":["He walked in like a revenant from the merger wars."],"h":"French revenir = to come back.","t":"还魂归来者","lang":"en","cat":"ra","id":"ra-revenant"},{"w":"simulacrum","p":"sim-yuh-LAY-krum","d":"an image or imitation, esp. a hollow or deceptive one (pl. simulacra)","e":["The resort is a simulacrum of Venice."],"h":"simulare = to feign.","t":"拟像;空壳仿品","lang":"en","cat":"ra","id":"ra-simulacrum"},{"w":"lodestar","p":"LOHD-star","d":"a guiding star (Polaris); a guiding principle or person","e":["Clarity was her lodestar as an editor."],"h":"lode = way, course (lodestone points the way).","t":"北极星;指路明灯","lang":"en","cat":"ra","id":"ra-lodestar"},{"w":"zephyr","p":"ZEF-ur","d":"a gentle west wind; a light breeze","e":["A zephyr stirred the curtains."],"h":"Zephyrus, god of the west wind.","t":"和煦微风","lang":"en","cat":"ra","id":"ra-zephyr"},{"w":"maelstrom","p":"MAYL-strum","d":"a violent whirlpool; a chaotic turmoil","e":["Sucked into the maelstrom of the news cycle."],"h":"Dutch malen (grind) + stroom (stream).","t":"大漩涡;乱局","lang":"en","cat":"ra","id":"ra-maelstrom"},{"w":"doldrums","p":"DOHL-drumz","d":"the windless equatorial belt; a slump of inactivity or gloom ('in the doldrums')","e":["Sales sat in the doldrums all spring."],"h":"Becalmed sailors named the mood after the zone.","t":"赤道无风带;低迷期","lang":"en","cat":"ra","id":"ra-doldrums"},{"w":"argot","p":"AR-goh","d":"the jargon/slang of a group, esp. insiders or the underworld","e":["Fluent in the argot of traders."],"h":"French thieves' cant; t silent.","t":"行话黑话","lang":"en","cat":"ra","id":"ra-argot"},{"w":"apocrypha","p":"uh-POK-rih-fuh","d":"writings of doubtful authenticity; apocryphal = (of a story) probably untrue","e":["The Einstein quote is apocryphal."],"h":"apo + kryptein = hidden away (non-canonical).","t":"伪经;存疑之作","lang":"en","cat":"ra","id":"ra-apocrypha"},{"w":"ephemera","p":"ih-FEM-ur-uh","d":"short-lived things; collectible throwaway paper (tickets, posters)","e":["A shoebox of wartime ephemera."],"h":"epi + hemera (day) = lasting a day (ephemeral).","t":"朝生暮死之物;纸品藏品","lang":"en","cat":"ra","id":"ra-ephemera"},{"w":"marginalia","p":"mar-jih-NAY-lee-uh","d":"notes written in a book's margins","e":["Coleridge's marginalia outshine some of his essays."],"h":"Margin + -alia (things).","t":"页边批注","lang":"en","cat":"ra","id":"ra-marginalia"},{"w":"incunabula","p":"in-kyoo-NAB-yuh-luh","d":"books printed before 1501; earliest stages of anything (sing. incunabulum)","e":["The library vault holds twelve incunabula."],"h":"Latin 'swaddling clothes' — printing in its cradle.","t":"摇篮本(1501年前印本)","lang":"en","cat":"ra","id":"ra-incunabula"},{"w":"colophon","p":"KOL-uh-fon","d":"a publisher's emblem or the production note at a book's end","e":["The colophon names the typeface and paper."],"h":"Greek 'finishing touch'.","t":"版权页;社标","lang":"en","cat":"ra","id":"ra-colophon"},{"w":"frontispiece","p":"FRUN-tis-peess","d":"the illustration facing a book's title page","e":["A engraved portrait serves as frontispiece."],"h":"The face (front) before the text.","t":"卷首插图","lang":"en","cat":"ra","id":"ra-frontispiece"},{"w":"vellum","p":"VEL-um","d":"fine parchment from calfskin; smooth heavy paper","e":["The charter survives on vellum."],"h":"Same root as veal (calf).","t":"犊皮纸","lang":"en","cat":"ra","id":"ra-vellum"},{"w":"quire","p":"KWY-ur","d":"a gathering of folded sheets in bookbinding; 24-25 sheets of paper","e":["The scribe ruled each quire before writing."],"h":"Homophone of choir; a 'choir' of pages bound together.","t":"一帖书页","lang":"en","cat":"ra","id":"ra-quire"},{"w":"albino","p":"al-BY-noh","d":"a person/animal lacking pigment (white hair/skin, pink eyes); adj. albinism","e":["An albino squirrel lives in the park."],"h":"albus = white (album = white tablet).","t":"白化病人;白化动物","lang":"en","cat":"ev","id":"ev-albino"},{"w":"cowlick","p":"KOW-lik","d":"a tuft of hair that grows in a different direction and won't lie flat","e":["No gel defeats his cowlick."],"h":"As if a cow licked your hair upward.","t":"翘起的呆毛","lang":"en","cat":"ev","id":"ev-cowlick"},{"w":"widow's peak","p":"WID-ohz peek","d":"a V-shaped point of hairline in the middle of the forehead","e":["Dracula's widow's peak is part of the costume."],"h":"Folklore: the V foretold early widowhood.","t":"美人尖","lang":"en","cat":"ev","id":"ev-widow's peak"},{"w":"hangnail","p":"HANG-nayl","d":"a torn sliver of skin beside a fingernail","e":["She winced at the hangnail catching her glove."],"h":"Not the nail itself — the skin flap beside it.","t":"指甲倒刺","lang":"en","cat":"ev","id":"ev-hangnail"},{"w":"charley horse","p":"CHAR-lee horss","d":"a sudden painful muscle cramp, esp. in the calf/thigh (US)","e":["A charley horse woke him at 3 a.m."],"h":"US baseball slang; UK says 'dead leg' for the bruise kind.","t":"腿部抽筋","lang":"en","cat":"ev","id":"ev-charley horse"},{"w":"goosebumps","p":"GOOSS-bumps","d":"skin bumps from cold or thrill (UK: gooseflesh, goose pimples)","e":["The chorus gave me goosebumps."],"h":"Skin like a plucked goose.","t":"鸡皮疙瘩","lang":"en","cat":"ev","id":"ev-goosebumps"},{"w":"pins and needles","p":"pinz und NEE-dulz","d":"the tingling of a limb 'waking up'; 'on pins and needles' = anxiously waiting","e":["My foot's asleep — pins and needles."],"h":"Two meanings: tingle, or suspense.","t":"手脚发麻;如坐针毡","lang":"en","cat":"ev","id":"ev-pins and needles"},{"w":"splinter","p":"SPLIN-tur","d":"a sliver of wood/glass stuck in the skin; to split into slivers","e":["Tweezers got the splinter out."],"h":"Also splinter group = breakaway faction.","t":"扎进皮肤的刺","lang":"en","cat":"ev","id":"ev-splinter"},{"w":"blister","p":"BLIS-tur","d":"a fluid bubble on skin from friction/burns","e":["New boots, two blisters."],"h":"Blister → blistering pace/criticism = scorching.","t":"水泡","lang":"en","cat":"ev","id":"ev-blister"},{"w":"scab","p":"SKAB","d":"the crust over a healing wound; (insult) a strike-breaker","e":["Don't pick the scab."],"h":"Two senses: wound crust; union traitor.","t":"伤疤痂;工贼","lang":"en","cat":"ev","id":"ev-scab"},{"w":"welt","p":"WELT","d":"a raised red mark from a blow, lash, or bite","e":["The cane left welts."],"h":"Raised like a seam (shoe welt = the raised stitched rim).","t":"鞭痕肿条","lang":"en","cat":"ev","id":"ev-welt"},{"w":"hives","p":"HYVZ","d":"itchy raised patches from an allergic reaction (urticaria)","e":["Shellfish gives him hives."],"h":"Always plural for the rash.","t":"荨麻疹","lang":"en","cat":"ev","id":"ev-hives"},{"w":"stye","p":"STY","d":"a red painful bump on the eyelid (blocked gland)","e":["A stye made her wink all week."],"h":"Pigsty on the eye.","t":"麦粒肿(针眼)","lang":"en","cat":"ev","id":"ev-stye"},{"w":"canker sore","p":"KANG-kur sor","d":"a small mouth ulcer inside lips/cheeks (US; UK: mouth ulcer)","e":["Citrus stings a canker sore."],"h":"Cold sore = outside (virus); canker = inside.","t":"口腔溃疡","lang":"en","cat":"ev","id":"ev-canker sore"},{"w":"dandruff","p":"DAN-druf","d":"flakes of dead scalp skin","e":["A shampoo for dandruff."],"h":"White flecks on dark sweaters.","t":"头皮屑","lang":"en","cat":"ev","id":"ev-dandruff"},{"w":"lisp","p":"LISP","d":"pronouncing s/z like 'th'; to speak so","e":["He outgrew his lisp by ten."],"h":"The word demonstrates the problem.","t":"咬舌音;大舌头","lang":"en","cat":"ev","id":"ev-lisp"},{"w":"squint","p":"SKWINT","d":"to narrow the eyes (sun, small print); (UK n.) crossed eyes","e":["She squinted at the horizon."],"h":"Squinting at screens all day.","t":"眯眼;斜视","lang":"en","cat":"ev","id":"ev-squint"},{"w":"freckle","p":"FREK-ul","d":"small brown sun-induced spots on skin","e":["Summer brings out her freckles."],"h":"Freckles fade; moles don't.","t":"雀斑","lang":"en","cat":"ev","id":"ev-freckle"},{"w":"birthmark","p":"BURTH-mark","d":"a skin mark present from birth","e":["A port-wine birthmark on his wrist."],"h":"Mole, freckle, birthmark — natives distinguish all three.","t":"胎记","lang":"en","cat":"ev","id":"ev-birthmark"},{"w":"dimple","p":"DIM-pul","d":"a small hollow in cheek/chin, esp. when smiling","e":["Her smile shows dimples."],"h":"Also dimples on a golf ball.","t":"酒窝","lang":"en","cat":"ev","id":"ev-dimple"},{"w":"grout","p":"GROWT","d":"the filler paste between tiles; to fill with it","e":["The shower needs the grout scrubbed."],"h":"White lines between bathroom tiles.","t":"瓷砖填缝剂","lang":"en","cat":"ev","id":"ev-grout"},{"w":"caulk","p":"KAWK","d":"waterproof sealant for seams; to seal with it","e":["Caulk around the tub once a year."],"h":"Grout between tiles; caulk in the corner joints.","t":"密封胶","lang":"en","cat":"ev","id":"ev-caulk"},{"w":"stud","p":"STUD","d":"a vertical timber inside a wall (find one to hang shelves); also an earring post","e":["The stud finder beeped over the drywall."],"h":"Wall's skeleton, hidden behind drywall.","t":"墙内立柱;耳钉","lang":"en","cat":"ev","id":"ev-stud"},{"w":"drywall","p":"DRY-wawl","d":"plasterboard wall panels (UK: plasterboard)","e":["He patched the drywall after moving the TV."],"h":"The wall you can punch through in movies.","t":"石膏板墙","lang":"en","cat":"ev","id":"ev-drywall"},{"w":"baseboard","p":"BAYSS-bord","d":"the trim board along the wall's bottom (UK: skirting board)","e":["Dust collects on the baseboards."],"h":"Where wall meets floor.","t":"踢脚线","lang":"en","cat":"ev","id":"ev-baseboard"},{"w":"banister","p":"BAN-ih-stur","d":"the stair handrail (and its posts)","e":["Kids slide down the banister."],"h":"Grip the banister; newel = the big end post.","t":"楼梯扶手","lang":"en","cat":"ev","id":"ev-banister"},{"w":"stoop","p":"STOOP","d":"the front steps of a house (esp. NYC); also to bend down","e":["Neighbors chat on the stoop."],"h":"Dutch stoep — Brooklyn stoop culture.","t":"门前台阶","lang":"en","cat":"ev","id":"ev-stoop"},{"w":"awning","p":"AW-ning","d":"a canvas roof over a window or storefront","e":["We waited out the rain under an awning."],"h":"Shop's fabric eyebrow.","t":"遮阳篷","lang":"en","cat":"ev","id":"ev-awning"},{"w":"gutter","p":"GUT-ur","d":"the roof channel for rainwater; the street edge channel; 'mind in the gutter'","e":["Clean the gutters before fall."],"h":"Roof gutter → downspout → street gutter.","t":"檐槽;街边水沟","lang":"en","cat":"ev","id":"ev-gutter"},{"w":"downspout","p":"DOWN-spowt","d":"the vertical pipe carrying gutter water down (UK: drainpipe)","e":["The downspout empties by the roses."],"h":"Gutter's vertical partner.","t":"落水管","lang":"en","cat":"ev","id":"ev-downspout"},{"w":"outlet","p":"OWT-let","d":"a wall socket for plugs (US; UK: socket); also a retail outlet, an emotional outlet","e":["The café has an outlet by every table."],"h":"Three senses: power, shopping, venting.","t":"插座;出路","lang":"en","cat":"ev","id":"ev-outlet"},{"w":"power strip","p":"POW-ur strip","d":"a multi-socket extension block (UK: extension lead)","e":["The desk hides a power strip."],"h":"One plug, six sockets.","t":"插线板","lang":"en","cat":"ev","id":"ev-power strip"},{"w":"extension cord","p":"ik-STEN-shun kord","d":"a long flexible power cable","e":["Run an extension cord to the porch."],"h":"US cord = UK lead.","t":"延长线","lang":"en","cat":"ev","id":"ev-extension cord"},{"w":"duct tape","p":"DUKT tayp","d":"strong silver cloth tape; the universal fix","e":["Duct tape holds the bumper on."],"h":"'Duct tape fixes everything but ducts.'","t":"强力布基胶带","lang":"en","cat":"ev","id":"ev-duct tape"},{"w":"rind","p":"RYND","d":"the tough outer skin of melon, citrus, bacon, cheese","e":["Candied orange rind."],"h":"Rind (tough) vs peel (general) vs zest (flavor layer).","t":"厚果皮;硬外皮","lang":"en","cat":"ev","id":"ev-rind"},{"w":"pith","p":"PITH","d":"the white bitter layer under citrus peel; the essence ('pithy remark')","e":["Avoid the pith when zesting."],"h":"Bitter white core → pithy = boiled to essence.","t":"柑橘白瓤;精髓","lang":"en","cat":"ev","id":"ev-pith"},{"w":"zest","p":"ZEST","d":"grated citrus peel's colored outer layer; keen enjoyment ('zest for life')","e":["Add lemon zest, not juice."],"h":"Flavor's spark, literal and figurative.","t":"柑橘皮屑;兴致","lang":"en","cat":"ev","id":"ev-zest"},{"w":"husk","p":"HUSK","d":"the dry outer covering of corn/seeds; to strip it","e":["We husked corn on the porch."],"h":"Husky voice = dry as husks.","t":"外壳苞叶","lang":"en","cat":"ev","id":"ev-husk"},{"w":"kernel","p":"KUR-nul","d":"the edible inner seed; a corn grain; a small core ('kernel of truth'); an OS core","e":["Popcorn is exploded kernels."],"h":"Homophone of colonel.","t":"果仁;玉米粒;核心","lang":"en","cat":"ev","id":"ev-kernel"},{"w":"gristle","p":"GRIS-ul","d":"tough chewy cartilage in meat","e":["He trimmed the gristle off the steak."],"h":"gristly ≠ grisly ≠ grizzly.","t":"肉里的脆骨筋","lang":"en","cat":"ev","id":"ev-gristle"},{"w":"giblets","p":"JIB-lits","d":"a bird's edible innards (heart, liver, gizzard, neck) bagged inside a turkey","e":["Remove the giblets before roasting."],"h":"The paper bag surprise inside the Thanksgiving bird.","t":"禽类内脏杂碎","lang":"en","cat":"ev","id":"ev-giblets"},{"w":"marrow","p":"MAIR-oh","d":"the soft tissue inside bones; 'to the marrow' = utterly; (UK) a squash","e":["Roasted marrow bones on toast."],"h":"Chilled to the marrow.","t":"骨髓","lang":"en","cat":"ev","id":"ev-marrow"},{"w":"brisket","p":"BRIS-kit","d":"beef from the breast; the barbecue cut","e":["Texas brisket smokes twelve hours."],"h":"The brisket point of BBQ pride.","t":"牛胸肉","lang":"en","cat":"ev","id":"ev-brisket"},{"w":"drumstick","p":"DRUM-stik","d":"a chicken/turkey leg; a drummer's stick","e":["Kids fight over the drumsticks."],"h":"The leg looks like the stick.","t":"鸡腿;鼓槌","lang":"en","cat":"ev","id":"ev-drumstick"},{"w":"colander","p":"KOL-un-dur","d":"a perforated bowl for draining pasta/vegetables","e":["Drain the penne in the colander."],"h":"Colander drains; sieve/strainer sifts finer.","t":"沥水篮","lang":"en","cat":"ev","id":"ev-colander"},{"w":"ladle","p":"LAY-dul","d":"a deep long-handled spoon for soup; to serve with it","e":["Ladle the stew over rice."],"h":"Also 'ladle out praise/money'.","t":"长柄汤勺","lang":"en","cat":"ev","id":"ev-ladle"},{"w":"spatula","p":"SPACH-uh-luh","d":"a flat flipper/scraper for cooking","e":["Flip the pancakes with a spatula."],"h":"US spatula = flipper; UK fish slice.","t":"锅铲","lang":"en","cat":"ev","id":"ev-spatula"},{"w":"whisk","p":"WISK","d":"a looped-wire beater; to beat; to move swiftly ('whisked away')","e":["Whisk the eggs until foamy."],"h":"Kitchen tool and swift verb.","t":"打蛋器","lang":"en","cat":"ev","id":"ev-whisk"},{"w":"tongs","p":"TAWNGZ","d":"a two-armed gripping tool (salad, BBQ, ice)","e":["Turn the ribs with tongs."],"h":"Always plural, like scissors.","t":"食品夹","lang":"en","cat":"ev","id":"ev-tongs"},{"w":"sieve","p":"SIV","d":"a fine mesh strainer; 'memory like a sieve'","e":["Sift flour through a sieve."],"h":"Rhymes with 'give'.","t":"筛子","lang":"en","cat":"ev","id":"ev-sieve"},{"w":"grater","p":"GRAY-tur","d":"the perforated tool for shredding cheese, ginger, zest","e":["Knuckles beware the box grater."],"h":"Grate cheese; grating voice.","t":"擦丝器","lang":"en","cat":"ev","id":"ev-grater"},{"w":"corkscrew","p":"KORK-skroo","d":"the spiral tool for pulling corks; corkscrew = spiral-shaped","e":["The waiter flourished a corkscrew."],"h":"Corkscrew curls, corkscrew descent.","t":"开瓶器","lang":"en","cat":"ev","id":"ev-corkscrew"},{"w":"jaywalk","p":"JAY-wawk","d":"to cross the street illegally/mid-block","e":["He got ticketed for jaywalking."],"h":"'Jay' = country rube who didn't know city rules.","t":"乱穿马路","lang":"en","cat":"ev","id":"ev-jaywalk"},{"w":"tailgate","p":"TAYL-gayt","d":"to drive too close behind; (US) to picnic from a car trunk before a game","e":["Stop tailgating me!; We tailgated before kickoff."],"h":"Two senses: menace on the road, party in the lot.","t":"跟车过近;车尾野餐","lang":"en","cat":"ev","id":"ev-tailgate"},{"w":"rubberneck","p":"RUB-ur-nek","d":"to slow down and gawk (at an accident)","e":["Rubbernecking backed traffic up two miles."],"h":"Necks stretch like rubber to see.","t":"伸长脖子围观","lang":"en","cat":"ev","id":"ev-rubberneck"},{"w":"fender bender","p":"FEN-dur BEN-dur","d":"a minor car accident","e":["Just a fender bender — nobody hurt."],"h":"Fender (US) = wing (UK).","t":"小剐蹭事故","lang":"en","cat":"ev","id":"ev-fender bender"},{"w":"pothole","p":"POT-hohl","d":"a hole worn in the road surface","e":["Winter leaves the street cratered with potholes."],"h":"Pot-shaped hole; budget metaphor favorite.","t":"路面坑洼","lang":"en","cat":"ev","id":"ev-pothole"},{"w":"speed bump","p":"SPEED bump","d":"a raised ridge to slow traffic (UK: speed hump/sleeping policeman); a minor setback","e":["Just a speed bump in the project."],"h":"Literal ridge, figurative setback.","t":"减速带","lang":"en","cat":"ev","id":"ev-speed bump"},{"w":"roundabout","p":"ROWND-uh-bowt","d":"a circular intersection (US also: traffic circle); (adj.) indirect","e":["Take the second exit at the roundabout."],"h":"Also 'in a roundabout way' = indirectly.","t":"环岛;拐弯抹角的","lang":"en","cat":"ev","id":"ev-roundabout"},{"w":"crosswalk","p":"KRAWSS-wawk","d":"a marked pedestrian crossing (UK: zebra crossing)","e":["Wait for the light at the crosswalk."],"h":"US crosswalk = UK zebra.","t":"人行横道","lang":"en","cat":"ev","id":"ev-crosswalk"},{"w":"curb","p":"KURB","d":"the stone edge of the sidewalk (UK: kerb); (v.) to restrain ('curb spending')","e":["He parked six inches from the curb."],"h":"Noun edge, verb restraint.","t":"路缘;遏制","lang":"en","cat":"ev","id":"ev-curb"},{"w":"median","p":"MEE-dee-un","d":"the divider strip between opposing lanes (UK: central reservation); the middle statistic","e":["A car jumped the median."],"h":"Middle of the road, literally.","t":"中央隔离带;中位数","lang":"en","cat":"ev","id":"ev-median"},{"w":"shoulder","p":"SHOHL-dur","d":"the emergency strip beside a highway ('pull onto the shoulder'); 'hard shoulder' (UK)","e":["We changed the tire on the shoulder."],"h":"The road's shoulder carries breakdowns.","t":"路肩","lang":"en","cat":"ev","id":"ev-shoulder"},{"w":"lint","p":"LINT","d":"fluff shed by fabric (lint trap in dryers, lint roller); pocket lint","e":["Black coat, white cat: buy a lint roller."],"h":"Also the code-checker sense: linting picks fluff off your code.","t":"衣物绒毛","lang":"en","cat":"ev","id":"ev-lint"},{"w":"chapped","p":"CHAPT","d":"(skin/lips) cracked and sore from cold or wind","e":["Chapped lips demand balm in January."],"h":"ChapStick fixes chapped lips.","t":"皲裂的","lang":"en","cat":"ev","id":"ev-chapped"},{"w":"runny nose","p":"RUN-ee nohz","d":"a nose dripping mucus (the sniffles)","e":["A runny nose and the sniffles all week."],"h":"Runny nose, stuffy nose — opposite complaints.","t":"流鼻涕","lang":"en","cat":"ev","id":"ev-runny nose"},{"w":"play it by ear","d":"to improvise, decide as things unfold","e":["No fixed plan for Saturday — let's play it by ear."],"h":"Musicians playing without a score.","t":"见机行事","lang":"en","cat":"id","id":"id-play it by ear"},{"w":"on the fence","d":"undecided between options","e":["I'm still on the fence about the job offer."],"h":"Straddling the fence between two yards.","t":"骑墙观望","lang":"en","cat":"id","id":"id-on the fence"},{"w":"cold turkey","d":"quitting abruptly and completely ('quit cold turkey')","e":["He gave up smoking cold turkey."],"h":"From withdrawal's clammy goose-fleshed skin.","t":"断然戒除","lang":"en","cat":"id","id":"id-cold turkey"},{"w":"throw under the bus","d":"to sacrifice or betray someone to protect yourself","e":["The VP threw his own team under the bus at the review."],"h":"Modern corporate betrayal idiom.","t":"甩锅牺牲某人","lang":"en","cat":"id","id":"id-throw under the bus"},{"w":"jump the shark","d":"(of a show/venture) to pass its peak with a desperate gimmick","e":["The series jumped the shark in season five."],"h":"From Happy Days' literal shark-jumping stunt.","t":"盛极而衰;开始变味","lang":"en","cat":"id","id":"id-jump the shark"},{"w":"move the goalposts","d":"to unfairly change the criteria mid-game","e":["Every time we hit the target, they move the goalposts."],"h":"You scored — so they relocate the goal.","t":"中途改规则","lang":"en","cat":"id","id":"id-move the goalposts"},{"w":"the whole nine yards","d":"everything, the full extent ('went the whole nine yards')","e":["Tent, stove, kayak — the whole nine yards."],"h":"Origin disputed; meaning is 'all of it'.","t":"全套;一应俱全","lang":"en","cat":"id","id":"id-the whole nine yards"},{"w":"out of left field","d":"completely unexpected and strange","e":["Her resignation came out of left field."],"h":"Baseball: an odd throw from deep left.","t":"毫无征兆;出人意料","lang":"en","cat":"id","id":"id-out of left field"},{"w":"Hail Mary","d":"a desperate last-chance attempt","e":["The lawsuit is a Hail Mary to stall the merger."],"h":"Football: the desperate end-of-game long pass, said with a prayer.","t":"孤注一掷","lang":"en","cat":"id","id":"id-Hail Mary"},{"w":"rain check","d":"a polite deferral: 'I'll take a rain check' = another time","e":["Dinner tonight? Rain check — I'm slammed."],"h":"Rained-out games issued tickets for later.","t":"改日再约","lang":"en","cat":"id","id":"id-rain check"},{"w":"shoot the breeze","d":"to chat idly","e":["We shot the breeze on the porch till dark."],"h":"Talking at nothing but the wind.","t":"闲扯聊天","lang":"en","cat":"id","id":"id-shoot the breeze"},{"w":"ride shotgun","d":"to sit in the front passenger seat ('call shotgun' = claim it)","e":["Shotgun! — she called it before I could."],"h":"Stagecoach guard sat beside the driver, shotgun in lap.","t":"坐副驾","lang":"en","cat":"id","id":"id-ride shotgun"},{"w":"hit the hay","d":"to go to bed (also 'hit the sack')","e":["Long day — I'm hitting the hay."],"h":"Mattresses were once hay-stuffed sacks.","t":"上床睡觉","lang":"en","cat":"id","id":"id-hit the hay"},{"w":"pull an all-nighter","d":"to stay up all night working/studying","e":["We pulled an all-nighter before the deadline."],"h":"Campus-to-office staple phrase.","t":"通宵赶工","lang":"en","cat":"id","id":"id-pull an all-nighter"},{"w":"wing it","d":"to improvise without preparation","e":["Slides died, so he winged it."],"h":"Actors learning lines in the theatre wings.","t":"即兴应付","lang":"en","cat":"id","id":"id-wing it"},{"w":"nail it","d":"to do something perfectly","e":["The interview? She nailed it."],"h":"Hammer meets nail, dead center.","t":"干得漂亮;一举拿下","lang":"en","cat":"id","id":"id-nail it"},{"w":"ace","d":"to score excellently ('aced the test'); an expert ('flying ace')","e":["He aced the driving test first try."],"h":"The highest card.","t":"考得极好;王牌","lang":"en","cat":"id","id":"id-ace"},{"w":"play hooky","d":"to skip school/work without leave (UK: skive, bunk off)","e":["We played hooky and hit the beach."],"h":"US schoolkid classic.","t":"逃学翘班","lang":"en","cat":"id","id":"id-play hooky"},{"w":"brown-noser","d":"a servile flatterer of superiors (crude but common)","e":["The brown-noser laughed loudest at the boss's puns."],"h":"Vulgar image; polite cousin: bootlicker, yes-man.","t":"马屁精","lang":"en","cat":"id","id":"id-brown-noser"},{"w":"cold shoulder","d":"deliberate unfriendliness ('give someone the cold shoulder')","e":["She's given me the cold shoulder since the meeting."],"h":"Cold shoulder of mutton served to unwanted guests (folk tale).","t":"冷落","lang":"en","cat":"id","id":"id-cold shoulder"},{"w":"ghost","d":"to cut off all contact without explanation","e":["He ghosted her after three dates."],"h":"Vanish like a ghost mid-conversation.","t":"玩失踪;断联","lang":"en","cat":"id","id":"id-ghost"},{"w":"flaky","d":"unreliable, prone to cancel (a flake = such a person)","e":["Don't count on Max — he's flaky."],"h":"Crumbles like pastry when plans firm up.","t":"靠不住爱放鸽子的","lang":"en","cat":"id","id":"id-flaky"},{"w":"rain on someone's parade","d":"to spoil someone's moment/plans","e":["Hate to rain on your parade, but the venue canceled."],"h":"Literal image; standard preface to bad news.","t":"扫人兴","lang":"en","cat":"id","id":"id-rain on someone's parade"},{"w":"steal someone's thunder","d":"to grab attention/credit meant for another","e":["Announcing your promotion at her wedding stole her thunder."],"h":"A playwright's thunder-machine was stolen for a rival's play — true story.","t":"抢风头","lang":"en","cat":"id","id":"id-steal someone's thunder"},{"w":"throw shade","d":"to insult subtly, express sly contempt (slang)","e":["Her 'interesting choice' was pure shade."],"h":"Drag-culture slang gone mainstream.","t":"含沙射影","lang":"en","cat":"id","id":"id-throw shade"},{"w":"backhanded compliment","d":"praise that conceals an insult","e":["'You look great for your age' — a backhanded compliment."],"h":"Delivered with the back of the hand.","t":"夹枪带棒的恭维","lang":"en","cat":"id","id":"id-backhanded compliment"},{"w":"damn with faint praise","d":"to condemn by praising weakly","e":["'The wine was... drinkable,' he said, damning with faint praise."],"h":"Pope's line: 'Damn with faint praise, assent with civil leer.'","t":"明褒实贬","lang":"en","cat":"id","id":"id-damn with faint praise"},{"w":"devil's advocate","d":"one who argues the opposing side for the sake of testing it ('play devil's advocate')","e":["Let me play devil's advocate: what if demand halves?"],"h":"Vatican's official skeptic in sainthood cases.","t":"故意唱反调者","lang":"en","cat":"id","id":"id-devil's advocate"},{"w":"elephant in the room","d":"the obvious problem everyone avoids mentioning","e":["The founder's health was the elephant in the room."],"h":"Too big to miss, too awkward to name.","t":"人人回避的明摆问题","lang":"en","cat":"id","id":"id-elephant in the room"},{"w":"kick the can down the road","d":"to postpone dealing with a problem","e":["The council kicked the pension can down the road again."],"h":"Politics/budget cliché of choice.","t":"拖延了事","lang":"en","cat":"id","id":"id-kick the can down the road"},{"w":"boil the ocean","d":"to attempt something impossibly broad","e":["Scope it down — don't boil the ocean."],"h":"Consulting-speak for hopeless over-scope.","t":"贪大求全","lang":"en","cat":"id","id":"id-boil the ocean"},{"w":"low-hanging fruit","d":"the easiest wins available","e":["Fix the typos first — that's low-hanging fruit."],"h":"Pick what needs no ladder.","t":"唾手可得的成果","lang":"en","cat":"id","id":"id-low-hanging fruit"},{"w":"table","d":"US: to postpone a motion; UK: to put it forward NOW — opposite meanings!","e":["US: 'Let's table this' = shelve it. UK: 'I table this motion' = propose it."],"h":"The classic transatlantic trap verb.","t":"美:搁置;英:提交讨论","lang":"en","cat":"id","id":"id-table"},{"w":"circle back","d":"to return to a topic later (office-speak)","e":["Let's circle back on the budget after lunch."],"h":"Corporate for 'later'.","t":"回头再议","lang":"en","cat":"id","id":"id-circle back"},{"w":"touch base","d":"to make brief contact ('touch base next week')","e":["I'll touch base with the vendor on Friday."],"h":"Baseball runners must touch each base.","t":"碰头联系","lang":"en","cat":"id","id":"id-touch base"},{"w":"in the weeds","d":"overwhelmed by details or workload; 'get into the weeds' = go too deep into minutiae","e":["The kitchen was in the weeds by 8 p.m."],"h":"Restaurant slang; also detail-swamp sense.","t":"忙到焦头烂额;陷入细节","lang":"en","cat":"id","id":"id-in the weeds"},{"w":"down the rabbit hole","d":"into an absorbing, ever-deeper digression","e":["One wiki link and I was down the rabbit hole till 2 a.m."],"h":"Alice's tumble into Wonderland.","t":"越陷越深","lang":"en","cat":"id","id":"id-down the rabbit hole"},{"w":"off the cuff","d":"unrehearsed, improvised (remarks)","e":["He spoke off the cuff for twenty minutes."],"h":"Speakers scribbled notes on shirt cuffs.","t":"即席不打稿","lang":"en","cat":"id","id":"id-off the cuff"},{"w":"on the nose","d":"exactly right (amount/time); also: too obvious, heavy-handed (criticism)","e":["Noon on the nose; the symbolism is a bit on the nose."],"h":"Two senses — precision, or artless obviousness.","t":"分毫不差;太直白","lang":"en","cat":"id","id":"id-on the nose"},{"w":"in the ballpark","d":"approximately right ('ballpark figure' = rough estimate)","e":["Give me a ballpark figure for the remodel."],"h":"Within the stadium, if not on the plate.","t":"八九不离十","lang":"en","cat":"id","id":"id-in the ballpark"},{"w":"curveball","d":"an unexpected difficulty ('threw us a curveball')","e":["The zoning ruling threw us a curveball."],"h":"Baseball pitch that swerves late.","t":"冷不防的难题","lang":"en","cat":"id","id":"id-curveball"},{"w":"strike out","d":"to fail (a try); baseball: three strikes","e":["Asked for a raise and struck out."],"h":"Three strikes, you're out.","t":"碰壁失败","lang":"en","cat":"id","id":"id-strike out"},{"w":"step up to the plate","d":"to take on responsibility when needed","e":["Someone must step up to the plate on fundraising."],"h":"The batter's box awaits.","t":"挺身而出","lang":"en","cat":"id","id":"id-step up to the plate"},{"w":"Monday-morning quarterback","d":"one who criticizes decisions with hindsight (also 'armchair quarterback')","e":["Easy to Monday-morning-quarterback the launch now."],"h":"Re-calling Sunday's plays on Monday.","t":"事后诸葛亮","lang":"en","cat":"id","id":"id-Monday-morning quarterback"},{"w":"spitball","d":"to brainstorm loosely ('just spitballing here')","e":["Just spitballing: what if we made it free?"],"h":"Tossing wet-paper ideas at the wall.","t":"随口头脑风暴","lang":"en","cat":"id","id":"id-spitball"},{"w":"straw man","d":"a distorted easy-to-refute version of an opponent's argument","e":["He attacked a straw man, not my actual claim."],"h":"Fighting a scarecrow and claiming victory.","t":"稻草人谬误","lang":"en","cat":"id","id":"id-straw man"},{"w":"red herring","d":"a misleading distraction from the real issue","e":["The alibi was a red herring planted by the author."],"h":"Smoked fish dragged across the trail to fool hounds.","t":"转移视线的幌子","lang":"en","cat":"id","id":"id-red herring"},{"w":"dog whistle","d":"coded language only a target group hears as intended","e":["Critics called the slogan a dog whistle."],"h":"Pitched too high for others to hear.","t":"狗哨暗语","lang":"en","cat":"id","id":"id-dog whistle"},{"w":"humblebrag","d":"a boast disguised as modesty or complaint","e":["'Ugh, my hands are too small for my new Rolex' — pure humblebrag."],"h":"Humble wrapper, brag filling.","t":"凡尔赛式炫耀","lang":"en","cat":"id","id":"id-humblebrag"},{"w":"salty","d":"(slang) bitter, resentful, esp. after losing","e":["Still salty about the playoff loss."],"h":"Tears are salty.","t":"心里泛酸;记仇","lang":"en","cat":"id","id":"id-salty"},{"w":"deadpan","d":"expressionless delivery of humor; to deliver so","e":["She deadpanned the absurd line perfectly."],"h":"'Pan' = face (slang); a dead face.","t":"一本正经地搞笑","lang":"en","cat":"id","id":"id-deadpan"},{"w":"tongue-in-cheek","d":"meant ironically, not seriously","e":["A tongue-in-cheek proposal to tax meetings."],"h":"Literal cheek-poke suppressing a grin.","t":"半开玩笑的","lang":"en","cat":"id","id":"id-tongue-in-cheek"},{"w":"off-color","d":"slightly indecent (jokes, remarks)","e":["An off-color joke silenced the dinner table."],"h":"Color drifting off respectable.","t":"略带黄腔的","lang":"en","cat":"id","id":"id-off-color"},{"w":"through the grapevine","d":"via informal gossip ('heard it through the grapevine')","e":["I heard through the grapevine that they're merging."],"h":"Rumor travels vine to vine; Marvin Gaye made it canon.","t":"小道消息","lang":"en","cat":"id","id":"id-through the grapevine"},{"w":"on the back burner","d":"postponed, at low priority ('put it on the back burner')","e":["The app redesign is on the back burner till Q3."],"h":"Simmering behind, not cooking front and center.","t":"暂且搁置","lang":"en","cat":"id","id":"id-on the back burner"},{"w":"break even","d":"to make neither profit nor loss","e":["The café broke even in year two."],"h":"break-even point = where revenue meets cost.","t":"收支持平","lang":"en","cat":"id","id":"id-break even"},{"w":"in the red","d":"losing money / in debt (opposite: in the black)","e":["Three quarters in the red forced layoffs."],"h":"Red ink for losses in old ledgers.","t":"亏损","lang":"en","cat":"id","id":"id-in the red"},{"w":"pull strings","d":"to use influence behind the scenes","e":["Her uncle pulled strings to get the permit."],"h":"Puppeteer's hidden strings.","t":"托关系;幕后运作","lang":"en","cat":"id","id":"id-pull strings"},{"w":"pull rank","d":"to use one's seniority to force a decision","e":["The captain pulled rank and ended the debate."],"h":"Rank as a trump card.","t":"摆资历压人","lang":"en","cat":"id","id":"id-pull rank"},{"w":"call dibs","d":"to claim something first ('dibs on the window seat')","e":["I call dibs on the last slice."],"h":"Playground law, adult use ironic.","t":"先声明归我","lang":"en","cat":"id","id":"id-call dibs"},{"w":"no dice","d":"no luck, refusal ('asked for an extension — no dice')","e":["Tried to reschedule: no dice."],"h":"The dice game refused.","t":"没门儿","lang":"en","cat":"id","id":"id-no dice"},{"w":"long shot","d":"an attempt with little chance ('a long shot, but worth asking')","e":["It's a long shot, but email the CEO directly."],"h":"Betting odds on the distant horse.","t":"希望渺茫的一搏","lang":"en","cat":"id","id":"id-long shot"},{"w":"dark horse","d":"an unexpected contender with hidden strength","e":["The dark horse candidate swept the primary."],"h":"An unknown horse that wins.","t":"黑马","lang":"en","cat":"id","id":"id-dark horse"},{"w":"wild goose chase","d":"a hopeless futile search","e":["The address sent us on a wild goose chase."],"h":"Chasing geese: loud, fast, pointless.","t":"白跑一场的寻找","lang":"en","cat":"id","id":"id-wild goose chase"},{"w":"cold feet","d":"last-minute loss of nerve ('got cold feet before the wedding')","e":["The buyer got cold feet at signing."],"h":"Feet freeze at the threshold.","t":"临阵胆怯","lang":"en","cat":"id","id":"id-cold feet"},{"w":"jump the gun","d":"to act prematurely","e":["The press jumped the gun on the verdict."],"h":"Sprinter starting before the pistol.","t":"抢跑;操之过急","lang":"en","cat":"id","id":"id-jump the gun"},{"w":"cut to the chase","d":"to skip to the point","e":["Cut to the chase: how much will it cost?"],"h":"Silent films cut boring talk to reach the chase scene.","t":"直奔主题","lang":"en","cat":"id","id":"id-cut to the chase"},{"w":"read the room","d":"to sense the mood and act accordingly","e":["Joking about layoffs? Read the room."],"h":"Modern social-awareness idiom.","t":"察言观色","lang":"en","cat":"id","id":"id-read the room"},{"w":"par for the course","d":"what's normal/expected (usu. of something mildly bad)","e":["Two-hour delays are par for the course here."],"h":"Golf: the expected score.","t":"照例如此(的糟)","lang":"en","cat":"id","id":"id-par for the course"},{"w":"beat a dead horse","d":"to keep arguing a settled/hopeless point (UK: flog a dead horse)","e":["We've decided — stop beating a dead horse."],"h":"No whip revives it.","t":"白费口舌","lang":"en","cat":"id","id":"id-beat a dead horse"},{"w":"burn the candle at both ends","d":"to exhaust yourself by doing too much, late and early","e":["New baby, new job — burning the candle at both ends."],"h":"Twice the light, half the candle.","t":"起早贪黑透支自己","lang":"en","cat":"id","id":"id-burn the candle at both ends"},{"w":"bite the bullet","d":"to face something painful with resolve","e":["We bit the bullet and rewrote the whole module."],"h":"Surgery patients bit a bullet before anesthesia.","t":"咬牙硬上","lang":"en","cat":"id","id":"id-bite the bullet"},{"w":"go pear-shaped","d":"(UK) to go wrong ('it all went pear-shaped')","e":["The demo went pear-shaped in minute one."],"h":"British; US equivalent: went sideways/south.","t":"全搞砸了","lang":"en","cat":"id","id":"id-go pear-shaped"},{"w":"take with a grain of salt","d":"to view skeptically (UK: pinch of salt)","e":["Take his estimates with a grain of salt."],"h":"Salt made suspect food palatable.","t":"姑妄听之","lang":"en","cat":"id","id":"id-take with a grain of salt"},{"w":"the ship has sailed","d":"the opportunity is gone","e":["Buying that stock at $10? That ship has sailed."],"h":"You're on the dock; it's on the horizon.","t":"时机已过","lang":"en","cat":"id","id":"id-the ship has sailed"},{"w":"鞓","p":"tīng","d":"皮腰带;古代革带的带身","e":["红鞓犀带(宋代官员的腰带)"],"h":"革字旁=皮革;右边'廷'表音(tíng→tīng)","lang":"zh","cat":"hz","id":"hz-鞓"},{"w":"醯","p":"xī","d":"醋;酸味的汁","e":["《论语》:或乞醯焉(有人来讨醋)"],"h":"酉=酒坛,发酵变酸即成醋","lang":"zh","cat":"hz","id":"hz-醯"},{"w":"彧","p":"yù","d":"有文采,趣味高雅","e":["荀彧(东汉末谋士)"],"h":"或+彡:彡表文饰花纹","lang":"zh","cat":"hz","id":"hz-彧"},{"w":"赟","p":"yūn","d":"美好;文武双全(多用于人名)","e":["人名用字:张赟"],"h":"文+武+贝:有文有武还有钱=美好","lang":"zh","cat":"hz","id":"hz-赟"},{"w":"垚","p":"yáo","d":"山高的样子(多用于人名)","e":["人名用字,同'尧'"],"h":"三个土叠起来,土高为垚","lang":"zh","cat":"hz","id":"hz-垚"},{"w":"犇","p":"bēn","d":"同'奔',急走;牛惊跑","e":["网络语:牛气犇天"],"h":"三头牛一起跑","lang":"zh","cat":"hz","id":"hz-犇"},{"w":"骉","p":"biāo","d":"众马奔腾的样子","e":["万马骉骉"],"h":"三匹马狂奔","lang":"zh","cat":"hz","id":"hz-骉"},{"w":"鱻","p":"xiān","d":"'鲜'的古字;生鱼","e":["招牌用字:鱻味馆"],"h":"三条鱼,鲜上加鲜","lang":"zh","cat":"hz","id":"hz-鱻"},{"w":"麤","p":"cū","d":"'粗'的古字;行超远","e":["古籍中'麤衣粝食'即粗衣粝食"],"h":"三头鹿狂奔扬尘,尘土飞扬故'粗'","lang":"zh","cat":"hz","id":"hz-麤"},{"w":"猋","p":"biāo","d":"犬奔跑的样子;暴风(同'飙')","e":["猋风(旋风)"],"h":"三条狗飞奔=飙","lang":"zh","cat":"hz","id":"hz-猋"},{"w":"淼","p":"miǎo","d":"水大茫茫无际(同'渺')","e":["烟波淼淼"],"h":"三个水,汪洋一片","lang":"zh","cat":"hz","id":"hz-淼"},{"w":"焱","p":"yàn","d":"火花、火焰","e":["人名用字;焱焱(火光闪烁)"],"h":"三团火,火光迸射","lang":"zh","cat":"hz","id":"hz-焱"},{"w":"燚","p":"yì","d":"火剧烈燃烧的样子(多用于人名)","e":["人名用字:李燚"],"h":"四个火,烧得最旺","lang":"zh","cat":"hz","id":"hz-燚"},{"w":"毳","p":"cuì","d":"鸟兽的细毛、绒毛","e":["毳毛(人体表面的细绒毛)"],"h":"三根毛=绒毛","lang":"zh","cat":"hz","id":"hz-毳"},{"w":"掱","p":"pá","d":"'扒手'的'扒'的异体;掱手=扒手","e":["谨防掱手(旧式警示牌)"],"h":"三只手——第三只手偷东西","lang":"zh","cat":"hz","id":"hz-掱"},{"w":"孨","p":"zhuǎn","d":"谨慎;孤弱","e":["网络用来形容'又宅又弱'"],"h":"三个子挤在一起,弱小谨慎","lang":"zh","cat":"hz","id":"hz-孨"},{"w":"龘","p":"dá","d":"龙腾飞的样子","e":["2024央视春晚主题'龙行龘龘'"],"h":"三条龙齐飞,笔画最多的常见生僻字之一","lang":"zh","cat":"hz","id":"hz-龘"},{"w":"靐","p":"bìng","d":"雷声","e":["网络语'雷到靐'(极度震惊)"],"h":"三个雷,震耳欲聋","lang":"zh","cat":"hz","id":"hz-靐"},{"w":"饕餮","p":"tāo tiè","d":"传说中贪食的凶兽;贪吃的人;饕餮盛宴=丰盛大餐","e":["商周青铜器上多饕餮纹"],"h":"两字都是食字底:一切为了吃","lang":"zh","cat":"hz","id":"hz-饕餮"},{"w":"耄耋","p":"mào dié","d":"八九十岁的高龄;泛指老年","e":["耄耋之年仍笔耕不辍"],"h":"都是'老'字头:耄=毛发衰白,耋=至(极老)","lang":"zh","cat":"hz","id":"hz-耄耋"},{"w":"饸饹","p":"hé le","d":"北方压制的圆条面食","e":["荞面饸饹是陕北名吃"],"h":"食字旁的方言词,压面机叫饸饹床子","lang":"zh","cat":"hz","id":"hz-饸饹"},{"w":"龃龉","p":"jǔ yǔ","d":"上下牙齿不齐;比喻意见不合","e":["双方素有龃龉"],"h":"齿字旁成对出现:牙齿打架=不合","lang":"zh","cat":"hz","id":"hz-龃龉"},{"w":"龋","p":"qǔ","d":"蛀牙;龋齿","e":["预防龋齿,少吃糖"],"h":"齿+禹:牙被虫蛀(禹形如虫)","lang":"zh","cat":"hz","id":"hz-龋"},{"w":"龅","p":"bāo","d":"牙齿外露;龅牙","e":["他有点龅牙"],"h":"齿+包:牙包不住,露在外面","lang":"zh","cat":"hz","id":"hz-龅"},{"w":"睚眦","p":"yá zì","d":"发怒瞪眼;极小的怨恨(睚眦必报);龙九子之一","e":["睚眦必报,气量狭小"],"h":"都是目字旁:瞪眼之恨","lang":"zh","cat":"hz","id":"hz-睚眦"},{"w":"狴犴","p":"bì àn","d":"传说中形似虎的兽,古代牢门上的装饰;代指牢狱","e":["狴犴守狱门"],"h":"龙九子之一,好讼,故立于狱门","lang":"zh","cat":"hz","id":"hz-狴犴"},{"w":"貔貅","p":"pí xiū","d":"传说中的猛兽;比喻勇猛军队;民间招财神兽","e":["商家爱摆貔貅:只进不出"],"h":"豸(zhì)字旁=猛兽;只吃不拉,所以聚财","lang":"zh","cat":"hz","id":"hz-貔貅"},{"w":"囹圄","p":"líng yǔ","d":"监狱;身陷囹圄=被关进牢里","e":["一朝失足,身陷囹圄"],"h":"两个口字框=四面围墙关着人","lang":"zh","cat":"hz","id":"hz-囹圄"},{"w":"魍魉","p":"wǎng liǎng","d":"传说中的山川精怪;魑魅魍魉=各种坏人","e":["魑魅魍魉,一网打尽"],"h":"鬼字旁成对:水鬼山精","lang":"zh","cat":"hz","id":"hz-魍魉"},{"w":"魑魅","p":"chī mèi","d":"山林中害人的鬼怪","e":["魑魅魍魉四小鬼"],"h":"鬼旁;魅至今常用(魅力=迷人如精怪)","lang":"zh","cat":"hz","id":"hz-魑魅"},{"w":"蟾蜍","p":"chán chú","d":"癞蛤蟆;月亮的代称(月中有蟾)","e":["蟾宫折桂=科举及第"],"h":"虫字旁;'蟾光'即月光","lang":"zh","cat":"hz","id":"hz-蟾蜍"},{"w":"蛞蝓","p":"kuò yú","d":"鼻涕虫(无壳蜗牛)","e":["菜叶上爬着蛞蝓"],"h":"虫旁双字词,软体爬行","lang":"zh","cat":"hz","id":"hz-蛞蝓"},{"w":"蝾螈","p":"róng yuán","d":"一种两栖动物,形似蜥蜴","e":["实验室常用蝾螈研究再生"],"h":"虫旁;能再生断肢的小'龙'","lang":"zh","cat":"hz","id":"hz-蝾螈"},{"w":"疖","p":"jiē","d":"皮肤上的小脓疮;疖子","e":["长了个疖子,红肿疼痛"],"h":"疒(病字头)+节:皮肤起的小结节","lang":"zh","cat":"hz","id":"hz-疖"},{"w":"疥","p":"jiè","d":"疥疮,疥螨引起的皮肤病;癣疥之疾=小毛病","e":["癣疥之疾,不足为患"],"h":"疒+介:芥子大的小疮","lang":"zh","cat":"hz","id":"hz-疥"},{"w":"疸","p":"dǎn","d":"黄疸,皮肤发黄的病症","e":["新生儿黄疸很常见"],"h":"疒+旦:天亮时脸黄如旦","lang":"zh","cat":"hz","id":"hz-疸"},{"w":"痂","p":"jiā","d":"伤口愈合时表面结的硬壳","e":["伤口结痂别去抠"],"h":"疒+加:伤口上加的一层壳","lang":"zh","cat":"hz","id":"hz-痂"},{"w":"痼","p":"gù","d":"久治不愈的(病);痼疾;积习难改也叫痼习","e":["痼疾缠身;积弊成痼"],"h":"疒+固:病牢固了","lang":"zh","cat":"hz","id":"hz-痼"},{"w":"瘴","p":"zhàng","d":"南方山林湿热蒸郁致病的气;瘴气","e":["古人贬谪岭南,畏其瘴疠"],"h":"疒+章:成片弥漫的病气","lang":"zh","cat":"hz","id":"hz-瘴"},{"w":"癔","p":"yì","d":"癔症,精神失常的病(歇斯底里)","e":["癔症发作,哭笑无常"],"h":"疒+意:意念出了病","lang":"zh","cat":"hz","id":"hz-癔"},{"w":"觥","p":"gōng","d":"古代兽形酒器;觥筹交错=宴饮热闹","e":["觥筹交错,宾主尽欢"],"h":"角字旁:兽角做的酒杯","lang":"zh","cat":"hz","id":"hz-觥"},{"w":"觞","p":"shāng","d":"古代酒杯;举觞=举杯;滥觞=起源","e":["曲水流觞;滥觞于先秦"],"h":"角旁酒器;'滥觞'=江河发源处仅能浮起一只酒杯","lang":"zh","cat":"hz","id":"hz-觞"},{"w":"觚","p":"gū","d":"古代细腰喇叭口酒器;棱角;操觚=执简写作","e":["不学操觚,焉能成文"],"h":"角旁;青铜器课本常见器形","lang":"zh","cat":"hz","id":"hz-觚"},{"w":"斝","p":"jiǎ","d":"古代三足温酒器","e":["商代青铜斝"],"h":"形似'斗'加盖,三足温酒","lang":"zh","cat":"hz","id":"hz-斝"},{"w":"卣","p":"yǒu","d":"古代带提梁的盛酒器","e":["博物馆藏西周铜卣"],"h":"上有提梁的酒壶,字形像器物侧影","lang":"zh","cat":"hz","id":"hz-卣"},{"w":"簋","p":"guǐ","d":"古代盛食物的圆形器皿;簠簋;北京'簋街'","e":["九鼎八簋,天子之制"],"h":"竹+皿:盛黍稷的圆碗;簋街=吃货街","lang":"zh","cat":"hz","id":"hz-簋"},{"w":"鬲","p":"lì","d":"古代三足空心炊具(作姓氏或地名读gé)","e":["新石器时代的陶鬲"],"h":"字形就像三只袋足的锅","lang":"zh","cat":"hz","id":"hz-鬲"},{"w":"甗","p":"yǎn","d":"古代蒸食炊具,上甑下鬲","e":["妇好墓出土三联甗"],"h":"上锅下炉的古代蒸锅","lang":"zh","cat":"hz","id":"hz-甗"},{"w":"钺","p":"yuè","d":"古代大斧形兵器,象征王权","e":["黄钺白旄,以专征伐"],"h":"金+戉:斧钺=生杀大权","lang":"zh","cat":"hz","id":"hz-钺"},{"w":"镞","p":"zú","d":"箭头","e":["秦陵出土三棱铜镞"],"h":"金+族:族人打仗用的金属箭头","lang":"zh","cat":"hz","id":"hz-镞"},{"w":"缯","p":"zēng","d":"古代丝织品的总称","e":["齐纨鲁缟皆缯帛"],"h":"纟旁=丝织物","lang":"zh","cat":"hz","id":"hz-缯"},{"w":"缣","p":"jiān","d":"双丝织的细绢;缣帛(书写用)","e":["古书写于缣帛,故称'缣缃'"],"h":"纟+兼:双丝并织","lang":"zh","cat":"hz","id":"hz-缣"},{"w":"笄","p":"jī","d":"古代盘头发用的簪子;及笄=女子十五岁成年","e":["年方及笄"],"h":"竹字头:竹制发簪;男冠女笄","lang":"zh","cat":"hz","id":"hz-笄"},{"w":"璎珞","p":"yīng luò","d":"用珠玉串成的颈饰(佛像常佩)","e":["观音像项挂璎珞"],"h":"双王(玉)旁:珠玉串饰","lang":"zh","cat":"hz","id":"hz-璎珞"},{"w":"玦","p":"jué","d":"有缺口的环形佩玉;暗示'决'断","e":["鸿门宴上范增举玦示意"],"h":"王+夬:有缺口(夬=缺)的玉环","lang":"zh","cat":"hz","id":"hz-玦"},{"w":"璜","p":"huáng","d":"半璧形的玉器","e":["周代组玉佩中多玉璜"],"h":"半个璧叫璜","lang":"zh","cat":"hz","id":"hz-璜"},{"w":"琮","p":"cóng","d":"外方内圆的筒状玉器(良渚文化典型)","e":["良渚玉琮王刻神人兽面纹"],"h":"王+宗:祭祀用玉,外方内圆通天地","lang":"zh","cat":"hz","id":"hz-琮"},{"w":"圭","p":"guī","d":"上尖下方的礼玉;圭臬=准则;奉为圭臬","e":["奉为圭臬"],"h":"两个土:测日影的土圭,引申为标准","lang":"zh","cat":"hz","id":"hz-圭"},{"w":"瓒","p":"zàn","d":"古代祭祀用的玉勺(人名常用:王瓒)","e":["圭瓒,以圭为柄的酒勺"],"h":"王+赞:玉柄礼器","lang":"zh","cat":"hz","id":"hz-瓒"},{"w":"玑","p":"jī","d":"不圆的珠子;璇玑=北斗前四星/浑天仪部件","e":["字字珠玑"],"h":"珠玑:圆者为珠,不圆为玑","lang":"zh","cat":"hz","id":"hz-玑"},{"w":"耒","p":"lěi","d":"古代翻土农具的曲柄;耒耜","e":["神农氏作耒耜,教民耕作"],"h":"独体字,象木柄分叉之形;'耕'字左边就是它","lang":"zh","cat":"hz","id":"hz-耒"},{"w":"耜","p":"sì","d":"古代翻土农具的铲头","e":["耒耜并称,柄为耒,刃为耜"],"h":"耒字旁+以:装在耒上的铲","lang":"zh","cat":"hz","id":"hz-耜"},{"w":"铧","p":"huá","d":"犁头的铁尖;犁铧","e":["犁铧翻开黑土地"],"h":"金+华:犁地的金属尖","lang":"zh","cat":"hz","id":"hz-铧"},{"w":"碓","p":"duì","d":"舂米的木石装置;水碓","e":["山村水碓昼夜舂米"],"h":"石+隹:石头砸下如鸟啄","lang":"zh","cat":"hz","id":"hz-碓"},{"w":"甑","p":"zèng","d":"古代蒸饭的陶器;甑糕(西安小吃);破甑不顾","e":["孟敏堕甑,头也不回"],"h":"瓦字旁:陶制蒸锅;甑糕=蒸糕","lang":"zh","cat":"hz","id":"hz-甑"},{"w":"甏","p":"bèng","d":"大坛子(吴方言);甏装的酒菜","e":["上海菜'腌笃鲜'要用甏煨"],"h":"瓦字旁:陶瓮","lang":"zh","cat":"hz","id":"hz-甏"},{"w":"瓮","p":"wèng","d":"大陶罐;瓮中捉鳖;请君入瓮","e":["请君入瓮(以其人之道还治其身)"],"h":"瓦底:大肚陶器","lang":"zh","cat":"hz","id":"hz-瓮"},{"w":"罂","p":"yīng","d":"小口大腹的瓶;罂粟","e":["罂粟花美,其实成毒"],"h":"缶(fǒu)字底=陶器;罂粟果实形似小罐","lang":"zh","cat":"hz","id":"hz-罂"},{"w":"卮","p":"zhī","d":"古代盛酒的圆形器皿;卮言=随意之言","e":["鸿门宴:'赐之卮酒'"],"h":"《庄子》有'卮言日出'","lang":"zh","cat":"hz","id":"hz-卮"},{"w":"樽","p":"zūn","d":"酒杯(同'尊');金樽","e":["金樽清酒斗十千"],"h":"木字旁酒器;'一樽还酹江月'","lang":"zh","cat":"hz","id":"hz-樽"},{"w":"燹","p":"xiǎn","d":"野火;兵燹=战火焚毁","e":["古籍多毁于兵燹"],"h":"两豕(猪)+火:兵乱纵火,猪奔火起","lang":"zh","cat":"hz","id":"hz-燹"},{"w":"爨","p":"cuàn","d":"烧火做饭;灶;分爨=分家","e":["云南有'爨文化';兄弟分爨"],"h":"30画:上像甑,中像灶口,下双手添柴举火","lang":"zh","cat":"hz","id":"hz-爨"},{"w":"齉","p":"nàng","d":"鼻子不通气,发音不清","e":["感冒了,说话齉鼻儿"],"h":"36画,笔画最多的汉字之一:鼻+囊","lang":"zh","cat":"hz","id":"hz-齉"},{"w":"彳亍","p":"chì chù","d":"慢步走,走走停停","e":["戴望舒《雨巷》:'彳亍着,冷漠、凄清'"],"h":"把'行'字拆成两半,走一步停一步","lang":"zh","cat":"hz","id":"hz-彳亍"},{"w":"髑髅","p":"dú lóu","d":"死人的头骨;骷髅","e":["庄子见空髑髅而问之"],"h":"骨字旁成对:头骨","lang":"zh","cat":"hz","id":"hz-髑髅"},{"w":"蹀躞","p":"dié xiè","d":"小步走路;唐代腰带上挂物的带具(蹀躞带)","e":["蹀躞而行;唐墓出土蹀躞玉带"],"h":"足字旁成对:碎步","lang":"zh","cat":"hz","id":"hz-蹀躞"},{"w":"逶迤","p":"wēi yí","d":"道路、山脉、河流弯曲绵延","e":["五岭逶迤腾细浪"],"h":"双走之旁:弯弯曲曲地延伸","lang":"zh","cat":"hz","id":"hz-逶迤"},{"w":"迤逦","p":"yǐ lǐ","d":"曲折连绵;缓行貌","e":["一行人迤逦而行"],"h":"与'逶迤'同族,注意'迤'此处读yǐ","lang":"zh","cat":"hz","id":"hz-迤逦"},{"w":"旖旎","p":"yǐ nǐ","d":"柔和美好;风光旖旎","e":["江南风光旖旎"],"h":"方字旁(旗帜):旌旗随风柔美飘动","lang":"zh","cat":"hz","id":"hz-旖旎"},{"w":"葳蕤","p":"wēi ruí","d":"草木茂盛、枝叶下垂的样子","e":["兰叶春葳蕤,桂华秋皎洁"],"h":"草字头成对:草木繁盛","lang":"zh","cat":"hz","id":"hz-葳蕤"},{"w":"菡萏","p":"hàn dàn","d":"荷花(未开的花苞)","e":["菡萏香销翠叶残(李璟词)"],"h":"草头成对:荷花的雅称","lang":"zh","cat":"hz","id":"hz-菡萏"},{"w":"蒹葭","p":"jiān jiā","d":"芦苇;《诗经》'蒹葭苍苍,白露为霜'","e":["蒹葭苍苍,白露为霜"],"h":"草头成对:水边芦荻","lang":"zh","cat":"hz","id":"hz-蒹葭"},{"w":"荸荠","p":"bí qi","d":"马蹄(水生植物,球茎可吃)","e":["荸荠清甜爽脆"],"h":"南方叫马蹄,北方叫荸荠","lang":"zh","cat":"hz","id":"hz-荸荠"},{"w":"苋","p":"xiàn","d":"苋菜","e":["炒红苋菜,汤汁紫红"],"h":"草头+见:菜市场常见却常不会读","lang":"zh","cat":"hz","id":"hz-苋"},{"w":"薅","p":"hāo","d":"拔除(草);薅羊毛=占小便宜","e":["薅羊毛一时爽"],"h":"草头:拔草的动作,今义'薅平台羊毛'","lang":"zh","cat":"hz","id":"hz-薅"},{"w":"擘","p":"bò","d":"大拇指;巨擘=杰出人物;擘画=筹划(注意:掰bāi是另一字)","e":["学界巨擘;擘画蓝图"],"h":"辟+手:大拇指是手指中的'王';巨擘=行业老大","lang":"zh","cat":"hz","id":"hz-擘"},{"w":"攥","p":"zuàn","d":"用手握紧","e":["手里攥着一把汗"],"h":"扌+纂:手指缠紧","lang":"zh","cat":"hz","id":"hz-攥"},{"w":"撺掇","p":"cuān duo","d":"怂恿、鼓动别人做某事","e":["他一撺掇,我就报了名"],"h":"双扌旁:在旁边推着你干","lang":"zh","cat":"hz","id":"hz-撺掇"},{"w":"熨帖","p":"yù tiē","d":"(用字、心里)贴切舒服;妥帖(注意此处'熨'读yù不读yùn)","e":["这个词用得很熨帖;心里熨帖"],"h":"熨斗yùn,熨帖yù——像熨过一样平服","lang":"zh","cat":"hz","id":"hz-熨帖"},{"w":"佝偻","p":"gōu lóu","d":"背脊弯曲;佝偻病(缺钙)","e":["老人佝偻着背"],"h":"亻旁成对:人弯了","lang":"zh","cat":"hz","id":"hz-佝偻"},{"w":"伛偻","p":"yǔ lǚ","d":"腰背弯曲(文言);伛偻提携(《醉翁亭记》)","e":["伛偻提携,往来而不绝者"],"h":"与佝偻近义,更文言;注意读音全然不同","lang":"zh","cat":"hz","id":"hz-伛偻"},{"w":"踽踽","p":"jǔ jǔ","d":"孤独行走的样子;踽踽独行","e":["踽踽独行于长街"],"h":"足旁叠字:一个人走路","lang":"zh","cat":"hz","id":"hz-踽踽"},{"w":"觊觎","p":"jì yú","d":"非分地企图得到","e":["觊觎邻国领土"],"h":"双'见'旁:眼睛盯着不该要的东西","lang":"zh","cat":"hz","id":"hz-觊觎"},{"w":"龌龊","p":"wò chuò","d":"肮脏;卑鄙;(古义)拘于小节","e":["卑鄙龌龊的勾当"],"h":"齿旁成对:牙缝里都是脏东西","lang":"zh","cat":"hz","id":"hz-龌龊"},{"w":"阒","p":"qù","d":"寂静无声;阒无一人","e":["夜深巷阒"],"h":"门+闃省:门内犬不吠,寂静","lang":"zh","cat":"hz","id":"hz-阒"},{"w":"阗","p":"tián","d":"充满;声音大;宾客阗门;和阗(地名今作和田)","e":["锣鼓喧阗"],"h":"门+真:门内填满(填的本字感)","lang":"zh","cat":"hz","id":"hz-阗"},{"w":"阈","p":"yù","d":"门槛;界限;阈值","e":["痛觉阈值;心理阈限"],"h":"门+或:门槛=内外分界,今科技词'阈值'","lang":"zh","cat":"hz","id":"hz-阈"},{"w":"阊阖","p":"chāng hé","d":"传说中的天门;宫门","e":["九天阊阖开宫殿"],"h":"双门字框:天宫大门","lang":"zh","cat":"hz","id":"hz-阊阖"},{"w":"闾","p":"lǘ","d":"里巷的门;乡里;倚闾而望","e":["倚闾而望(母亲盼儿归)"],"h":"门+吕:巷口之门;闾里=街坊","lang":"zh","cat":"hz","id":"hz-闾"},{"w":"阍","p":"hūn","d":"宫门;看门人;叩阍=向朝廷申诉","e":["司阍(看门人)"],"h":"门+昏:黄昏关门的人","lang":"zh","cat":"hz","id":"hz-阍"},{"w":"垓","p":"gāi","d":"垓下(项羽被围地);数词,一万万亿","e":["垓下之围,四面楚歌"],"h":"土+亥:垓下=地名必读gāi","lang":"zh","cat":"hz","id":"hz-垓"},{"w":"圩","p":"wéi","d":"低洼地区防水的堤;圩田(读xū时=集市,赶圩)","e":["圩堤挡住汛期洪水;赶圩(xū)"],"h":"土+于:围水造田;两音两义","lang":"zh","cat":"hz","id":"hz-圩"},{"w":"塬","p":"yuán","d":"黄土高原上顶面平坦的台地","e":["黄土塬、梁、峁地貌"],"h":"土+原:平顶黄土'原'","lang":"zh","cat":"hz","id":"hz-塬"},{"w":"峁","p":"mǎo","d":"黄土高原上的圆顶小丘","e":["爬上山峁望见窑洞"],"h":"山+卯:馒头状黄土丘","lang":"zh","cat":"hz","id":"hz-峁"},{"w":"崮","p":"gù","d":"四周陡峭顶上较平的山(山东多见)","e":["孟良崮战役"],"h":"山+固:平顶方山如堡垒","lang":"zh","cat":"hz","id":"hz-崮"},{"w":"岫","p":"xiù","d":"山洞;峰峦","e":["云无心以出岫(陶渊明)"],"h":"山+由:云从山穴中出","lang":"zh","cat":"hz","id":"hz-岫"},{"w":"岿","p":"kuī","d":"高大独立;岿然不动","e":["岿然不动"],"h":"山+归:大山巍然","lang":"zh","cat":"hz","id":"hz-岿"},{"w":"嶙峋","p":"lín xún","d":"山石突兀重叠;人瘦削见骨;风骨嶙峋","e":["怪石嶙峋;瘦骨嶙峋"],"h":"山旁成对:石头棱棱角角","lang":"zh","cat":"hz","id":"hz-嶙峋"},{"w":"巉","p":"chán","d":"山势高峻险要;巉岩","e":["巉岩耸立,不可攀援"],"h":"山+毚:险峰陡壁","lang":"zh","cat":"hz","id":"hz-巉"},{"w":"隰","p":"xí","d":"低湿之地;《诗经》'山有扶苏,隰有荷华'","e":["隰有荷华"],"h":"阝(阜)=土山旁:山下湿地","lang":"zh","cat":"hz","id":"hz-隰"},{"w":"潋滟","p":"liàn yàn","d":"水波荡漾、波光闪动","e":["水光潋滟晴方好"],"h":"三点水成对:湖面波光","lang":"zh","cat":"hz","id":"hz-潋滟"},{"w":"濯","p":"zhuó","d":"洗;濯足;童山濯濯=山无草木","e":["沧浪之水清兮,可以濯我缨"],"h":"氵+翟:水中洗涤;'濯濯'反而形容光秃","lang":"zh","cat":"hz","id":"hz-濯"},{"w":"熹","p":"xī","d":"天亮;微明;熹微;朱熹","e":["晨光熹微"],"h":"火在下:黎明微光如小火","lang":"zh","cat":"hz","id":"hz-熹"},{"w":"烬","p":"jìn","d":"物体燃烧后的剩余;灰烬;余烬","e":["化为灰烬"],"h":"火+尽:火烧尽之余","lang":"zh","cat":"hz","id":"hz-烬"},{"w":"燔","p":"fán","d":"焚烧;烤(肉);燔祭","e":["燔诗书而明法令(焚书)"],"h":"火+番:大火烧","lang":"zh","cat":"hz","id":"hz-燔"},{"w":"炙","p":"zhì","d":"烤(肉);炙手可热;脍炙人口","e":["脍炙人口;炙手可热"],"h":"上肉下火:肉在火上烤,字形即义","lang":"zh","cat":"hz","id":"hz-炙"},{"w":"煨","p":"wēi","d":"小火慢煮;埋入灰火中烤熟","e":["煨汤要用文火"],"h":"火+畏:火候小心伺候","lang":"zh","cat":"hz","id":"hz-煨"},{"w":"汆","p":"cuān","d":"食物入沸水略煮即捞;汆丸子","e":["汆一个丸子汤"],"h":"入+水:食材'入水'即成;别跟'籴dí'混","lang":"zh","cat":"hz","id":"hz-汆"},{"w":"焯","p":"chāo","d":"蔬菜入沸水略烫(读zhuō时=明彻)","e":["菠菜先焯水去草酸"],"h":"火+卓:开水里一过","lang":"zh","cat":"hz","id":"hz-焯"},{"w":"炝","p":"qiàng","d":"食材焯烫后加料拌;热油爆香(炝锅)","e":["炝拌土豆丝;葱花炝锅"],"h":"火+仓:猛火快攻的调味法","lang":"zh","cat":"hz","id":"hz-炝"},{"w":"煸","p":"biān","d":"少油翻炒使干香;干煸","e":["干煸四季豆"],"h":"火+扁:把食材煸'扁'炒干","lang":"zh","cat":"hz","id":"hz-煸"},{"w":"焗","p":"jú","d":"利用容器的热气焖熟(粤式做法);盐焗、芝士焗","e":["盐焗鸡;芝士焗饭"],"h":"火+局:关在'局'里用热气闷熟","lang":"zh","cat":"hz","id":"hz-焗"},{"w":"熘","p":"liū","d":"炸/滑油后勾芡快炒;熘肝尖","e":["醋熘白菜;焦熘丸子"],"h":"火+留:芡汁把嫩'留'住","lang":"zh","cat":"hz","id":"hz-熘"},{"w":"烩","p":"huì","d":"多种食材同煮勾芡;烩菜;大杂烩","e":["河南烩面;大杂烩"],"h":"火+会:各种料'会合'一锅","lang":"zh","cat":"hz","id":"hz-烩"},{"w":"羟","p":"qiǎng","d":"化学:羟基(-OH,氢氧基)","e":["羟基酸;羟氯喹"],"h":"羊头拼字:氢+氧=羟(qiǎng取二字音)","lang":"zh","cat":"hz","id":"hz-羟"},{"w":"羧","p":"suō","d":"化学:羧基(-COOH)","e":["羧酸;氨基酸含羧基"],"h":"氧+酸拼出suō:有机酸的官能团","lang":"zh","cat":"hz","id":"hz-羧"},{"w":"巯","p":"qiú","d":"化学:巯基(-SH,氢硫基)","e":["巯基化合物有臭味"],"h":"氢+硫拼音合成qiú","lang":"zh","cat":"hz","id":"hz-巯"},{"w":"肽","p":"tài","d":"化学:氨基酸链;多肽、肽键","e":["多肽链折叠成蛋白质"],"h":"月(肉)+太:蛋白质的片段","lang":"zh","cat":"hz","id":"hz-肽"},{"w":"苷","p":"gān","d":"化学:糖苷;人参皂苷","e":["黄酮苷;糖苷键"],"h":"草头+甘:植物里带糖的成分","lang":"zh","cat":"hz","id":"hz-苷"},{"w":"酯","p":"zhǐ","d":"化学:酸醇缩合的化合物;酯类香气","e":["乙酸乙酯有果香"],"h":"酉旁=化学一族;酯零(指)读zhǐ","lang":"zh","cat":"hz","id":"hz-酯"},{"w":"醛","p":"quán","d":"化学:醛基化合物;甲醛","e":["新房除甲醛"],"h":"酉旁;甲醛=最有名的醛","lang":"zh","cat":"hz","id":"hz-醛"},{"w":"烯","p":"xī","d":"化学:含双键的烃;乙烯、石墨烯","e":["石墨烯是明星材料"],"h":"火+希:碳氢家族,双键为烯","lang":"zh","cat":"hz","id":"hz-烯"},{"w":"炔","p":"quē","d":"化学:含三键的烃;乙炔","e":["乙炔焊枪火焰极高温"],"h":"火+夬:三键;注意不读jué","lang":"zh","cat":"hz","id":"hz-炔"},{"w":"烃","p":"tīng","d":"化学:碳氢化合物总称","e":["芳香烃;烃类燃料"],"h":"碳(t)+氢(īng)拼合造字","lang":"zh","cat":"hz","id":"hz-烃"},{"w":"嚏","p":"tì","d":"喷嚏","cue":"打喷【tì】","h":"口+疐:右半上'十'下'疋',中间'冖'藏'田'——最著名的提笔忘字","lang":"zh","cat":"wr","id":"wr-嚏"},{"w":"尴尬","p":"gān gà","d":"处境难堪,不自然","cue":"场面一度很【gān gà】","h":"部首是'尢'(yóu),不是'九'——两个字都是尢字旁","lang":"zh","cat":"wr","id":"wr-尴尬"},{"w":"髦","p":"máo","d":"时髦","cue":"赶时【máo】","h":"髟(biāo,长发)字头+毛:长长的头发=时尚","lang":"zh","cat":"wr","id":"wr-髦"},{"w":"赝","p":"yàn","d":"赝品(伪造的)","cue":"这幅画是【yàn】品","h":"厂+雁省+贝:假雁换真贝","lang":"zh","cat":"wr","id":"wr-赝"},{"w":"灸","p":"jiǔ","d":"针灸","cue":"针【jiǔ】","h":"久+火:长久用火烤——别写成'炙'(肉在火上)","lang":"zh","cat":"wr","id":"wr-灸"},{"w":"疙瘩","p":"gē da","d":"皮肤小突起;心结","cue":"起鸡皮【gē da】","h":"疒字头包'乞''荅'","lang":"zh","cat":"wr","id":"wr-疙瘩"},{"w":"蟑螂","p":"zhāng láng","d":"蟑螂","cue":"厨房有【zhāng láng】","h":"虫+章/郎:会打章的郎——都虫字旁","lang":"zh","cat":"wr","id":"wr-蟑螂"},{"w":"蜈蚣","p":"wú gōng","d":"蜈蚣","cue":"【wú gōng】有很多脚","h":"虫+吴/公","lang":"zh","cat":"wr","id":"wr-蜈蚣"},{"w":"韬","p":"tāo","d":"韬光养晦;韬略","cue":"【tāo】光养晦","h":"韦(皮革)+舀:剑套藏光","lang":"zh","cat":"wr","id":"wr-韬"},{"w":"鳏","p":"guān","d":"鳏夫(丧妻的男人);鳏寡孤独","cue":"【guān】寡孤独","h":"鱼+眔:鱼目不闭,夜不能寐的独身男人","lang":"zh","cat":"wr","id":"wr-鳏"},{"w":"藩","p":"fān","d":"藩篱;藩镇;曾国藩","cue":"【fān】镇割据","h":"草头+氵+番:篱笆围水田","lang":"zh","cat":"wr","id":"wr-藩"},{"w":"鏖","p":"áo","d":"鏖战(激烈苦战)","cue":"【áo】战三天三夜","h":"鹿字头罩'金':金鹿相搏","lang":"zh","cat":"wr","id":"wr-鏖"},{"w":"蘸","p":"zhàn","d":"在液体、粉末里沾一下","cue":"饺子【zhàn】醋","h":"草头+沾湿的'醮'底:22画,提笔即忘冠军之一","lang":"zh","cat":"wr","id":"wr-蘸"},{"w":"瞥","p":"piē","d":"很快地看一眼;瞥见","cue":"【piē】了他一眼","h":"敝+目:目光如'撇'般扫过","lang":"zh","cat":"wr","id":"wr-瞥"},{"w":"曦","p":"xī","d":"晨曦(早晨的阳光)","cue":"晨【xī】微露","h":"日+羲:羲和驾日车——右边是'羲'不是'义'","lang":"zh","cat":"wr","id":"wr-曦"},{"w":"镶嵌","p":"xiāng qiàn","d":"把东西嵌入另一物中","cue":"宝石【xiāng qiàn】在王冠上","h":"金+襄;山+甘+欠:金属包边,山缝含物","lang":"zh","cat":"wr","id":"wr-镶嵌"},{"w":"璀璨","p":"cuǐ càn","d":"光彩夺目","cue":"星光【cuǐ càn】","h":"双王(玉)旁:玉光闪耀","lang":"zh","cat":"wr","id":"wr-璀璨"},{"w":"蹒跚","p":"pán shān","d":"走路摇晃不稳","cue":"步履【pán shān】","h":"足旁成对:满(蹒)了栅(跚)栏般迈不开步","lang":"zh","cat":"wr","id":"wr-蹒跚"},{"w":"蜷缩","p":"quán suō","d":"身体弯曲收缩","cue":"猫【quán suō】成一团","h":"虫+卷:虫子卷起来","lang":"zh","cat":"wr","id":"wr-蜷缩"},{"w":"踌躇","p":"chóu chú","d":"犹豫不决;踌躇满志","cue":"【chóu chú】不前","h":"足旁成对:寿+著——脚步迟疑","lang":"zh","cat":"wr","id":"wr-踌躇"},{"w":"憔悴","p":"qiáo cuì","d":"面色黄瘦、精神萎靡","cue":"面容【qiáo cuì】","h":"竖心旁成对:心焦(憔)心碎(悴)","lang":"zh","cat":"wr","id":"wr-憔悴"},{"w":"缜密","p":"zhěn mì","d":"周密细致(思维)","cue":"逻辑【zhěn mì】","h":"纟+真:丝线般细密——别写成'慎'","lang":"zh","cat":"wr","id":"wr-缜密"},{"w":"耷拉","p":"dā la","d":"下垂","cue":"狗【dā la】着耳朵","h":"大+耳:大耳朵垂下来,字形即义","lang":"zh","cat":"wr","id":"wr-耷拉"},{"w":"旮旯","p":"gā lá","d":"角落;犄角旮旯","cue":"犄角【gā lá】","h":"九+日两个方向:太阳照不到的角落","lang":"zh","cat":"wr","id":"wr-旮旯"},{"w":"蝙蝠","p":"biān fú","d":"蝙蝠","cue":"【biān fú】倒挂在洞里","h":"虫+扁/畐:扁扁的'福'虫","lang":"zh","cat":"wr","id":"wr-蝙蝠"},{"w":"蝌蚪","p":"kē dǒu","d":"青蛙幼体","cue":"小【kē dǒu】找妈妈","h":"虫+科/斗:小得用斗量的虫","lang":"zh","cat":"wr","id":"wr-蝌蚪"},{"w":"螃蟹","p":"páng xiè","d":"螃蟹","cue":"大闸【xiè】","h":"蟹=解+虫:能'解'开壳的虫","lang":"zh","cat":"wr","id":"wr-螃蟹"},{"w":"鹦鹉","p":"yīng wǔ","d":"鹦鹉","cue":"【yīng wǔ】学舌","h":"婴+鸟/武+鸟:会说话的'婴儿鸟'","lang":"zh","cat":"wr","id":"wr-鹦鹉"},{"w":"鹌鹑","p":"ān chún","d":"鹌鹑","cue":"【ān chún】蛋","h":"安+鸟/享+鸟(注意'鹑'左为'享')","lang":"zh","cat":"wr","id":"wr-鹌鹑"},{"w":"鹧鸪","p":"zhè gū","d":"鹧鸪(鸟);词牌《鹧鸪天》","cue":"《【zhè gū】天》是词牌名","h":"庶+鸟/古+鸟","lang":"zh","cat":"wr","id":"wr-鹧鸪"},{"w":"麒麟","p":"qí lín","d":"传说中的祥兽","cue":"【qí lín】送子","h":"鹿字旁成对:其+粦——都是鹿家","lang":"zh","cat":"wr","id":"wr-麒麟"},{"w":"罄","p":"qìng","d":"用尽;罄竹难书;售罄","cue":"存货售【qìng】","h":"缶(陶罐)底:罐子空了=尽;上半同'磬'","lang":"zh","cat":"wr","id":"wr-罄"},{"w":"磬","p":"qìng","d":"古代石制打击乐器","cue":"钟【qìng】之声","h":"石字底:石头乐器——与'罄'(缶底)对比记","lang":"zh","cat":"wr","id":"wr-磬"},{"w":"熨","p":"yùn","d":"熨斗;熨衣服","cue":"【yùn】衬衫","h":"尉+火:'尉'官拿火压平衣服","lang":"zh","cat":"wr","id":"wr-熨"},{"w":"簸箕","p":"bò ji","d":"扬米去糠/撮垃圾的器具","cue":"扫帚和【bò ji】","h":"竹字头成对:竹编器具;'其'即箕的本字","lang":"zh","cat":"wr","id":"wr-簸箕"},{"w":"笤帚","p":"tiáo zhou","d":"扫地的用具","cue":"拿【tiáo zhou】扫地","h":"竹+召;帚=手持巾扫——'妇'字右边就是帚","lang":"zh","cat":"wr","id":"wr-笤帚"},{"w":"屉","p":"tì","d":"抽屉;笼屉","cue":"抽【tì】里放着钥匙","h":"尸字头+世:柜身里的'世界'","lang":"zh","cat":"wr","id":"wr-屉"},{"w":"褥","p":"rù","d":"褥子(垫在床上)","cue":"床垫上铺【rù】子","h":"衤+辱:布做的垫子——衣字旁别丢点","lang":"zh","cat":"wr","id":"wr-褥"},{"w":"毽","p":"jiàn","d":"毽子","cue":"踢【jiàn】子","h":"毛+建:羽毛做的玩具","lang":"zh","cat":"wr","id":"wr-毽"},{"w":"陀螺","p":"tuó luó","d":"旋转的玩具;陀螺仪","cue":"抽【tuó luó】","h":"阝+它/虫+累:转起来像螺","lang":"zh","cat":"wr","id":"wr-陀螺"},{"w":"疟","p":"nüè","d":"疟疾","cue":"【nüè】疾由蚊子传播","h":"疒+虐省:虐人的病;读音同'虐'","lang":"zh","cat":"wr","id":"wr-疟"},{"w":"痢","p":"lì","d":"痢疾","cue":"【lì】疾(拉肚子的传染病)","h":"疒+利:'利'得太快的病","lang":"zh","cat":"wr","id":"wr-痢"},{"w":"疹","p":"zhěn","d":"麻疹;疹子","cue":"出麻【zhěn】","h":"疒+诊省:需要诊断的小点点","lang":"zh","cat":"wr","id":"wr-疹"},{"w":"疱","p":"pào","d":"疱疹;水疱","cue":"【pào】疹病毒","h":"疒+包:皮上鼓的包","lang":"zh","cat":"wr","id":"wr-疱"},{"w":"藉","p":"jí","d":"狼藉(乱七八糟);也读jiè(慰藉)","cue":"杯盘狼【jí】","h":"草头+耒+昔:草席踩乱;慰藉jiè、狼藉jí","lang":"zh","cat":"wr","id":"wr-藉"},{"w":"蹂躏","p":"róu lìn","d":"践踏;摧残","cue":"惨遭【róu lìn】","h":"足旁成对:柔(蹂)+躏(蔺)——脚下碾压","lang":"zh","cat":"wr","id":"wr-蹂躏"},{"w":"噩","p":"è","d":"噩梦;噩耗","cue":"做了个【è】梦","h":"王+四个口:四口惊呼——注意不是'恶'","lang":"zh","cat":"wr","id":"wr-噩"},{"w":"曝","p":"pù","d":"晒;一曝十寒(读bào:曝光)","cue":"一【pù】十寒","h":"日+暴:太阳下暴晒;新闻曝bào光","lang":"zh","cat":"wr","id":"wr-曝"},{"w":"攘","p":"rǎng","d":"排斥;熙熙攘攘;攘外安内","cue":"熙熙【rǎng rǎng】","h":"扌+襄:挥手推挤——右边'襄'17画别慌","lang":"zh","cat":"wr","id":"wr-攘"},{"w":"冀","p":"jì","d":"希望;河北省简称","cue":"希【jì】;【jì】中平原","h":"北+异:北方的田地=河北","lang":"zh","cat":"wr","id":"wr-冀"},{"w":"羲","p":"xī","d":"伏羲;王羲之","cue":"书圣王【xī】之","h":"羊+禾+丂+戈:16画,拆开就不怕","lang":"zh","cat":"wr","id":"wr-羲"},{"w":"鬓","p":"bìn","d":"鬓角;两鬓斑白","cue":"两【bìn】斑白","h":"髟(长发)+宾:脸旁的'宾客'头发","lang":"zh","cat":"wr","id":"wr-鬓"},{"w":"霹雳","p":"pī lì","d":"炸雷","cue":"晴天【pī lì】","h":"雨字头成对:辟+历","lang":"zh","cat":"wr","id":"wr-霹雳"},{"w":"璀","p":"cuǐ","d":"璀璨","cue":"【cuǐ】璨夺目","h":"王+崔:玉光闪(与'璨'成对复习)","lang":"zh","cat":"wr","id":"wr-璀"},{"w":"糯","p":"nuò","d":"糯米","cue":"【nuò】米团子","h":"米+需:需要黏性的米","lang":"zh","cat":"wr","id":"wr-糯"},{"w":"酵","p":"jiào","d":"发酵;酵母","cue":"面团发【jiào】","h":"酉+孝:酒坛里'孝顺'地冒泡;注意读jiào不读xiào","lang":"zh","cat":"wr","id":"wr-酵"},{"w":"馊","p":"sōu","d":"饭菜变质发酸;馊主意","cue":"出了个【sōu】主意","h":"饣+叟:老饭馊了","lang":"zh","cat":"wr","id":"wr-馊"},{"w":"羹","p":"gēng","d":"浓汤;闭门羹","cue":"吃了闭门【gēng】","h":"羔+美:羊羔汤最美——上羔下美19画","lang":"zh","cat":"wr","id":"wr-羹"},{"w":"糜","p":"mí","d":"粥;糜烂;奢糜","cue":"生活奢【mí】","h":"麻字头+米:米煮烂如麻","lang":"zh","cat":"wr","id":"wr-糜"},{"w":"孵","p":"fū","d":"孵化;孵蛋","cue":"母鸡【fū】蛋","h":"卵+孚:卵上有爪(孚)护着","lang":"zh","cat":"wr","id":"wr-孵"},{"w":"薯","p":"shǔ","d":"红薯;薯条","cue":"炸【shǔ】条","h":"草头+署:地里的'署长'","lang":"zh","cat":"wr","id":"wr-薯"},{"w":"藕","p":"ǒu","d":"莲藕;藕断丝连","cue":"【ǒu】断丝连","h":"草头+耦:并排(耦)长的水下茎","lang":"zh","cat":"wr","id":"wr-藕"},{"w":"檐","p":"yán","d":"屋檐","cue":"雨滴从屋【yán】落下","h":"木+詹:木头挑出来'瞻'望","lang":"zh","cat":"wr","id":"wr-檐"},{"w":"辕","p":"yuán","d":"车前驾牲口的直木;南辕北辙","cue":"南【yuán】北辙","h":"车+袁:车的'圆'木杆","lang":"zh","cat":"wr","id":"wr-辕"},{"w":"辙","p":"zhé","d":"车轮压出的痕迹;没辙","cue":"重蹈覆【zhé】","h":"车+彻省:车走彻底留下的印","lang":"zh","cat":"wr","id":"wr-辙"},{"w":"髓","p":"suǐ","d":"骨髓;精髓","cue":"深入骨【suǐ】","h":"骨+随:随骨而生的精华","lang":"zh","cat":"wr","id":"wr-髓"},{"w":"囊","p":"náng","d":"口袋;囊括;皮囊","cue":"【náng】括全部奖牌","h":"22画:中间是两个'口'加'井'字芯,下面'𧘇'收底——拆层写","lang":"zh","cat":"wr","id":"wr-囊"},{"w":"罐","p":"guàn","d":"罐子;易拉罐","cue":"易拉【guàn】","h":"缶+雚:陶器(缶)+鹳鸟叫声——右边是'雚'不是'欢'","lang":"zh","cat":"wr","id":"wr-罐"},{"w":"甥","p":"shēng","d":"外甥","cue":"外【shēng】打灯笼——照舅","h":"生+男:姐妹'生'的'男'孩","lang":"zh","cat":"wr","id":"wr-甥"},{"w":"婿","p":"xù","d":"女婿","cue":"乘龙快【xù】","h":"女+胥:女家的'胥'吏","lang":"zh","cat":"wr","id":"wr-婿"},{"w":"寨","p":"zhài","d":"村寨;山寨","cue":"山【zhài】手机","h":"宀+塞省+木:木栅围的堡","lang":"zh","cat":"wr","id":"wr-寨"},{"w":"寥","p":"liáo","d":"稀少;寥寥无几;寂寥","cue":"【liáo liáo】无几","h":"宀+羽+彡:屋里只剩羽毛飘——空","lang":"zh","cat":"wr","id":"wr-寥"},{"w":"寰","p":"huán","d":"广大的地域;寰球;惨绝人寰","cue":"惨绝人【huán】","h":"宀+睘:天下如一间大屋","lang":"zh","cat":"wr","id":"wr-寰"},{"w":"魄","p":"pò","d":"魂魄;气魄;落魄","cue":"惊心动【pò】","h":"白+鬼:白色的鬼气——别与'魂'(云+鬼)混","lang":"zh","cat":"wr","id":"wr-魄"},{"w":"魇","p":"yǎn","d":"梦魇(做噩梦被压住)","cue":"梦【yǎn】缠身","h":"厌+鬼:被'厌'住的鬼压床","lang":"zh","cat":"wr","id":"wr-魇"},{"w":"貌","p":"mào","d":"相貌;礼貌","cue":"以【mào】取人","h":"豸+皃:野兽的外形——左边是豸不是'豹'的全字","lang":"zh","cat":"wr","id":"wr-貌"},{"w":"懿","p":"yì","d":"美好(懿德);司马懿","cue":"司马【yì】","h":"壹+恣省:22画,壹+次+心分三块写","lang":"zh","cat":"wr","id":"wr-懿"},{"w":"馨","p":"xīn","d":"馨香;温馨","cue":"温【xīn】的家","h":"上'殸'(磬省)下'香':钟磬之音+香气","lang":"zh","cat":"wr","id":"wr-馨"},{"w":"罹","p":"lí","d":"遭受(罹难、罹患)","cue":"【lí】患重病","h":"四字头+忄+隹:网罩鸟心——遭难","lang":"zh","cat":"wr","id":"wr-罹"},{"w":"赧","p":"nǎn","d":"因羞愧而脸红;赧然","cue":"【nǎn】然一笑","h":"赤+服省:脸'赤'了","lang":"zh","cat":"wr","id":"wr-赧"},{"w":"觳觫","p":"hú sù","d":"因恐惧而发抖(《孟子》牛之觳觫)","cue":"吾不忍其【hú sù】","h":"角旁成对:牛角都在抖","lang":"zh","cat":"wr","id":"wr-觳觫"},{"w":"耙","p":"pá","d":"耙子;钉耙(读bà:耙地农具)","cue":"猪八戒的钉【pá】","h":"耒字旁+巴:农具家族","lang":"zh","cat":"wr","id":"wr-耙"},{"w":"檄","p":"xí","d":"檄文(声讨的文书)","cue":"讨贼【xí】文","h":"木+敫:木简上的战书","lang":"zh","cat":"wr","id":"wr-檄"},{"w":"缛","p":"rù","d":"繁琐;繁文缛节","cue":"繁文【rù】节","h":"纟+辱:丝线繁复——与'褥'(衣旁)对比","lang":"zh","cat":"wr","id":"wr-缛"},{"w":"氤氲","p":"yīn yūn","d":"烟气弥漫","cue":"雾气【yīn yūn】","h":"气字头成对:因+昷在气里","lang":"zh","cat":"wr","id":"wr-氤氲"},{"w":"饽","p":"bō","d":"饽饽(面饼、馒头类)","cue":"香【bō bō】(抢手货)","h":"饣+孛:面食家族","lang":"zh","cat":"wr","id":"wr-饽"},{"w":"匮","p":"kuì","d":"缺乏;匮乏","cue":"资源【kuì】乏","h":"匚+贵:柜(匮)子空了才知贵","lang":"zh","cat":"wr","id":"wr-匮"},{"w":"赅","p":"gāi","d":"完备;言简意赅","cue":"言简意【gāi】","h":"贝+亥:该有的都有","lang":"zh","cat":"wr","id":"wr-赅"},{"w":"骼","p":"gé","d":"骨骼","cue":"骨【gé】清奇","h":"骨+各:各处的骨头","lang":"zh","cat":"wr","id":"wr-骼"},{"w":"蹭","p":"cèng","d":"摩擦;蹭饭;磨蹭","cue":"去朋友家【cèng】饭","h":"足+曾:脚步'曾'来曾往地磨","lang":"zh","cat":"wr","id":"wr-蹭"},{"w":"攒","p":"zǎn","d":"积蓄(攒钱);读cuán:拼凑(攒机)","cue":"【zǎn】钱买房","h":"扌+赞:动手赞助自己——右边是'赞'","lang":"zh","cat":"wr","id":"wr-攒"},{"w":"逮","p":"dǎi/dài","d":"捉(dǎi:逮老鼠);逮捕(dài)","cue":"猫【dǎi】老鼠;【dài】捕","h":"辶+隶:追上并抓住(隶=及)","lang":"zh","cat":"wr","id":"wr-逮"},{"w":"羁","p":"jī","d":"马笼头;束缚;放荡不羁","cue":"放荡不【jī】","h":"四字头+革+马:皮革网罩马头","lang":"zh","cat":"wr","id":"wr-羁"}];
+const SETS = [{"id":"bronze","name":"青铜礼器","en":"Bronze Rites","seal":"礼器","desc":"商周酒食之器,一套八件","members":["hz-觥","hz-觞","hz-觚","hz-斝","hz-卣","hz-簋","hz-鬲","hz-甗"]},{"id":"stacked","name":"叠字奇观","en":"Stacked Characters","seal":"叠字","desc":"三牛为犇,三鱼为鱻——叠出来的字","members":["hz-垚","hz-犇","hz-骉","hz-鱻","hz-麤","hz-猋","hz-淼","hz-焱","hz-燚","hz-毳","hz-掱","hz-孨","hz-龘","hz-靐"]},{"id":"cooking","name":"庖厨真火","en":"Kitchen Fire","seal":"庖厨","desc":"汆焯炝煸,中餐火候的专用动词","members":["hz-汆","hz-焯","hz-炝","hz-煸","hz-熘","hz-烩","hz-煨","hz-焗","hz-燔","hz-炙"]},{"id":"chem","name":"化学之名","en":"Chemistry Coinage","seal":"化学","desc":"为现代化学新造的汉字","members":["hz-羟","hz-羧","hz-巯","hz-肽","hz-苷","hz-酯","hz-醛","hz-烯","hz-炔","hz-烃"]},{"id":"spirits","name":"鬼怪出没","en":"Spirits & Beasts","seal":"鬼怪","desc":"魑魅魍魉,睚眦狴犴","members":["hz-魍魉","hz-魑魅","hz-睚眦","hz-狴犴","hz-貔貅","hz-饕餮"]},{"id":"landform","name":"山川形胜","en":"Landforms","seal":"山川","desc":"塬峁崮岫,黄土与奇山","members":["hz-塬","hz-峁","hz-崮","hz-岫","hz-岿","hz-嶙峋","hz-巉","hz-隰"]},{"id":"doors","name":"门户之间","en":"Gates & Doors","seal":"门户","desc":"门字框里的寂静与喧阗","members":["hz-阒","hz-阗","hz-阈","hz-阊阖","hz-闾","hz-阍","hz-囹圄"]},{"id":"jade","name":"玉器珠光","en":"Jades","seal":"玉光","desc":"圭璜琮玦,礼玉之属","members":["hz-璎珞","hz-玦","hz-璜","hz-琮","hz-圭","hz-瓒","hz-玑"]},{"id":"ailment","name":"病榻百态","en":"Under the 疒","seal":"疒部","desc":"病字头下的疑难杂症","members":["hz-疖","hz-疥","hz-疸","hz-痂","hz-痼","hz-瘴","hz-癔"]},{"id":"writehall","name":"提笔忘字堂","en":"Hall of Forgotten Strokes","seal":"忘字","desc":"最著名的八个提笔忘字","members":["wr-嚏","wr-尴尬","wr-蘸","wr-罄","wr-曦","wr-鬓","wr-囊","wr-羹"]},{"id":"beasts","name":"飞禽走兽","en":"Birds & Bugs by Hand","seal":"虫鸟","desc":"会读不会写的动物园","members":["wr-蟑螂","wr-蜈蚣","wr-蝙蝠","wr-蝌蚪","wr-螃蟹","wr-鹦鹉","wr-鹌鹑","wr-鹧鸪","wr-麒麟"]},{"id":"death","name":"墓园漫步","en":"Death & Burial","seal":"墓园","desc":"From bier to threnody — the vocabulary of last rites","members":["ra-sepulchre","ra-catacomb","ra-ossuary","ra-reliquary","ra-charnel","ra-bier","ra-pall","ra-cortege","ra-dirge","ra-threnody"]},{"id":"cloth","name":"锦缎纹理","en":"Cloth & Weave","seal":"锦缎","desc":"Fabrics and patterns a tailor would know","members":["ra-brocade","ra-damask","ra-muslin","ra-gingham","ra-herringbone","ra-houndstooth","ra-seersucker","ra-calico"]},{"id":"light","name":"光影明灭","en":"Light & Dark","seal":"光影","desc":"From gloaming to refulgent — every shade of light","members":["ra-chiaroscuro","ra-lambent","ra-coruscating","ra-refulgent","ra-tenebrous","ra-stygian","ra-penumbra","ra-crepuscular","ra-gloaming"]},{"id":"rogues","name":"江湖人物","en":"Characters & Rogues","seal":"江湖","desc":"Raconteurs, charlatans, and the people of the world","members":["ra-raconteur","ra-flaneur","ra-dilettante","ra-charlatan","ra-mountebank","ra-grifter","ra-shill","ra-factotum","ra-majordomo","ra-doyen","ra-impresario","ra-amanuensis"]},{"id":"kitchen","name":"厨房抽屉","en":"The Kitchen Drawer","seal":"厨具","desc":"Every tool in the drawer, named","members":["ev-colander","ev-ladle","ev-spatula","ev-whisk","ev-tongs","ev-sieve","ev-grater","ev-corkscrew"]},{"id":"body","name":"身体小事","en":"Body Quirks","seal":"肤发","desc":"Cowlicks, hangnails, and other small anatomy","members":["ev-cowlick","ev-hangnail","ev-goosebumps","ev-freckle","ev-dimple","ev-stye","ev-welt","ev-blister","ev-birthmark","ev-dandruff"]},{"id":"road","name":"马路生涯","en":"On the Road","seal":"道路","desc":"The street, the curb, and everything between","members":["ev-jaywalk","ev-tailgate","ev-rubberneck","ev-pothole","ev-roundabout","ev-crosswalk","ev-curb","ev-median","ev-shoulder","ev-fender bender"]},{"id":"verbs","name":"动词雷区","en":"Confusable Verbs","seal":"雷区","desc":"The verbs most likely to betray you","members":["cf-impute","cf-impugn","cf-proscribe","cf-demur","cf-abet","cf-abjure","cf-flaunt","cf-militate","cf-prevaricate","cf-obviate"]},{"id":"office","name":"职场黑话","en":"Office Field Guide","seal":"职场","desc":"Corporate-speak decoded","members":["id-circle back","id-touch base","id-low-hanging fruit","id-boil the ocean","id-kick the can down the road","id-table","id-on the back burner","id-in the weeds"]},{"id":"baseball","name":"棒球英语","en":"Ballpark English","seal":"棒球","desc":"America thinks in baseball — these idioms prove it","members":["id-out of left field","id-curveball","id-strike out","id-step up to the plate","id-Monday-morning quarterback","id-in the ballpark","id-Hail Mary"]}];
+/* ================= state ================= */
+const LS = "lexicon.v1";
+let DIRTY=false;
+let S = load();
+function load(){
+  try{ const s = JSON.parse(localStorage.getItem(LS));
+    if(s && s.srs){ s.seals=s.seals||{}; s.bestCombo=s.bestCombo||0; s.retired=s.retired||{}; s.deleted=s.deleted||{}; return s; } }catch(e){}
+  return { srs:{}, log:{}, xp:0, custom:[], seals:{}, bestCombo:0, retired:{}, deleted:{}, set:{ newPerDay:15, dailyGoal:20, rate:1.0, enVoice:"", zhVoice:"" } };
+}
+function save(){ localStorage.setItem(LS, JSON.stringify(S)); DIRTY=true; }
+function isRet(id){ return S.retired[id]>0; }
+function retireCard(id){ S.retired[id]=Math.max(1,today()); save(); checkSeals(); schedulePush(); }
+function restoreCard(id){ S.retired[id]=-Math.max(1,today()); save(); schedulePush(); }
+function deleteCustom(id){
+  S.deleted[id]=Math.max(1,today());
+  S.custom=S.custom.filter(c=>c.id!==id);
+  delete S.srs[id]; delete S.retired[id];
+  save(); schedulePush();
+}
+function today(){ const d=new Date(); return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/86400000); }
+function dayLog(d){ const k=String(d===undefined?today():d); if(!S.log[k]) S.log[k]={r:0,n:0}; return S.log[k]; }
+function allCards(){ return DECK.concat(S.custom); }
+const byId = () => { const m={}; for(const c of allCards()) m[c.id]=c; return m; };
+/* ================= srs (SM-2 variant) ================= */
+function srsOf(id){ if(!S.srs[id]) S.srs[id]={ef:2.5,ivl:0,reps:0,due:0,lapses:0}; return S.srs[id]; }
+function preview(id,g){
+  const r=Object.assign({},S.srs[id]||{ef:2.5,ivl:0,reps:0});
+  const iv=nextIvl(r,g); return iv===0?"稍后":fmtIvl(iv);
+}
+function nextIvl(r,g){
+  if(g===0) return 0;
+  if(r.reps===0||r.ivl===0){ return g===1?1: g===2?1:3; }
+  if(g===1) return Math.max(r.ivl+1, Math.round(r.ivl*1.2));
+  if(g===2) return r.ivl===1?3:Math.round(r.ivl*r.ef);
+  return Math.max(r.ivl===1?4:0, Math.round(r.ivl*r.ef*1.35));
+}
+function grade(id,g){
+  const r=srsOf(id), iv=nextIvl(r,g);
+  if(g===0){ r.lapses++; r.reps=0; r.ivl=0; r.due=today(); r.ef=Math.max(1.3,r.ef-0.2); }
+  else{
+    if(g===1) r.ef=Math.max(1.3,r.ef-0.15);
+    if(g===3) r.ef=Math.min(2.8,r.ef+0.12);
+    r.reps++; r.ivl=iv; r.due=today()+iv;
+  }
+  dayLog().r++; S.xp += (g===0?1:2);
+  save(); refreshTop();
+}
+function fmtIvl(d){ if(d<1)return"今天"; if(d<30)return d+"天"; if(d<365)return (d/30).toFixed(1).replace(/\.0$/,"")+"月"; return (d/365).toFixed(1).replace(/\.0$/,"")+"年"; }
+/* queue */
+function dueCards(){ const t=today(); return allCards().filter(c=>{if(isRet(c.id))return false; const r=S.srs[c.id]; return r && r.reps>0 && r.due<=t;}); }
+function relearnCards(){ const t=today(); return allCards().filter(c=>{if(isRet(c.id))return false; const r=S.srs[c.id]; return r && r.reps===0 && r.lapses>0 && r.due<=t;}); }
+function newCards(){ return allCards().filter(c=>!S.srs[c.id]&&!isRet(c.id)); }
+function newBudget(){ return Math.max(0, S.set.newPerDay - dayLog().n); }
+function buildQueue(limit){
+  let q = shuffle(dueCards()).concat(shuffle(relearnCards()));
+  const nb = newBudget();
+  if(nb>0){ q = q.concat(interleave(newCards(), nb)); }
+  if(limit) q = q.slice(0,limit);
+  return q.map(c=>c.id);
+}
+function interleave(cards,n){
+  const en=cards.filter(c=>c.lang==="en"), zh=cards.filter(c=>c.lang==="zh"), out=[];
+  let i=0,j=0;
+  while(out.length<n && (i<en.length||j<zh.length)){
+    if(i<en.length) out.push(en[i++]);
+    if(out.length<n && j<zh.length) out.push(zh[j++]);
+  }
+  return out;
+}
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+/* ================= gamification ================= */
+const LEVELS=[[0,"初窥门径 Greenhorn"],[150,"咬文嚼字 Wordsmith"],[400,"出口成章 Raconteur"],[900,"字斟句酌 Lexicographer"],[2000,"博闻强识 Polymath"],[4200,"泰山北斗 Doyen"],[8000,"字海无涯 Logophile"]];
+function levelOf(xp){ let li=0; for(let i=0;i<LEVELS.length;i++){ if(xp>=LEVELS[i][0]) li=i; } return li; }
+function streak(){
+  let s=0, d=today();
+  const has=k=>S.log[String(k)] && S.log[String(k)].r>0;
+  if(!has(d)) d--; // allow today not yet studied
+  while(has(d)){ s++; d--; }
+  return s;
+}
+function refreshTop(){
+  document.querySelector("#pillStreak b").textContent = streak();
+  const li=levelOf(S.xp);
+  document.querySelector("#pillLv b").textContent = "Lv."+(li+1);
+  document.getElementById("pillLv").title = LEVELS[li][1];
+  const r=dayLog().r, goal=S.set.dailyGoal, C=88;
+  document.querySelector("#goalRing .fg").style.strokeDashoffset = String(C*(1-Math.min(1,r/goal)));
+}
+/* ================= gist sync ================= */
+const GIST_FILE="lexicon-progress.json";
+function payload(){
+  return {srs:S.srs,log:S.log,xp:S.xp,custom:S.custom,seals:S.seals,bestCombo:S.bestCombo,retired:S.retired,deleted:S.deleted,v:1,ts:Date.now()};
+}
+function mergeData(d){
+  for(const k in (d.srs||{})){ const a=S.srs[k],b=d.srs[k];
+    if(!a || b.reps>a.reps || (b.reps===a.reps&&b.due>a.due)) S.srs[k]=b; }
+  for(const k in (d.log||{})){ const a=dayLogK(k),b=d.log[k]; a.r=Math.max(a.r,b.r||0); a.n=Math.max(a.n,b.n||0); }
+  S.xp=Math.max(S.xp,d.xp||0);
+  S.bestCombo=Math.max(S.bestCombo||0,d.bestCombo||0);
+  S.seals=Object.assign({},d.seals||{},S.seals);
+  for(const k in (d.retired||{})){ const a=S.retired[k],b=d.retired[k];
+    if(a===undefined || Math.abs(b)>Math.abs(a)) S.retired[k]=b; }
+  S.deleted=Object.assign({},S.deleted,d.deleted||{});
+  const have=new Set(S.custom.map(c=>c.id));
+  for(const c of (d.custom||[])) if(!have.has(c.id)) S.custom.push(c);
+  S.custom=S.custom.filter(c=>!S.deleted[c.id]);
+  save();
+}
+async function gh(path,opts){
+  const r=await fetch("https://api.github.com"+path,Object.assign({
+    headers:{ "Authorization":"Bearer "+S.set.ghToken, "Accept":"application/vnd.github+json" }
+  },opts||{}));
+  if(!r.ok) throw new Error("GitHub "+r.status);
+  return r.json();
+}
+let SYNCING=false, PUSHT=null;
+async function syncNow(manual){
+  if(!S.set.ghToken||SYNCING) return;
+  SYNCING=true;
+  try{
+    let gid=S.set.gistId;
+    if(!gid){
+      const gists=await gh("/gists?per_page=100");
+      const hit=gists.find(g=>g.files&&g.files[GIST_FILE]);
+      if(hit){ gid=hit.id; }
+      else{
+        const created=await gh("/gists",{method:"POST",body:JSON.stringify(
+          {description:"拾遗 Lexicon progress (auto-sync)",public:false,files:{[GIST_FILE]:{content:JSON.stringify(payload())}}})});
+        gid=created.id;
+      }
+      S.set.gistId=gid; save();
+    }
+    const g=await gh("/gists/"+gid);
+    const f=g.files&&g.files[GIST_FILE];
+    if(f){
+      let txt=f.content;
+      if(f.truncated){ const rr=await fetch(f.raw_url); txt=await rr.text(); }
+      try{ mergeData(JSON.parse(txt)); }catch(e){}
+    }
+    await gh("/gists/"+gid,{method:"PATCH",body:JSON.stringify({files:{[GIST_FILE]:{content:JSON.stringify(payload())}}})});
+    S.set.lastSync=Date.now(); save(); DIRTY=false;
+    refreshTop();
+    if(!SESSION&&TAB==="review") vReview();
+    if(manual){ toast("已同步 ✓"); if(TAB==="stats") vStats(); }
+  }catch(e){
+    if(manual) toast("同步失败:"+e.message+(location.protocol==="https:"?"":" (需在网页版使用)"));
+  }
+  SYNCING=false;
+}
+function schedulePush(){
+  if(!S.set.ghToken) return;
+  clearTimeout(PUSHT);
+  PUSHT=setTimeout(()=>syncNow(false),4000);
+}
+/* ================= tts ================= */
+let VOICES=[];
+function loadVoices(){ VOICES = speechSynthesis.getVoices(); }
+if("speechSynthesis" in window){ loadVoices(); speechSynthesis.onvoiceschanged=loadVoices; }
+function pickVoice(lang){
+  const pref = lang==="en"?S.set.enVoice:S.set.zhVoice;
+  if(pref){ const v=VOICES.find(v=>v.name===pref); if(v) return v; }
+  const want = lang==="en"?"en":"zh";
+  return VOICES.find(v=>v.lang.toLowerCase().startsWith(want+"-")||v.lang.toLowerCase()===want) || null;
+}
+function speak(text,lang,rate){
+  return new Promise(res=>{
+    if(!("speechSynthesis" in window)||!text){ res(); return; }
+    const u=new SpeechSynthesisUtterance(text);
+    const v=pickVoice(lang); if(v) u.voice=v;
+    u.lang = lang==="en"?"en-US":"zh-CN";
+    u.rate = rate||S.set.rate||1;
+    u.onend=()=>res(); u.onerror=()=>res();
+    speechSynthesis.speak(u);
+  });
+}
+function speakCard(c){
+  speechSynthesis.cancel();
+  if(c.lang==="en") speak(c.w,"en");
+  else speak(c.w,"zh");
+}
+/* radio */
+const R = { on:false, list:[], idx:0, gen:0 };
+function radioSegments(c){
+  const segs=[];
+  if(c.lang==="en"){
+    segs.push([c.w,"en"]);
+    segs.push([c.d,"en"]);
+    if(c.t) segs.push([c.t,"zh"]);
+    if(c.c) for(const [w,g] of c.c) segs.push(["Compare: "+w+" — "+g,"en"]);
+    if(c.e&&c.e[0]) segs.push(["Example: "+c.e[0],"en"]);
+  }else{
+    segs.push([c.w,"zh"]);
+    segs.push([(c.p?("读音:"+c.w+"。"):"")+"意思是:"+c.d,"zh"]);
+    if(c.e&&c.e[0]) segs.push(["例如:"+c.e[0],"zh"]);
+    if(c.h) segs.push(["记法:"+c.h,"zh"]);
+  }
+  return segs;
+}
+async function radioLoop(){
+  while(R.on && R.list.length){
+    if(R.idx>=R.list.length) R.idx=0; // loop
+    const c=R.list[R.idx];
+    const np=document.getElementById("npBox");
+    if(np){ np.innerHTML =
+      '<div class="chip '+c.lang+'" style="display:inline-block">'+(c.lang==="en"?"EN":"中")+'</div>'+
+      '<div class="npw '+(c.lang==="zh"?"kai":"serif")+'">'+esc(c.w)+'</div>'+
+      (c.p?'<div class="npd" style="margin-bottom:4px">'+esc(c.p)+'</div>':"")+
+      '<div class="npd">'+esc(c.d)+'</div>'; }
+    const gen=R.gen;
+    for(const [t,l] of radioSegments(c)){
+      if(!R.on) return;
+      if(R.gen!==gen) break;
+      await speak(t,l);
+      if(!R.on) return;
+      if(R.gen!==gen) break;
+      await new Promise(r=>setTimeout(r,450));
+    }
+    if(R.gen===gen){ await new Promise(r=>setTimeout(r,800)); R.idx++; }
+  }
+  const b=document.getElementById("playBtn"); if(b) b.textContent="▶";
+}
+function radioStart(){
+  const f=document.getElementById("rFilter").value;
+  let list=allCards();
+  if(f==="en") list=list.filter(c=>c.lang==="en");
+  if(f==="zh") list=list.filter(c=>c.lang==="zh");
+  if(f==="due"){ const d=new Set(buildQueue().slice(0,60)); list=list.filter(c=>d.has(c.id)); }
+  if(f==="weak") list=list.filter(c=>{const r=S.srs[c.id]; return r&&(r.lapses>0||r.ef<2.3);});
+  list=list.filter(c=>!isRet(c.id));
+  if(!list.length){ toast("这个选集是空的,先去复习几张吧"); return; }
+  R.list=shuffle(list); R.idx=0; R.on=true;
+  document.getElementById("playBtn").textContent="⏸";
+  radioLoop();
+}
+function radioStop(){ R.on=false; speechSynthesis.cancel(); const b=document.getElementById("playBtn"); if(b) b.textContent="▶"; }
+/* ================= views ================= */
+const view=document.getElementById("view");
+let TAB="review";
+const TABS=[
+ ["review","复习",'<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 10h16M9 5v5"/></svg>'],
+ ["radio","电台",'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>'],
+ ["seals","收藏",'<svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="12" rx="2"/><path d="M5 21h14M12 15v3"/></svg>'],
+ ["browse","词库",'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>'],
+ ["add","添加",'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>'],
+ ["stats","统计",'<svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>']
+];
+function renderTabs(){
+  document.getElementById("tabs").innerHTML = TABS.map(([id,l,ic])=>
+    '<button data-t="'+id+'" class="'+(TAB===id?"on":"")+'" aria-label="'+l+'">'+ic+'<span>'+l+'</span></button>').join("");
+  document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{ if(TAB!=="radio") radioStop(); go(b.dataset.t); });
+}
+function go(t){ if(TAB==="radio"&&t!=="radio") radioStop(); TAB=t; renderTabs(); ({review:vReview,radio:vRadio,seals:vSeals,browse:vBrowse,add:vAdd,stats:vStats})[t](); window.scrollTo(0,0); }
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function toast(m){ const t=document.getElementById("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
+/* ---- review ---- */
+let SESSION=null;
+function vReview(){
+  SESSION=null;
+  const due=dueCards().length+relearnCards().length, nb=Math.min(newBudget(),newCards().length);
+  const done=dayLog().r, goal=S.set.dailyGoal;
+  view.innerHTML =
+   '<div class="dash">'+
+   '<div class="card duecard"><div class="big">'+(due+nb)+'</div>'+
+   '<div class="sub">'+due+' 张到期 · '+nb+' 张新词 · 今日已复习 '+done+'/'+goal+'</div>'+
+   '<div class="btnrow"><button class="btn primary" id="startAll">开始复习</button>'+
+   '<button class="btn" id="quick10">快来 10 张</button></div></div>'+
+   '<div class="twocol">'+
+   '<div class="card mini"><div class="n">'+allCards().filter(c=>c.lang==="en").length+'</div><div class="l">English words</div></div>'+
+   '<div class="card mini"><div class="n">'+allCards().filter(c=>c.lang==="zh").length+'</div><div class="l">汉字 · 词</div></div>'+
+   '</div>'+
+   '<div class="card mini" style="line-height:1.55;font-size:13.5px;color:var(--ink-soft)">等车、排队、如厕的碎片时间,点「快来 10 张」;洗澡时打开「电台」连播。每天回来,连击不断。</div>'+
+   '</div>';
+  document.getElementById("startAll").onclick=()=>startSession(0);
+  document.getElementById("quick10").onclick=()=>startSession(10);
+}
+function startSession(limit){
+  const q=buildQueue(limit||undefined);
+  if(!q.length){ SESSION=null; renderDone(); return; }
+  SESSION={q, total:q.length, combo:0, right:0, wrong:0, bestCombo:0, xp0:S.xp};
+  renderCard();
+}
+function renderDone(){
+  schedulePush();
+  let sum="", early=SESSION&&SESSION.q&&SESSION.q.length>0;
+  if(SESSION && (SESSION.right+SESSION.wrong)>0){
+    const tot=SESSION.right+SESSION.wrong;
+    sum='<div class="ds" style="margin-bottom:10px"><b>'+tot+'</b> 张 · 答对 <b>'+SESSION.right+'</b> · 最高连击 <b>×'+SESSION.bestCombo+'</b> · <b>+'+(S.xp-SESSION.xp0)+'</b> XP</div>';
+  }
+  view.innerHTML='<div class="card donebox" style="margin-top:8px"><div class="dt">'+(early?"本次小结":"今日清空 ✓")+'</div>'+sum+
+  '<div class="ds">'+(early?"随时回来继续。":"到期卡片都复习完了。<br>去「电台」听一轮,或到「收藏」看看差几个词就能集齐一枚印章。")+'</div>'+
+  '<div class="btnrow"><button class="btn" id="toRadio">打开电台</button><button class="btn" id="toSeals">收藏阁</button><button class="btn" id="toHome">返回</button></div></div>';
+  document.getElementById("toRadio").onclick=()=>go("radio");
+  document.getElementById("toSeals").onclick=()=>go("seals");
+  document.getElementById("toHome").onclick=()=>vReview();
+  SESSION=null;
+}
+/* ---- quiz builders ---- */
+const CATNAMES={cf:"易混词",ra:"罕词",ev:"日常词",id:"习语",hz:"生僻字",wr:"手写",cu:"自添"};
+function chipsFor(c,isNew){
+  return '<span class="chip '+c.lang+'">'+(c.lang==="en"?"EN":"中")+'</span><span class="chip ghost">'+(CATNAMES[c.cat]||c.cat)+'</span>'+(isNew?'<span class="chip ghost">新</span>':"");
+}
+function sessionBar(){
+  return '<div class="sessionbar"><span>'+(SESSION.total-SESSION.q.length+1)+' / '+SESSION.total+'</span>'+
+  '<span class="combo" id="comboEl">'+(SESSION.combo>1?"连击 ×"+SESSION.combo:"")+'</span>'+
+  '<button class="btn small" id="endS">结束</button></div>';
+}
+function pickN(pool,n,exclude){
+  const out=[], used=new Set(exclude||[]);
+  for(const x of shuffle(pool)){
+    if(out.length>=n) break;
+    if(x==null||x===""||used.has(x)) continue;
+    used.add(x); out.push(x);
+  }
+  return out;
+}
+function blankOut(sentence,word){
+  const stem=word.toLowerCase().replace(/(e|y)$/,"");
+  if(stem.length<3) return null;
+  const parts=sentence.split(/(\s+)/);
+  for(let i=0;i<parts.length;i++){
+    const clean=parts[i].replace(/[^a-zA-Z'-]/g,"").toLowerCase();
+    if(clean && (clean===word.toLowerCase()||(clean.startsWith(stem)&&clean.length<=word.length+3))){
+      parts[i]=parts[i].replace(/[a-zA-Z'-]+/,"______");
+      return parts.join("");
+    }
+  }
+  return null;
+}
+function qConfusable(c){
+  let sent=null;
+  for(const ex of (c.e||[])){ const b=blankOut(ex,c.w); if(b){ sent=b; break; } }
+  let opts=[c.w].concat((c.c||[]).map(x=>x[0]));
+  if(opts.length<3) opts=opts.concat(pickN(DECK.filter(x=>x.cat==="cf").map(x=>x.w),3-opts.length,opts));
+  opts=shuffle(opts.slice(0,4));
+  if(sent){
+    const ph=esc(sent).replace(/_{3,}/,'<span class="bl">______</span>');
+    return {prompt:'<div class="qprompt serif">'+ph+'</div><div class="qsub">哪个词填进去?</div>',opts,answer:c.w,cls:"serifopt"};
+  }
+  return {prompt:'<div class="qprompt">'+esc(c.d)+'</div><div class="qsub">哪个词?</div>',opts,answer:c.w,cls:"serifopt"};
+}
+function qMeaning(c){
+  const pool=DECK.filter(x=>x.cat===c.cat&&x.id!==c.id&&x.t);
+  if(!c.t||pool.length<3) return null;
+  if(Math.random()<0.5){
+    const opts=shuffle([c.t].concat(pickN(pool.map(x=>x.t),3,[c.t])));
+    return {prompt:'<div class="word serif" style="font-size:30px;margin:6px 0 0">'+esc(c.w)+'</div>'+(c.p?'<div class="qsub">'+esc(c.p)+'</div>':"")+'<div class="qsub">选出释义</div>',opts,answer:c.t};
+  }
+  const opts=shuffle([c.w].concat(pickN(pool.map(x=>x.w),3,[c.w])));
+  return {prompt:'<div class="qprompt"><span style="color:var(--zh);font-weight:600;font-size:22px">'+esc(c.t)+'</span></div><div class="qsub">选出单词</div>',opts,answer:c.w,cls:"serifopt"};
+}
+const IDSTOP=new Set(["the","with","under","down","someone's","your","out","into","over","that"]);
+function idiomKey(w){
+  const ws=w.split(" ").filter(x=>x.length>3&&!IDSTOP.has(x.toLowerCase()));
+  if(!ws.length) return null;
+  return ws.sort((a,b)=>b.length-a.length)[0];
+}
+function qIdiom(c){
+  const key=idiomKey(c.w);
+  if(!key||key===c.w){
+    const pool=DECK.filter(x=>x.cat==="id"&&x.id!==c.id&&x.t);
+    if(!c.t||pool.length<3) return null;
+    const opts=shuffle([c.t].concat(pickN(pool.map(x=>x.t),3,[c.t])));
+    return {prompt:'<div class="word serif" style="font-size:25px;margin:6px 0">'+esc(c.w)+'</div><div class="qsub">什么意思?</div>',opts,answer:c.t};
+  }
+  const blanked=esc(c.w.replace(key,"______")).replace(/_{3,}/,'<span class="bl">______</span>');
+  const pool=DECK.filter(x=>x.cat==="id"&&x.id!==c.id).map(x=>idiomKey(x.w)).filter(k=>k&&!k.includes(" "));
+  const opts=shuffle([key].concat(pickN(pool,3,[key])));
+  return {prompt:'<div class="qprompt serif">'+blanked+'</div><div class="qsub" style="color:var(--zh)">'+esc(c.t||"")+'</div><div class="qsub">补全习语</div>',opts,answer:key,cls:"serifopt"};
+}
+function qHanzi(c){
+  const pool=DECK.filter(x=>x.cat==="hz"&&x.p!==c.p).map(x=>x.p);
+  if(pool.length<3) return null;
+  const opts=shuffle([c.p].concat(pickN(pool,3,[c.p])));
+  return {prompt:'<div class="word zh1 kai" style="margin:10px 0 0">'+esc(c.w)+'</div><div class="qsub" style="text-align:center">怎么读?</div>',opts,answer:c.p};
+}
+function poolWords(c){
+  let pool=allCards().filter(x=>x.lang===c.lang&&x.id!==c.id&&x.cat!=="id").map(x=>x.w);
+  if(c.lang==="zh"){
+    const near=pool.filter(w=>Math.abs(w.length-c.w.length)<=1);
+    if(near.length>=3) pool=near;
+  }
+  return pool;
+}
+function qCustom(c){
+  const pool=poolWords(c);
+  if(pool.length<3) return null;
+  for(const ex of (c.e||[])){
+    let blanked=null;
+    if(c.lang==="en"){ blanked=blankOut(ex,c.w); }
+    else if(c.w && ex.includes(c.w)){ blanked=ex.replace(c.w,"______"); }
+    if(blanked){
+      const opts=shuffle([c.w].concat(pickN(pool,3,[c.w])));
+      return {prompt:'<div class="qprompt'+(c.lang==="en"?" serif":"")+'">'+esc(blanked).replace(/_{3,}/,'<span class="bl">______</span>')+'</div><div class="qsub">填哪个词?</div>',opts,answer:c.w,cls:c.lang==="en"?"serifopt":""};
+    }
+  }
+  if(!c.d) return null;
+  const opts=shuffle([c.w].concat(pickN(pool,3,[c.w])));
+  return {prompt:'<div class="qprompt">'+esc(c.d)+'</div><div class="qsub">选出对应的词</div>',opts,answer:c.w,cls:c.lang==="en"?"serifopt":""};
+}
+function questionFor(c){
+  if(S.set.classic) return null;
+  try{
+    if(c.cat==="cf") return qConfusable(c);
+    if(c.cat==="hz") return qHanzi(c);
+    if(c.cat==="id") return qIdiom(c);
+    if(c.cat==="ra"||c.cat==="ev") return qMeaning(c);
+    if(c.cat==="cu") return qCustom(c);
+  }catch(e){}
+  return null;
+}
+/* ---- combo & seals ---- */
+function comboGain(ok){
+  if(ok){
+    SESSION.combo++; SESSION.right++;
+    SESSION.bestCombo=Math.max(SESSION.bestCombo,SESSION.combo);
+    if(SESSION.combo>(S.bestCombo||0)) S.bestCombo=SESSION.combo;
+    S.xp+=Math.min(4,Math.floor(SESSION.combo/3));
+  }else{ SESSION.combo=0; SESSION.wrong++; }
+  save();
+}
+let PENDING=[];
+function checkSeals(){
+  for(const st of SETS){
+    if(S.seals[st.id]) continue;
+    if(st.members.every(id=>{if(isRet(id))return true; const r=S.srs[id];return r&&r.ivl>=10;})){
+      S.seals[st.id]=today(); S.xp+=50; PENDING.push(st);
+    }
+  }
+  if(PENDING.length) save();
+}
+function renderCelebration(st){
+  view.innerHTML='<div class="card celebrate"><div class="seal done">'+esc(st.seal)+'</div>'+
+  '<div class="dt">'+esc(st.name)+' · 集齐钤印</div>'+
+  '<div class="ds">'+esc(st.en)+' — 全套 '+st.members.length+' 词熟记 · <b>+50 XP</b></div>'+
+  '<div class="btnrow"><button class="btn primary" id="celeCont">继续</button></div></div>';
+  refreshTop();
+  document.getElementById("celeCont").onclick=()=>renderCard();
+}
+function renderCard(){
+  if(PENDING.length){ renderCelebration(PENDING.shift()); return; }
+  if(!SESSION||!SESSION.q.length){ renderDone(); return; }
+  const id=SESSION.q[0], c=byId()[id];
+  if(!c){ SESSION.q.shift(); renderCard(); return; }
+  const isNew=!S.srs[id];
+  const q=questionFor(c);
+  if(q&&q.opts.length>=2){ renderQuiz(c,isNew,q); return; }
+  let front;
+  if(c.cat==="wr"){
+    front='<div class="cue">'+esc(c.cue||c.p+" — "+c.d).replace(/【/g,'<span class="blank">【').replace(/】/g,'】</span>')+'</div>'+
+    '<canvas class="pad" id="pad"></canvas>'+
+    '<div class="padrow"><button class="btn small" id="padClear">清除重写</button></div>';
+  }else if(c.cat==="hz"){
+    front='<div class="word zh1 kai">'+esc(c.w)+'</div><div style="text-align:center;color:var(--ink-soft);font-size:14px">读音?意思?</div>';
+  }else{
+    front='<div class="word serif">'+esc(c.w)+'</div><div style="color:var(--ink-soft);font-size:14px">'+(c.c?"意思?和形近词的区别?":"意思?")+'</div>';
+  }
+  view.innerHTML = sessionBar()+
+   '<div class="card rev" id="revCard"><div class="meta">'+chipsFor(c,isNew)+'</div>'+front+
+   '<div class="showbar"><button class="btn primary" id="showBtn">显示答案</button></div></div>';
+  document.getElementById("endS").onclick=()=>renderDone();
+  document.getElementById("showBtn").onclick=()=>renderBack(c,isNew);
+  if(c.cat==="wr") initPad();
+}
+function renderQuiz(c,isNew,q){
+  view.innerHTML = sessionBar()+
+   '<div class="card rev" id="revCard"><div class="meta">'+chipsFor(c,isNew)+'</div>'+q.prompt+
+   '<div class="opts" id="opts"></div><div style="margin-top:auto"></div></div>';
+  document.getElementById("endS").onclick=()=>renderDone();
+  const box=document.getElementById("opts");
+  let answered=false;
+  q.opts.forEach(o=>{
+    const b=document.createElement("button");
+    if(q.cls) b.className=q.cls;
+    b.textContent=o;
+    b.onclick=()=>{ if(!answered){ answered=true; settle(o===q.answer,b); } };
+    box.appendChild(b);
+  });
+  function settle(ok,btn){
+    box.querySelectorAll("button").forEach(b=>{ b.disabled=true; if(b.textContent===q.answer) b.classList.add("right"); });
+    if(!ok) btn.classList.add("wrong");
+    if(isNew) dayLog().n++;
+    grade(c.id, ok?2:0);
+    comboGain(ok);
+    checkSeals();
+    refreshTop();
+    const cEl=document.getElementById("comboEl");
+    if(cEl){ cEl.textContent=SESSION.combo>1?"连击 ×"+SESSION.combo:""; if(ok&&SESSION.combo>1) cEl.classList.add("bump"); }
+    document.getElementById("revCard").insertAdjacentHTML("beforeend",
+      '<div class="verdict '+(ok?"ok":"no")+'">'+(ok?(SESSION.combo>2?"正确 · 连击 ×"+SESSION.combo:"正确"):"记住它 · 稍后再来一遍")+'</div>'+
+      ansHTML(c)+
+      '<div class="contbar"><button class="btn primary" id="contBtn">继续</button></div>'+
+      '<div style="text-align:center;margin-top:8px"><button class="btn small" id="retireBtn">太熟了 · 退休此词</button></div>');
+    const s=document.getElementById("spk"); if(s) s.onclick=e=>{e.stopPropagation(); speakCard(c);};
+    const cont=document.getElementById("contBtn");
+    cont.onclick=()=>{
+      SESSION.q.shift();
+      if(!ok) SESSION.q.splice(Math.min(3,SESSION.q.length),0,c.id);
+      renderCard();
+    };
+    document.getElementById("retireBtn").onclick=()=>{
+      retireCard(c.id); toast("已退休:"+c.w+"(词库中可恢复)");
+      SESSION.q.shift(); renderCard();
+    };
+    cont.focus();
+  }
+}
+function contrastHTML(c){
+  if(!c.c) return "";
+  let rows='<div class="row self"><span class="cw">'+esc(c.w)+'</span><span class="cg">'+esc(c.d)+'</span></div>';
+  for(const [w,g] of c.c) rows+='<div class="row"><span class="cw">'+esc(w)+'</span><span class="cg">'+esc(g)+'</span></div>';
+  return '<div class="contra">'+rows+'</div>';
+}
+function ansHTML(c){
+  const spk='<button class="speakbtn" id="spk" aria-label="朗读"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M16 8a5 5 0 0 1 0 8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>';
+  if(c.cat==="wr"){
+    return '<div class="ans" style="text-align:center"><div class="word zh1 kai">'+esc(c.w)+'</div>'+
+    '<div class="pron zh">'+esc(c.p)+spk+'</div><div class="def">'+esc(c.d)+'</div>'+
+    (c.h?'<div class="hook" style="text-align:left"><b>写法</b> · '+esc(c.h)+'</div>':"")+'</div>';
+  }
+  if(c.cat==="hz"){
+    return '<div class="ans" style="text-align:center"><div class="pron zh">'+esc(c.p)+spk+'</div><div class="def">'+esc(c.d)+'</div>'+
+    (c.e?'<ul class="exs" style="text-align:left">'+c.e.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>':"")+
+    (c.h?'<div class="hook" style="text-align:left"><b>记法</b> · '+esc(c.h)+'</div>':"")+'</div>';
+  }
+  return '<div class="ans"><div class="pron">'+(c.p?esc(c.p):"")+spk+'</div>'+
+    (c.t?'<div class="trans">'+esc(c.t)+'</div>':"")+
+    (c.c?contrastHTML(c):'<div class="def">'+esc(c.d)+'</div>')+
+    (c.e?'<ul class="exs">'+c.e.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>':"")+
+    (c.h?'<div class="hook"><b>hook</b> · '+esc(c.h)+'</div>':"")+'</div>';
+}
+function renderBack(c,isNew){
+  const card=document.getElementById("revCard");
+  card.querySelector(".showbar").outerHTML =
+   '<div class="grades">'+[["再来",0],["较难",1],["记得",2],["轻松",3]].map(([l,g])=>
+   '<button class="b'+g+'" data-g="'+g+'"><span class="gl">'+l+'</span><span class="gi">'+preview(c.id,g)+'</span></button>').join("")+'</div>';
+  const showEl=document.createElement("div"); showEl.innerHTML=ansHTML(c);
+  card.insertBefore(showEl.firstChild, card.querySelector(".grades"));
+  const s=document.getElementById("spk"); if(s) s.onclick=e=>{e.stopPropagation(); speakCard(c);};
+  card.insertAdjacentHTML("beforeend",'<div style="text-align:center;margin-top:8px"><button class="btn small" id="retireBtn">太熟了 · 退休此词</button></div>');
+  document.getElementById("retireBtn").onclick=()=>{
+    retireCard(c.id); toast("已退休:"+c.w+"(词库中可恢复)");
+    SESSION.q.shift(); renderCard();
+  };
+  card.querySelectorAll(".grades button").forEach(b=>b.onclick=()=>{
+    const g=+b.dataset.g;
+    if(!S.srs[c.id]) dayLog().n++;
+    grade(c.id,g);
+    comboGain(g>=2);
+    checkSeals();
+    SESSION.q.shift();
+    if(g===0) SESSION.q.splice(Math.min(3,SESSION.q.length),0,c.id);
+    renderCard();
+  });
+}
+/* handwriting pad */
+function initPad(){
+  const cv=document.getElementById("pad"); if(!cv) return;
+  const dpr=window.devicePixelRatio||1;
+  const w=cv.clientWidth,h=cv.clientHeight;
+  cv.width=w*dpr; cv.height=h*dpr;
+  const ctx=cv.getContext("2d"); ctx.scale(dpr,dpr);
+  ctx.lineWidth=4; ctx.lineCap="round"; ctx.lineJoin="round";
+  ctx.strokeStyle=getComputedStyle(document.body).color;
+  let draw=false,px=0,py=0;
+  const pos=e=>{const r=cv.getBoundingClientRect(); return [e.clientX-r.left,e.clientY-r.top];};
+  cv.onpointerdown=e=>{draw=true;[px,py]=pos(e);cv.setPointerCapture(e.pointerId);};
+  cv.onpointermove=e=>{if(!draw)return;const[x,y]=pos(e);ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);ctx.stroke();[px,py]=[x,y];};
+  cv.onpointerup=cv.onpointercancel=()=>{draw=false;};
+  const cl=document.getElementById("padClear"); if(cl) cl.onclick=()=>ctx.clearRect(0,0,w,h);
+}
+/* ---- radio view ---- */
+function vRadio(){
+  view.innerHTML='<h2 class="viewtitle">电台 · 连续播放</h2>'+
+  '<div class="card radio">'+
+  '<div class="selrow"><select id="rFilter">'+
+  '<option value="due">今日到期 + 新词</option><option value="weak">薄弱词(易错)</option>'+
+  '<option value="en">全部英文</option><option value="zh">全部中文</option><option value="all">全部混播</option>'+
+  '</select></div>'+
+  '<div class="rctl"><button class="skipbtn" id="prevBtn" aria-label="上一个">⏮</button>'+
+  '<button class="playbtn" id="playBtn" aria-label="播放/暂停">▶</button>'+
+  '<button class="skipbtn" id="nextBtn" aria-label="下一个">⏭</button></div>'+
+  '<div class="raterow">语速 <input type="range" id="rateSlider" min="0.6" max="1.4" step="0.1" value="'+(S.set.rate||1)+'"><span id="rateVal">'+(S.set.rate||1).toFixed(1)+'×</span></div>'+
+  '<div class="nowplaying" id="npBox"><div class="npd" style="margin-top:24px">选一个选集,按播放。适合洗澡、走路、做家务时连续收听:单词 → 释义 → 辨析 → 例句,循环不停。</div></div>'+
+  '<div class="radionote">用手机自带的语音引擎,无需联网下载。iPhone 锁屏会暂停播放,洗澡时保持亮屏即可。</div>'+
+  '</div>';
+  document.getElementById("playBtn").onclick=()=>{ if(R.on){radioStop();} else {radioStart();} };
+  document.getElementById("nextBtn").onclick=()=>{ if(R.on){ R.gen++; R.idx++; speechSynthesis.cancel(); } };
+  document.getElementById("prevBtn").onclick=()=>{ if(R.on){ R.gen++; R.idx=Math.max(0,R.idx-1); speechSynthesis.cancel(); } };
+  const sl=document.getElementById("rateSlider");
+  sl.oninput=()=>{ S.set.rate=+sl.value; document.getElementById("rateVal").textContent=(+sl.value).toFixed(1)+"×"; save(); };
+}
+/* ---- browse ---- */
+let BQ="", BCAT="all", BLIM=30;
+function vBrowse(){
+  view.innerHTML='<h2 class="viewtitle">词库 · '+allCards().length+' 条</h2>'+
+  '<input class="search" id="bq" placeholder="搜索单词 / 汉字 / 释义…" value="'+esc(BQ)+'">'+
+  '<div class="chips" id="bchips"></div><div class="blist" id="blist"></div>'+
+  '<button class="btn small loadmore" id="bmore">加载更多</button>';
+  const cats=[["all","全部"],["cf","易混词"],["ra","罕词"],["ev","日常词"],["id","习语"],["hz","生僻字"],["wr","手写"],["cu","自添"],["ret","已退休"]];
+  document.getElementById("bchips").innerHTML=cats.map(([k,l])=>'<button data-c="'+k+'" class="'+(BCAT===k?"on":"")+'">'+l+'</button>').join("");
+  document.querySelectorAll("#bchips button").forEach(b=>b.onclick=()=>{BCAT=b.dataset.c;BLIM=30;vBrowse();});
+  const bq=document.getElementById("bq");
+  bq.oninput=()=>{BQ=bq.value;BLIM=30;renderBList();};
+  document.getElementById("bmore").onclick=()=>{BLIM+=50;renderBList();};
+  renderBList();
+}
+function renderBList(){
+  const q=BQ.trim().toLowerCase();
+  let list=allCards();
+  if(BCAT==="ret") list=list.filter(c=>isRet(c.id));
+  else if(BCAT!=="all") list=list.filter(c=>c.cat===BCAT);
+  if(q) list=list.filter(c=>(c.w+" "+(c.p||"")+" "+c.d+" "+(c.t||"")).toLowerCase().includes(q));
+  const el=document.getElementById("blist");
+  el.innerHTML=list.slice(0,BLIM).map(c=>{
+    const r=S.srs[c.id];
+    const st=isRet(c.id)?"已退休":(r? (r.ivl>=21?"已掌握":"复习中 "+fmtIvl(Math.max(0,r.due-today()))):"未学");
+    return '<div class="card bitem" data-id="'+esc(c.id)+'"><span class="bstat">'+st+'</span>'+
+    '<div class="bw '+(c.lang==="zh"?"kai":"serif")+'">'+esc(c.w)+(c.p?' <span style="font-weight:400;color:var(--ink-soft);font-size:13px">'+esc(c.p)+'</span>':"")+'</div>'+
+    '<div class="bd">'+(c.t?'<span class="btr">'+esc(c.t)+'</span> · ':"")+esc(c.d)+'</div><div class="full" hidden>'+
+    contrastHTML(c)+
+    (c.e?'<ul class="exs">'+c.e.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>':"")+
+    (c.h?'<div class="hook"><b>·</b> '+esc(c.h)+'</div>':"")+
+    '<div class="btnrow" style="justify-content:flex-start"><button class="btn small spkb">朗读</button>'+
+    '<button class="btn small retb">'+(isRet(c.id)?"恢复学习":"太熟了,退休")+'</button>'+
+    (c.id.indexOf("cu-")===0?'<button class="btn small delb" style="color:var(--g-again)">删除</button>':"")+
+    '</div></div></div>';
+  }).join("")||'<div class="empty">没有匹配的条目</div>';
+  document.getElementById("bmore").style.display = list.length>BLIM?"block":"none";
+  el.querySelectorAll(".bitem").forEach(it=>{
+    it.onclick=e=>{
+      const c=byId()[it.dataset.id];
+      if(e.target.classList.contains("spkb")){ speakCard(c); return; }
+      if(e.target.classList.contains("retb")){
+        if(isRet(c.id)){ restoreCard(c.id); toast("已恢复:"+c.w); }
+        else{ retireCard(c.id); toast("已退休:"+c.w); }
+        renderBList(); return;
+      }
+      if(e.target.classList.contains("delb")){
+        if(confirm("删除自添词「"+c.w+"」?此操作会同步到所有设备。")){ deleteCustom(c.id); toast("已删除"); renderBList(); }
+        return;
+      }
+      const f=it.querySelector(".full"); f.hidden=!f.hidden;
+    };
+  });
+}
+/* ---- add ---- */
+let ADD_LANG="en", ADD_WR=false;
+function vAdd(){
+  view.innerHTML='<h2 class="viewtitle">添加生词</h2>'+
+  '<form class="addf" id="addf">'+
+  '<div class="seg" id="langSeg"><button type="button" data-l="en" class="'+(ADD_LANG==="en"?"on":"")+'">English</button><button type="button" data-l="zh" class="'+(ADD_LANG==="zh"?"on":"")+'">中文</button></div>'+
+  '<div id="wrRow" style="'+(ADD_LANG==="zh"?"":"display:none")+'"><label style="display:flex;align-items:center;gap:8px;text-transform:none;font-size:14px;color:var(--ink)"><input type="checkbox" id="wrCheck" style="width:auto" '+(ADD_WR?"checked":"")+'> 练手写(先看拼音默写)</label></div>'+
+  '<div><label for="aw">词 / 字</label><input id="aw" required autocomplete="off"></div>'+
+  '<div><label for="ap">读音(拼音 / 音标)</label><input id="ap" autocomplete="off"></div>'+
+  '<div><label for="ad">释义</label><textarea id="ad" required></textarea></div>'+
+  '<div><label for="ae">例句(可空;例句中含该词,就能自动出填空题)</label><textarea id="ae"></textarea></div>'+
+  '<div><label for="ah">记忆钩子(可空)</label><input id="ah" autocomplete="off"></div>'+
+  '<button class="btn primary" type="submit" style="margin-top:6px">加入词库</button>'+
+  '<div style="font-size:12.5px;color:var(--ink-soft);line-height:1.5">加入后会作为新卡进入复习队列。遇到生词随手记进来,才是词汇长大的方式。</div>'+
+  '</form>';
+  document.querySelectorAll("#langSeg button").forEach(b=>b.onclick=()=>{ADD_LANG=b.dataset.l;vAdd();});
+  const wc=document.getElementById("wrCheck"); if(wc) wc.onchange=()=>{ADD_WR=wc.checked;};
+  document.getElementById("addf").onsubmit=e=>{
+    e.preventDefault();
+    const w=document.getElementById("aw").value.trim(); if(!w) return;
+    const p=document.getElementById("ap").value.trim(), d=document.getElementById("ad").value.trim();
+    const ex=document.getElementById("ae").value.trim(), h=document.getElementById("ah").value.trim();
+    const wr=ADD_LANG==="zh"&&document.getElementById("wrCheck").checked;
+    const entry={ id:"cu-"+Date.now().toString(36), lang:ADD_LANG, cat: wr?"wr":"cu", w, p, d,
+      e: ex?[ex]:undefined, h: h||undefined, cue: wr?("【"+(p||"?")+"】 — "+d):undefined };
+    S.custom.push(entry); save(); schedulePush();
+    toast("已加入:"+w+(ex&&ex.includes(w)?"(将自动出填空题)":""));
+    e.target.reset();
+  };
+}
+/* ---- seals cabinet ---- */
+let EXPSET=null;
+function fmtDay(d){ const dt=new Date(d*86400000); return (dt.getUTCMonth()+1)+"月"+dt.getUTCDate()+"日"; }
+function vSeals(){
+  const M=byId();
+  const doneN=SETS.filter(s=>S.seals[s.id]).length;
+  const stateOf=id=>{ if(isRet(id)) return 2; const r=S.srs[id]; return r? (r.ivl>=10?2:1) : 0;};
+  view.innerHTML='<h2 class="viewtitle">收藏阁 · 已钤印 '+doneN+' / '+SETS.length+'</h2>'+
+  '<div style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:0 2px 4px">一个词集内所有词达到「熟记」(复习间隔 ≥ 10 天)即可钤印,+50 XP。点开看还差哪几个。</div>'+
+  '<div class="sealgrid">'+SETS.map(st=>{
+    const done=!!S.seals[st.id];
+    const got=st.members.filter(id=>stateOf(id)===2).length;
+    const open=EXPSET===st.id;
+    return '<div class="card sealtile" data-s="'+esc(st.id)+'"'+(open?' style="grid-column:1/-1"':"")+'>'+
+    '<div class="seal '+(done?"done":"todo")+'">'+esc(st.seal)+'</div>'+
+    '<div class="sn">'+esc(st.name)+'</div><div class="se">'+esc(st.en)+'</div>'+
+    '<div class="sp">'+(done?"已钤印 · "+fmtDay(S.seals[st.id]):got+" / "+st.members.length+" 熟记")+'</div>'+
+    (open?'<div class="sdesc">'+esc(st.desc)+'</div><div class="members">'+st.members.map(id=>{
+      const c=M[id], stt=stateOf(id);
+      return '<span class="m '+(stt===2?"got":stt===1?"mid":"")+'">'+esc(c?c.w:id)+'</span>';
+    }).join("")+'</div>':"")+
+    '</div>';
+  }).join("")+'</div>'+
+  '<div style="font-size:12px;color:var(--ink-soft);margin:12px 2px;line-height:1.5">图例:<span class="m got" style="padding:2px 8px;border-radius:99px;background:var(--zh-soft);color:var(--zh)">熟记</span> <span style="color:var(--gold)">在学</span> · 灰色未开始</div>';
+  document.querySelectorAll(".sealtile").forEach(t=>t.onclick=()=>{ EXPSET=EXPSET===t.dataset.s?null:t.dataset.s; vSeals(); });
+}
+/* ---- stats ---- */
+function vStats(){
+  const cards=allCards();
+  const mastered=cards.filter(c=>{const r=S.srs[c.id];return r&&r.ivl>=21;}).length;
+  const learning=cards.filter(c=>S.srs[c.id]).length-mastered;
+  const li=levelOf(S.xp); const nxt=LEVELS[li+1];
+  const cats=[["cf","易混词","en"],["ra","罕词","en"],["ev","日常词","en"],["id","习语","en"],["hz","生僻字","zh"],["wr","手写","zh"]];
+  let catrows="";
+  for(const [k,l,lg] of cats){
+    const cs=cards.filter(c=>c.cat===k); if(!cs.length) continue;
+    const m=cs.filter(c=>{const r=S.srs[c.id];return r&&r.ivl>=21;}).length;
+    const s=cs.filter(c=>S.srs[c.id]).length;
+    catrows+='<div class="card prow"><div class="pl"><span>'+l+'</span><b>'+m+' 掌握 / '+s+' 在学 / '+cs.length+'</b></div>'+
+    '<div class="pbar"><i style="width:'+(100*m/cs.length)+'%;background:var(--'+lg+')"></i></div></div>';
+  }
+  // heatmap: last 26*7 days? use 26 cols x 7 rows = 182 days; simpler 26x4=104? Keep 26 cols x 7 rows.
+  let heat=""; const t=today();
+  const max=Math.max(1,...Object.values(S.log).map(v=>v.r||0));
+  const days=26*7;
+  let cells=[];
+  for(let i=days-1;i>=0;i--){
+    const v=(S.log[String(t-i)]||{}).r||0;
+    const cl=v===0?"":v<max*0.34?"h1":v<max*0.67?"h2":"h3";
+    cells.push('<i class="'+cl+'" title="'+v+'"></i>');
+  }
+  heat=cells.join("");
+  view.innerHTML='<h2 class="viewtitle">统计</h2>'+
+  '<div class="statgrid">'+
+  '<div class="card mini"><div class="n" style="color:var(--gold)">'+streak()+'</div><div class="l">连续天数</div></div>'+
+  '<div class="card mini"><div class="n">'+S.xp+'</div><div class="l">XP · '+esc(LEVELS[li][1])+(nxt?' → '+nxt[0]:"")+'</div></div>'+
+  '<div class="card mini"><div class="n">'+mastered+'</div><div class="l">已掌握(间隔≥21天)</div></div>'+
+  '<div class="card mini"><div class="n">'+learning+'</div><div class="l">复习中</div></div>'+
+  '<div class="card mini"><div class="n">×'+(S.bestCombo||0)+'</div><div class="l">连击纪录</div></div>'+
+  '<div class="card mini"><div class="n">'+SETS.filter(s=>S.seals[s.id]).length+'<span style="font-size:14px;color:var(--ink-soft)"> / '+SETS.length+'</span></div><div class="l">印章 → 见「收藏」</div></div>'+
+  '</div>'+
+  '<div class="card" style="padding:14px;margin-top:10px"><div style="font-size:13px;color:var(--ink-soft);margin-bottom:2px">最近 26 周</div><div class="heat">'+heat+'</div></div>'+
+  '<div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">'+catrows+'</div>'+
+  '<div class="card settings"><div style="font-weight:700;margin-bottom:4px">设置</div>'+
+  '<div class="setrow"><span>每日新词上限</span><input type="number" id="setNew" min="0" max="99" value="'+S.set.newPerDay+'"></div>'+
+  '<div class="setrow"><span>每日目标(张)</span><input type="number" id="setGoal" min="5" max="200" value="'+S.set.dailyGoal+'"></div>'+
+  '<div class="setrow"><span>经典翻卡模式(关闭选择题)</span><input type="checkbox" id="setClassic" style="width:auto" '+(S.set.classic?"checked":"")+'></div>'+
+  '<div class="setrow"><span>英文语音</span><select id="setEnV"></select></div>'+
+  '<div class="setrow"><span>中文语音</span><select id="setZhV"></select></div>'+
+  '<div class="setrow" style="flex-direction:column;align-items:stretch"><span style="margin-bottom:6px">自动同步(GitHub Gist)· '+(S.set.ghToken?('<b style="color:var(--g-good)">已连接</b>'+(S.set.lastSync?' · 上次同步 '+new Date(S.set.lastSync).toLocaleString():"")):"未连接")+'</span>'+
+  (S.set.ghToken?
+   '<div class="btnrow" style="justify-content:flex-start"><button class="btn small" id="syncNowBtn">立即同步</button><button class="btn small" id="syncOffBtn">断开</button></div>':
+   '<input id="ghTok" type="password" autocomplete="off" placeholder="粘贴 GitHub token(仅需 gist 权限)" style="padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit">'+
+   '<div class="btnrow" style="justify-content:flex-start;margin-top:8px"><button class="btn small" id="syncOnBtn">连接并同步</button></div>'+
+   '<div style="font-size:12px;color:var(--ink-soft);line-height:1.5;margin-top:6px">进度存到你自己的私密 Gist,每台设备粘贴一次同一个 token 即可。token 只保存在本机浏览器,创建方法见 README。</div>')+
+  '</div>'+
+  '<div class="setrow" style="flex-direction:column;align-items:stretch"><span style="margin-bottom:6px">手动备份:导出进度(复制到另一台设备导入)</span>'+
+  '<textarea class="io" id="ioBox" placeholder="点「导出」生成,或粘贴后点「导入」"></textarea>'+
+  '<div class="btnrow" style="justify-content:flex-start"><button class="btn small" id="expBtn">导出</button><button class="btn small" id="impBtn">导入</button><button class="btn small" id="cpBtn">复制</button></div></div>'+
+  '<div class="setrow"><span style="color:var(--g-again)">清空全部进度</span><button class="btn small" id="rstBtn">重置</button></div>'+
+  '</div>';
+  const sn=document.getElementById("setNew"), sg=document.getElementById("setGoal");
+  sn.onchange=()=>{S.set.newPerDay=Math.max(0,+sn.value||0);save();};
+  sg.onchange=()=>{S.set.dailyGoal=Math.max(1,+sg.value||20);save();refreshTop();};
+  document.getElementById("setClassic").onchange=e=>{S.set.classic=e.target.checked;save();};
+  const fill=(sel,lang,cur)=>{
+    const vs=VOICES.filter(v=>v.lang.toLowerCase().startsWith(lang));
+    sel.innerHTML='<option value="">自动</option>'+vs.map(v=>'<option '+(v.name===cur?"selected":"")+' value="'+esc(v.name)+'">'+esc(v.name)+'</option>').join("");
+  };
+  fill(document.getElementById("setEnV"),"en",S.set.enVoice);
+  fill(document.getElementById("setZhV"),"zh",S.set.zhVoice);
+  document.getElementById("setEnV").onchange=e=>{S.set.enVoice=e.target.value;save();};
+  document.getElementById("setZhV").onchange=e=>{S.set.zhVoice=e.target.value;save();};
+  const sOn=document.getElementById("syncOnBtn");
+  if(sOn) sOn.onclick=()=>{
+    const tk=document.getElementById("ghTok").value.trim();
+    if(!tk){ toast("先粘贴 token"); return; }
+    S.set.ghToken=tk; save();
+    toast("连接中…");
+    syncNow(true);
+  };
+  const sNow=document.getElementById("syncNowBtn");
+  if(sNow) sNow.onclick=()=>syncNow(true);
+  const sOff=document.getElementById("syncOffBtn");
+  if(sOff) sOff.onclick=()=>{ delete S.set.ghToken; save(); toast("已断开(Gist 数据保留)"); vStats(); };
+  document.getElementById("expBtn").onclick=()=>{
+    const st=Object.assign({},S.set); delete st.ghToken;
+    const data=Object.assign(payload(),{set:st});
+    document.getElementById("ioBox").value="LEX1."+btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    toast("已生成,点「复制」后到另一台设备粘贴导入");
+  };
+  document.getElementById("cpBtn").onclick=async()=>{
+    const v=document.getElementById("ioBox").value; if(!v){toast("先点「导出」");return;}
+    try{ await navigator.clipboard.writeText(v); toast("已复制"); }catch(e){ toast("请手动全选复制"); }
+  };
+  document.getElementById("impBtn").onclick=()=>{
+    let v=document.getElementById("ioBox").value.trim();
+    if(!v.startsWith("LEX1.")){ toast("格式不对,应以 LEX1. 开头"); return; }
+    try{
+      const d=JSON.parse(decodeURIComponent(escape(atob(v.slice(5)))));
+      mergeData(d);
+      schedulePush(); refreshTop(); toast("导入完成"); vStats();
+    }catch(e){ toast("导入失败:数据无法解析"); }
+  };
+  document.getElementById("rstBtn").onclick=()=>{
+    if(confirm("确定清空全部学习进度?此操作不可撤销。")){ localStorage.removeItem(LS); S=load(); save(); refreshTop(); vReview(); go("review"); toast("已重置"); }
+  };
+}
+function dayLogK(k){ if(!S.log[k]) S.log[k]={r:0,n:0}; return S.log[k]; }
+/* ================= init ================= */
+renderTabs(); refreshTop(); vReview();
+if(S.set.ghToken) syncNow(false);
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==="hidden"&&DIRTY&&S.set.ghToken) syncNow(false);
+});
+</script>
+</body></html>
